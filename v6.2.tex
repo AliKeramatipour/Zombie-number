@@ -22,7 +22,7 @@
 	
 	\begin{frontmatter}
 		
-		\title{Zombie number of the Cartesian product of graphs}
+		\title{Zombie number}
 		
 		
 		%% or include affiliations in footnotes:
@@ -49,7 +49,7 @@
 		\end{abstract}
 		
 		\begin{keyword}
-			Cartesian Product of Graphs\sep Zombie Number
+			Cartesian Product of Graphs\sep Zombie Number\sep Dominating Set\sep NP-Hard
 		\end{keyword}
 		
 	\end{frontmatter}
@@ -62,8 +62,8 @@ graph vertices. Then the survivor player chooses one single vertex which is the 
 with the zombie player, on each turn, survivor player either moves to an adjacent vertex or stays at his current
 location, while zombie player must move each zombie to one of its adjacent vertices so that they get closer to the
 survivor. Here lies the difference between {\it Zombies and Survivor} and {\it Cops and Robbers} games, as in {\it Cops
-and Robbers} cops should not necessarily get closer to the {\it Robber}, they can either hold their current position or
-either get further away from the robber.  If any zombie and the survivor ever occupy the same vertex, the survivor is
+and Robbers} cops should not necessarily get closer to the {\it Robber}, they can either hold their current position,
+get closer, or further away from the robber. If any zombie and the survivor ever occupy the same vertex, the survivor is
 captured and the zombie player wins. The zombie number of a graph $G$, denoted as $z(G)$, is the minimum number of
 zombies required so that the zombie player always has a winning play on graph $G$. If a winning play exist, zombies
 choose a set of initial vertices, and a move on their turn when they are faced with multiple, so that the survivor will
@@ -75,7 +75,7 @@ $u_2 = v_2$ and $ \{u_1 , v_1 \} \in E_{G}$ \cite{West02}. Figure \ref{fig:p2} s
 of two graphs. We define $G_{i}$ as the induced graph by vertices $(u,v)$ in $G \square H$, where $v=i$. Similarly
 $H_{j}$ is defined as the induced graph by vertices $(u,v)$ in $G \square H$, where $u=j$.
 
-Capture time of a game, is the number of moves survivor can avoid being captured, if this can go to infinity, survivor-win play exist.
+Capture time of a game, is the number of moves survivor can avoid being captured, if this can go to infinity, a survivor-win play exist.
 
 NP-hardness (non-deterministic polynomial-time hardness) is, in computational complexity theory, the defining property
 of a class of problems that are informally "at least as hard as the hardest problems in NP". A simple example of an
@@ -109,7 +109,10 @@ and $H_{j}$, $(i,j)$. Also $(x,y)$ is the vertex where the survivor is located. 
 the $G_{i}$'s edges.  Similarly, an {\it H-Move} is a move made on one of $H_{j}$'s edges. If survivor decides to saves
 its current vertex, this move is considered both a {\it G-move} and an {\it H-move}. A {\it G-edge} is an edge in one of
 the $G_{i}$s and an {\it H-edge} is an edge in one of the $H_{j}$s. A {\it winning state} is an state that zombie player
-can catch survivor no matter what set of moves survivor makes.
+can catch survivor no matter what set of moves survivor makes, from that particular state. A $G$-equivalent graph, is
+defined as a graph where each {\it G-zombie} in, say in vertex $(z_x,z_y)$, is placed on $z_x$ vertex and survivor is placed on
+$x$ vertex. $H$-equivalent is also defined in the same way.
+
 
 \begin{figure}[h!]
 	\centering
@@ -139,9 +142,8 @@ can catch survivor no matter what set of moves survivor makes.
 	Consider one of the shortest paths (it does not matter which one we choose, we only need it to be unique) between
 	vertices $z$ and $y$ in an $H$ and call it $p_H$. We also define $p_G$  in the same manner between $s$ and $x$. We
 	call these paths' length, $d_H$ and $d_G$ respectively. Distance between each two vertices $(x,y)$ and $(u,v)$ in $G
-	\square H$ is sum the of distances between their equivalents, $x$ and $u$ in $G$, and $y$ and $v$ in $H$. We also define
-	$G$-equivalent graph, a graph where each {\it G-zombie} in vertex $(z_x,z_y)$ is placed on $z_x$ vertex and survivor
-	is placed on $x$ vertex. $H$-equivalent is also defined in the same way.
+	\square H$ is sum the of distances between their equivalents, $x$ and $u$ in $G$, and $y$ and $v$ in $H$.
+
 
 	On each zombie turn, if $z \neq y$, each {\it G-zombie} will move along $d_H$ path in its corresponding $H$
 	subgraph.  This move is valid since zombies' and survivor's equivalents on $H$ are getting closer. Now consider when $z =
@@ -161,7 +163,7 @@ can catch survivor no matter what set of moves survivor makes.
 	caught on a single $H$ which contradicts our assumption.
 	
 \end{proof}
-We now provide some examples for further understading:
+We now provide ab example for further understading:
 \begin{example} $z(P_3 \square P_4 ) = 2$
 	
 \end{example}
