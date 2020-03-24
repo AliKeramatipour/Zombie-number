@@ -114,6 +114,7 @@ defined as a graph where each {\it G-zombie} in, say in vertex $(z_x,z_y)$, is p
 $x$ vertex. $H$-equivalent is also defined in the same way. $(u,v)$'s equivalent vertex on $G$ and $H$ is $u$ and $v$ respectively.
 $dist_I(j,k)$ is the distance between $j$ and $k$ vertices on a graph $I$.
 \begin{figure}[h!]
+	
 	\centering
 	\includegraphics[width=0.9\textwidth]{fig/cp3.png}
 	%\includegraphics[width=200pt]{cp.png}
@@ -174,7 +175,7 @@ $dist_I(j,k)$ is the distance between $j$ and $k$ vertices on a graph $I$.
 	caught on a single $H$ which contradicts our assumption.
 	
 \end{proof}
-We now provide ab example for further understading:
+We now provide an example for further understading:
 \begin{example} $z(P_3 \square P_4 ) = 2$
 	
 \end{example}
@@ -187,7 +188,7 @@ We now provide ab example for further understading:
 It's easy to show that $z(P_3) = z(P_4) = 1$. On each of these graphs, zombie's initial position could be any vertex of
 our Path graph. For this example, we put our {\it G-zombie} and {\it H-zombie} ($G = P_3$ and $H = P_4$) both on vertex
 $(1,1)$. We show our survivor with blue color, {\it H-zombie} with red, and {\it G-zombie} with green. {\it G-zombie}
-will try to get to the same $G_{i}$ as survivor which is $G_3$ using an {\it H-edge} in an {\it HG-path} . {\it
+will try to get to the same $G_{i}$ as survivor which is $G_3$ using an {\it H-edge}. {\it
 H-zombie} will try to get to $H_3$. See Figure \ref{fig:p4}.
 \begin{figure}[h!]
 	\centering
@@ -206,11 +207,11 @@ neither {\it H or G-zombies}  share $H_x$ or $G_y$ with survivor, they will stil
 	\label{fig:p5}
 \end{figure}
 Now {\it H-zombie} shares the same copy of $H$ as survivor and its survivor's turn. If survivor moves to another $H_i$,
-{\it H-zombie} will mimic the move. If survivor makes an {\it H-move} or saves his current vertex, {\it H-zombie} will
-do whatever it did on a single $H$. This means survivor can not do infinite {\it H-moves}. Thus him being able to
-survive he has to do infinite {\it G-moves}, which again leads to {\it G-zombie} capuring him. For other moves, you can
-see Figure \ref{fig:p6}. We can not discuss each possible survivor move since they are a lot, but you can still easily
-apply the strategy provided above. 
+{\it H-zombie} will mimic the move. If survivor makes an {\it H-move}, {\it H-zombie} will do whatever it did on a
+single $H$. This means survivor can not do infinite {\it H-moves}. Thus for him being able to survive he has to do
+infinite {\it G-moves}, which again leads to {\it G-zombie} capuring him. For other moves, you can see Figure
+\ref{fig:p6}. We can not discuss each possible survivor move since they are a lot, but you can still easily apply the
+strategy provided above. 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{fig/p34m6.png}
@@ -277,7 +278,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given graph $G$ and a positive integer $z$.
 
 
-	QUESTION: Is $ZCT(G,k) \leq z$ ? In other words, can we capture the survivor after at most $k$ turns using $z$ zombies ?
+	QUESTION: Is $ZCT(G,k) \leq z$ ? In other words, can we capture the survivor after at most $k$ turns using $z$ zombies in graph $G$ ?
 
 	The {\it dominating set} problem is a well-known NP-Hard problem and is defined below:
 
@@ -291,10 +292,10 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\begin{proof}
 		We prove this by reducing a well-known NP-Hard problem (dominating set problem) to $ZCT_k$ in polynomial time.
 
-		To have a better understading, consider the case when $k=1$. For zombie player being able to capture survivor in
+		To have a better understading, consider the case where $k=1$. For zombie player being able to capture survivor in
 		one move, every vertex not occupied by a zombie, should have a zombie neighbour. This is exactly the definition
 		of a dominating set. Dominating set is a subset $D$ of $V(G)$ such that every vertex not in $D$ is adjacent to
-		atleast one vertex of $D$. This simple proof shows that $ZCT_1 \in$ NP-Hard 
+		atleast one vertex of $D$. This simply shows that $ZCT_1 \in$ NP-Hard 
 
 		Now consider $k$ to be an arbitrary number bigger than 1 and of $O(n^3)$. We construct a new graph $G'$ from
 		$G$. Suppose $G$ has $n$ vertices. For each vertex $v \in V(G)$, we add a {\it new} path with $k$ vertices
@@ -303,12 +304,12 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.9\linewidth]{fig/ZCT.png}
-			\caption{$G'$ obtained from G where for $k = 1,2,3$}
+			\caption{$G'$ obtained from $G = C_5$ where for $k = 1,2,3$}
 			\label{fig:p7}
 		\end{figure}		
 
 
-		$V(G')$ is of $O(nk)$ which is of $O(n^4)$. Thus creating $G'$ can be done in polynomial time. Now we solve
+		$|V(G')|$ is of $O(nk)$ which is of $O(n^4)$. Thus creating $G'$ can be done in polynomial time. Now we solve
 		$ZCT_k$ on graph $G'$ and get a number $z$, and a set $S$ of vertices as our zombies' intial positions. We build
 		a set $DS$ on $G$ from set $S$ on $G'$. For each vertex $v \in S$ or $(v,i) \in S$ add $v$ to $DS$. Now suppose
 		$DS$ is not a dominating set, thus there is a vertex $u$ not dominated by $DS$. This means there was no zombie
@@ -316,7 +317,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		of $k$ or less from him which means that he will not be captured if he doesn't move. Thus, $DS$ must be a
 		dominating set and $ |minimumDominatingSet(G)| \leq |DS| \leq |S| \leq z$.
 
-		Now consider minimum dominating set of $G$, set $MDS$. For each vertex $v \in MDS$ place a zombie on vertex $v$
+		Now consider minimum dominating set of $G$, $MDS$. For each vertex $v \in MDS$ place a zombie on vertex $v$
 		of $G'$. These zombies can capture the survivor in at most $k$ moves. Consider survivor's intial vertex. It
 		should not be on {\it old} vertices of $G'$ since they are all dominated by our zombies and survivor would be
 		captured in one move. Suppose survivor is initially on $(u,i)$. If $u$ is occupied by a zombie already, that
@@ -326,13 +327,12 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		|minimumDominatingSet(G)|$.
 
 		By combining results, $z = |minimumDominatingSet(G)|$. Therefore dominating set problem is reduced to $ZCT_k$.
-		Note that we assumed $k$ is of $O(n^3)$. In next section \ref{np-zombienumber}, we prove this assumption changes nothing.
+		Note that we assumed $k$ is of $O(n^3)$. In the following lemma \ref{limit-moves}, we prove this assumption changes nothing.
 
 	\end{proof}
 
-\section{Zombie Number Problem is NP-Hard}\label{np-zombienumber}
-
 	\begin{lemma}
+		\label{limit-moves}
 		If survivor can avoid being captured after $(n + 1) * n^2$ moves, he can avoid being captured forever.
 	\end{lemma}
 	\begin{proof}
@@ -340,7 +340,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		rounds of play, that is each player has played once, $zombieDist$ won't increase, since zombies are always
 		getting closer. Now we show that if $zombieDist$ does not strictly decrease after each player takes turn for $n
 		+ 1$ times, survivor can avoid being captured forever. Consider the sequence of vertices occupied by survivor in
-		last $n + 1$ move. By pigenhole principle, one vertex has been seen by survivor atleast twice. If survivor keeps
+		last $n + 1$ moves. By pigenhole principle, one vertex has been seen by survivor atleast twice. If survivor keeps
 		repeating those moves, he will maintain his distance from zombies and will avoid being captured forever.
 
 		Therefore, for a graph $G$ which zombie has a strategy to win, after each $(n + 1)$ move, $zombieDist$ should
@@ -352,6 +352,10 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	By using this lemma, we can see $ZCK_k$ problems for $k > (n + 1) * n^2$ are as the same as the problem for $ZCK_{(n
 	+ 1) * n^2}$. Thus we have proved $ZCK_k \in$ NP-Hard for every positive $k$.
 
+
+\section{Zombie Number Problem is NP-Hard}\label{np-zombienumber}
+
+	
 	Now we define zombie number ($Z$) problem:
 
 	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given graph $G$.
@@ -370,8 +374,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		$Z$. Therefore, $Z \in$ NP-Hard.
 	\end{proof}
 
-	By doing some minor changes, proof would apply to $Cops and Robber$ game as well.  {\it
-	Cop-number} $c(G)$ 
+	By doing some minor changes, proof would apply to {\it Cops and Robber} game and {\it cop-number} as well.
 
 \begin{thebibliography}{999}
 	
