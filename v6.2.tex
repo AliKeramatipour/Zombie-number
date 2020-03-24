@@ -297,9 +297,9 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		of a dominating set. Dominating set is a subset $D$ of $V(G)$ such that every vertex not in $D$ is adjacent to
 		atleast one vertex of $D$. This simply shows that $ZCT_1 \in$ NP-Hard 
 
-		Now consider $k$ to be an arbitrary number bigger than 1 and of $O(n^3)$. We construct a new graph $G'$ from
-		$G$. Suppose $G$ has $n$ vertices. For each vertex $v \in V(G)$, we add a {\it new} path with $k$ vertices
-		ending in $v$. \ref{fig:p7} We name each {\it new} vertex $(v,i)$ for $1 \leq i \leq k - 1$.
+		Now consider $k$ to be an arbitrary number bigger than 1. We construct a new graph $G'$ from $G$. Suppose $G$
+		has $n$ vertices. For each vertex $v \in V(G)$, we add a {\it new} path with $k$ vertices ending in $v$.
+		\ref{fig:p7} We name each {\it new} vertex $(v,i)$ for $1 \leq i \leq k - 1$.
 		
 		\begin{figure}[h!]
 			\centering
@@ -309,13 +309,13 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		\end{figure}		
 
 
-		$|V(G')|$ is of $O(nk)$ which is of $O(n^4)$. Thus creating $G'$ can be done in polynomial time. Now we solve
-		$ZCT_k$ on graph $G'$ and get a number $z$, and a set $S$ of vertices as our zombies' intial positions. We build
-		a set $DS$ on $G$ from set $S$ on $G'$. For each vertex $v \in S$ or $(v,i) \in S$ add $v$ to $DS$. Now suppose
-		$DS$ is not a dominating set, thus there is a vertex $u$ not dominated by $DS$. This means there was no zombie
-		on vertices $u$ and $(u,i)$ on graph $G'$. By having our survivor on $(u,k-1)$, there is no zombie with distance
-		of $k$ or less from him which means that he will not be captured if he doesn't move. Thus, $DS$ must be a
-		dominating set and $ |minimumDominatingSet(G)| \leq |DS| \leq |S| \leq z$.
+		$|V(G')|$ is of $O(nk)$. Thus creating $G'$ can be done in polynomial time. Now we solve $ZCT_k$ on graph $G'$
+		and get a number $z$, and a set $S$ of vertices as our zombies' intial positions. We build a set $DS$ on $G$
+		from set $S$ on $G'$. For each vertex $v \in S$ or $(v,i) \in S$ add $v$ to $DS$. Now suppose $DS$ is not a
+		dominating set, thus there is a vertex $u$ not dominated by $DS$. This means there was no zombie on vertices $u$
+		and $(u,i)$ on graph $G'$. By having our survivor on $(u,k-1)$, there is no zombie with distance of $k$ or less
+		from him which means that he will not be captured if he doesn't move. Thus, $DS$ must be a dominating set and $
+		|minimumDominatingSet(G)| \leq |DS| \leq |S| \leq z$.
 
 		Now consider minimum dominating set of $G$, $MDS$. For each vertex $v \in MDS$ place a zombie on vertex $v$
 		of $G'$. These zombies can capture the survivor in at most $k$ moves. Consider survivor's intial vertex. It
@@ -327,7 +327,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		|minimumDominatingSet(G)|$.
 
 		By combining results, $z = |minimumDominatingSet(G)|$. Therefore dominating set problem is reduced to $ZCT_k$.
-		Note that we assumed $k$ is of $O(n^3)$. In the following lemma \ref{limit-moves}, we prove this assumption changes nothing.
+		In the following lemma \ref{limit-moves}, we prove this assumption changes nothing.
 
 	\end{proof}
 
@@ -349,8 +349,8 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		$O(n)$). Thus, after $(n + 1) * n^2$ moves, zombies would capture the survivor.
 	\end{proof}
 
-	By using this lemma, we can see $ZCK_k$ problems for $k > (n + 1) * n^2$ are as the same as the problem for $ZCK_{(n
-	+ 1) * n^2}$. Thus we have proved $ZCK_k \in$ NP-Hard for every positive $k$.
+	By using this lemma, we can see $ZCK_k$ problem for $k > (n + 1) * n^2$ and a graph with $n$ vertices are as same as
+	the problem for $ZCK_{(n + 1) * n^2}$. Thus by solving $ZCK_{(n + 1) * n^2}$ for $G$, we get $z(G)$ as well.
 
 
 \section{Zombie Number Problem is NP-Hard}\label{np-zombienumber}
