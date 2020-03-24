@@ -1,0 +1,41 @@
+Reviewer #1:
+    Three new results was added to paper.
+
+    On minor comments: 
+    
+    1) In cop-version, as explained in new paper, cops can choose any edge and move along it or either save their
+    current position, while zombies must always get closer to survivor. 
+    
+    2) We changed the statement to "Minimum number of zombies needed to capture the survivor no matter what sort of moves
+    he makes".
+
+    3,4,5,6,7) changed.
+
+Reviewer #2:
+    Our proof was not so clear and was not understood. G-zombies will move along H-edges if possible. They prioritize
+    H-moves over G-moves. Our strategy makes them share the same G subgraph. Now if one can do an H-move, they will all
+    do the same.
+    
+    On minor comments:
+
+    1,2) changed.
+    
+    3) When survivor does an H-move, its H subgraph wont change. This means, H-zombies will follow their
+    path and get to survivor's H-subgraph (H_x).
+
+    4) After at most n H-moves done by survivor, not H-zombies. H-zombies will keep doing G-moves as said. They prefer
+    doing G-moves and since they are not in the same H-subgraph with survivor, they can do a G-move.
+
+Reviewer #3:
+    We really appreciate your comments and help to improve results and paper. I considered capture time, and a new
+    problem popped into my mind. What if we needed the zombie player to win in 1,2,3,...k move ? Can we determine the
+    minimum number of zombies needed for this problem ? This question might be useful since in zombie's original
+    problem, there was no limitation. This version can be useful in applied networks and other fields as well. Solving
+    this problem in case k = 1, is like finding a dominating set and belongs to NP-Hard. Using the dominating set idea i
+    got from k = 1, i proved for k's bigger than 1, problem also belongs to NP-Hard which lead to proof of original
+    zombie number problem to belong to NP-Hard. I think its already proven that cop number problem is NP-Hard, but this
+    idea and proof, i believe is simple and can be applied to cop number problem as well.
+
+    Your notes on explaining my proof was really useful. I changed a lot of parts. I think i made myself more clear.
+
+    Other minor problems was changed as well. We referred to vertices as (i,j) instead of V_{i,j} as you suggested.
