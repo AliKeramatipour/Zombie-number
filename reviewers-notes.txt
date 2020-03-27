@@ -43,11 +43,11 @@ Reviewer #3:
 
     On writing suggestions:
 
-    1) changed.
+    P1 L17) changed.
 
-    2) I tried my best to to avoid this as much as possible. I think the paper is now much more readable.
+    P1 L25) I tried my best to to avoid this as much as possible. I think the paper is now much more readable.
 
-    3,4,5,6,7,8,9,10) changed. 
+    P1 L33, P1 L36, P1 L40, P1 L45, P1 L48, P4 L17, P4 L19) changed. 
 
     Mathematical suggestions:
 
