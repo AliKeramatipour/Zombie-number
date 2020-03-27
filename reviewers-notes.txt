@@ -69,3 +69,10 @@ Reviewer #3:
     P3 L30) removed.
 
     P3 L34) A lot of parts where changed. I think the straegy is now more precise and clear.
+
+Reviewer #4:
+    Lemma 1) Lemma 1 was changed on the new version. Altough it's not a hard problem, but i think stating it before the
+    actual proof is useful for a better understanding.
+
+    Note or Paper) We did submit this as a "note" instead of "paper". We also added two more new results in the new
+    version.
