@@ -43,9 +43,8 @@
 		what moves survivor makes. In section \ref{conj-proof}, we prove a conjecture by Fitzpatrick et al.\cite{Fitz16} about the
 		zombie number of the Cartesian product of two graphs.  This result provides a new proof for $z(Q_n) =
 		\ceil*{\frac{2n}{3}}$. Next in section \ref{capturetime}, we introduce a new problem regarding {\it capture time}
-		in Cartesian product of two graphs. At last in section \ref{np-capturetime} and \ref{np-zombienumber}, we prove
-		two more open problems, we define {\it capture time} and {\it zombie number} problems more precisely and prove these
-		problems belong to {\it NP-Hard} set of problems. 
+		in Cartesian product of two graphs. At last in section \ref{np-capturetime}, we prove another result, we define
+		{\it capture time} problem more precisely and prove it belongs to {\it NP-Hard} set of problems. 
 		\end{abstract}
 		
 		\begin{keyword}
@@ -57,17 +56,17 @@
 \section{Introduction}\label{section-introduction}
 
 The {\it Zombies and Survivors} game is played on a simple graph by two players. The deterministic version of this game
-\cite{Fitz16} is played as follows. Initially, the zombie player chooses a number $z$ and places $z$ zombies on the
-graph vertices. Then the survivor player chooses one single vertex which is the survivor's initial position. Starting
-with the zombie player, on each turn, survivor player either moves to an adjacent vertex or stays at his current
-location, while zombie player must move each zombie to one of its adjacent vertices so that they get closer to the
-survivor. Here lies the difference between {\it Zombies and Survivor} and {\it Cops and Robbers} games, as in {\it Cops
-and Robbers} cops should not necessarily get closer to the {\it Robber}, they can either hold their current position,
-get closer, or further away from the robber. If any zombie and the survivor ever occupy the same vertex, the survivor is
-captured and the zombie player wins. The zombie number of a graph $G$, denoted as $z(G)$, is the minimum number of
-zombies required so that the zombie player always has a winning play on graph $G$. If a winning play exist, zombies
-choose a set of initial vertices, and a move on their turn when they are faced with multiple, so that the survivor will
-be captured no matter how he moves.
+\cite{Fitz16} is played as follows (note that we only consider the game with a single survivor in this paper).
+Initially, the zombie player chooses a number $z$ and places $z$ zombies on the graph vertices. Then the survivor player
+chooses one single vertex which is the survivor's initial position. Starting with the zombie player, on each turn,
+survivor player either moves to an adjacent vertex or stays at his current location, while zombie player must move each
+zombie to one of its adjacent vertices so that they get closer to the survivor. Here lies the difference between {\it
+Zombies and Survivor} and {\it Cops and Robbers} games, as in {\it Cops and Robbers} cops should not necessarily get
+closer to the {\it Robber}, they can either hold their current position, get closer, or further away from the robber. If
+any zombie and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins. The zombie
+number of a graph $G$, denoted as $z(G)$, is the minimum number of zombies required so that the zombie player always has
+a winning play on graph $G$. If a winning play exist, zombies choose a set of initial vertices, and a move on their turn
+when they are faced with multiple, so that the survivor will be captured no matter how he moves.
 
 The Cartesian product $G \square H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
@@ -351,30 +350,6 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 
 	By using this lemma, we can see $ZCK_k$ problem for $k > (n + 1) * n^2$ and a graph with $n$ vertices are as same as
 	the problem for $ZCK_{(n + 1) * n^2}$. Thus by solving $ZCK_{(n + 1) * n^2}$ for $G$, we get $z(G)$ as well.
-
-
-\section{Zombie Number Problem is NP-Hard}\label{np-zombienumber}
-
-	
-	Now we define zombie number ($Z$) problem:
-
-	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given graph $G$.
-
-	QUESTION: Is $Z(G) \leq z$ ?
-
-	\begin{theorem}
-		$Z \in$ NP-Hard
-	\end{theorem}
-	\begin{proof}
-		We reduce $ZCK_{(n + 1) * n ^ 2}$ problem to $Z$.
-
-		The $(n + 1) * n ^ 2$ plays the role of $\infty$ in this problem. If there is a zombie-win play by a number of
-		zombies for $Z$ problem, they would be able to capture him before having our 'turn counter' reach $(n + 1) * n
-		^ 2$. This shows that $ZCK_{(n + 1) * n ^ 2}$ is reducible to
-		$Z$. Therefore, $Z \in$ NP-Hard.
-	\end{proof}
-
-	By doing some minor changes, proof would apply to {\it Cops and Robber} game and {\it cop-number} as well.
 
 \begin{thebibliography}{999}
 	

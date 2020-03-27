@@ -1,29 +1,34 @@
+Dear reviewers Thank you for taking the time to review our paper and special thanks for your helpful comments and
+suggestions for improving this paper. In response to your suggestions, we have outlined the changes and provided the
+necessary explanations.
+
+
 Reviewer #1:
-    Three new results was added to paper.
+    Two new results was added to paper.
 
     On minor comments: 
     
-    1) In cop-version, as explained in new paper, cops can choose any edge and move along it or either save their
+    P1 L39) In cop-version, as explained in new paper, cops can choose any edge and move along it or either save their
     current position, while zombies must always get closer to survivor. 
     
-    2) We changed the statement to "Minimum number of zombies needed to capture the survivor no matter what sort of moves
-    he makes".
+    P1 L43) We changed the statement to "Minimum number of zombies needed to capture the survivor no matter what sort of moves
+    survivor makes".
 
-    3,4,5,6,7) changed.
+    P1 L45 and 48, P2 FIG1, P1 L31, P4 L17, P4 L18) changed.
 
 Reviewer #2:
-    Our proof was not so clear and was not understood. G-zombies will move along H-edges if possible. They prioritize
+    Our proof was not so clear and was not understood correctly. G-zombies will move along H-edges if possible. They prioritize
     H-moves over G-moves. Our strategy makes them share the same G subgraph. Now if one can do an H-move, they will all
     do the same.
     
     On minor comments:
 
-    1,2) changed.
+    P1 L49, FIG1 and FIG2) changed.
     
-    3) When survivor does an H-move, its H subgraph wont change. This means, H-zombies will follow their
-    path and get to survivor's H-subgraph (H_x).
+    P3 L53) When survivor does an H-move, its H subgraph wont change. This means, H-zombies will follow their path and get to
+    the survivor's H-subgraph (H_x).
 
-    4) After at most n H-moves done by survivor, not H-zombies. H-zombies will keep doing G-moves as said. They prefer
+    P3 L54) After at most n H-moves done by "survivor", not "H-zombies". H-zombies will keep doing G-moves as said. They prefer
     doing G-moves and since they are not in the same H-subgraph with survivor, they can do a G-move.
 
 Reviewer #3:
@@ -32,10 +37,35 @@ Reviewer #3:
     minimum number of zombies needed for this problem ? This question might be useful since in zombie's original
     problem, there was no limitation. This version can be useful in applied networks and other fields as well. Solving
     this problem in case k = 1, is like finding a dominating set and belongs to NP-Hard. Using the dominating set idea i
-    got from k = 1, i proved for k's bigger than 1, problem also belongs to NP-Hard which lead to proof of original
-    zombie number problem to belong to NP-Hard. I think its already proven that cop number problem is NP-Hard, but this
-    idea and proof, i believe is simple and can be applied to cop number problem as well.
+    got from k = 1, i proved for k's bigger than 1, problem also belongs to NP-Hard.
 
-    Your notes on explaining my proof was really useful. I changed a lot of parts. I think i made myself more clear.
+    Your notes on explaining my proof was really useful. I changed most of the parts and i think now its much more clear.
 
-    Other minor problems was changed as well. We referred to vertices as (i,j) instead of V_{i,j} as you suggested.
+    On writing suggestions:
+
+    1) changed.
+
+    2) I tried my best to to avoid this as much as possible. I think the paper is now much more readable.
+
+    3,4,5,6,7,8,9,10) changed. 
+
+    Mathematical suggestions:
+
+    P2 L18) added. We also changed vertex labels.
+
+    P2 L22) changed.
+
+    P2 L33) removed the second definition.
+
+    P2 L35) changed.
+
+    P2 L41) changed lemma 1. I wanted to prove, for the shortest path between each two vertices, there is a equivalent for
+    that path which uses G-edges before H-edges or vice-versa.
+
+    P3 L25) changed figure 2.
+
+    P3 L29) changed.
+
+    P3 L30) removed.
+
+    P3 L34) A lot of parts where changed. I think the straegy is now more precise and clear.
