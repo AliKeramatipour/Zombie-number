@@ -68,7 +68,7 @@ number of a graph $G$, denoted as $z(G)$, is the minimum number of zombies requi
 a winning play on graph $G$. If a winning play exist, zombies choose a set of initial vertices, and a move on their turn
 when they are faced with multiple, so that the survivor will be captured no matter how he moves.
 
-The Cartesian product $G \square H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
+The Cartesian product $G \square H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
 $u_2 = v_2$ and $ \{u_1 , v_1 \} \in E_{G}$ \cite{West02}. Figure \ref{fig:p2} shows an example of the Cartesian product
 of two graphs. We define $G_{i}$ as the induced graph by vertices $(u,v)$ in $G \square H$, where $v=i$. Similarly
@@ -298,7 +298,9 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 
 		Now consider $k$ to be an arbitrary number bigger than 1. We construct a new graph $G'$ from $G$. Suppose $G$
 		has $n$ vertices. For each vertex $v \in V(G)$, we add a {\it new} path with $k$ vertices ending in $v$.
-		\ref{fig:p7} We name each {\it new} vertex $(v,i)$ for $1 \leq i \leq k - 1$.
+		\ref{fig:p7} We name each {\it new} vertex $(v,i)$ for $1 \leq i \leq k - 1$. Also a vertex $v$ is dominated by
+		vertex $u$ if $v = u$ or $v \in N[u]$. A vertex $v$ is dominated by a set $S$, if there is a $u \in S$ which
+		dominates $v$.
 		
 		\begin{figure}[h!]
 			\centering
@@ -344,12 +346,58 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 
 		Therefore, for a graph $G$ which zombie has a strategy to win, after each $(n + 1)$ move, $zombieDist$ should
 		strictly decrease. $zombieDist$ is at most $n^2$, since there is not more than $n$ zombies and each zombie is at
-		distance at most $n$ from survivor (this bound can be easily improved to $n * diam(G)$ but we only need to be of
-		$O(n)$). Thus, after $(n + 1) * n^2$ moves, zombies would capture the survivor.
+		distance at most $n$ from survivor (this bound can be easily improved). Thus, after $(n + 1) * n^2$ moves,
+		zombies would capture the survivor.
 	\end{proof}
 
 	By using this lemma, we can see $ZCK_k$ problem for $k > (n + 1) * n^2$ and a graph with $n$ vertices are as same as
-	the problem for $ZCK_{(n + 1) * n^2}$. Thus by solving $ZCK_{(n + 1) * n^2}$ for $G$, we get $z(G)$ as well.
+	the problem for $ZCK_{(n + 1) * n^2}$, and by solving $ZCK_{(n + 1) * n^2}$ for $G$, we get $z(G)$ as well.
+
+
+	
+	\section{Zombie Number Problem is NP-Hard}\label{np-zombienumber}
+
+	Now we define zombie number ($Z$) problem:
+
+	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given graph $G$.
+
+	QUESTION: Is $Z(G) \leq z$ ?
+
+	\begin{theorem}
+		$Z \in$ NP-Hard
+	\end{theorem}
+	\begin{proof}
+		We reduce dominating-set problem to $Z$.
+
+		To do this, we add $n$ new complete bipartite graphs $K_{n,n}$ to $G$. We call the new graph obtained $H$ and
+		recall the $G$-subgraph simply as $G$ and $i$-th $(1 \leq i \leq n)$ bipartite subrgraph as $K_i$ . We name the
+		$j$-th $(1 \leq i \leq n)$ vertex in $K_i$ in $b$-th $(b = 1,2)$ part $(i,j,b)$. For each
+		vertex $(i,j,b)$ we connect it to vertices $j$ and $N_G[j]$ (neighbours of vertex $j$) in $G$. A vertex is We solve
+		the $Z$ problem on this new graph.
+
+		By having zombies on each vertex of $G$'s dominating-set, survivor will be captured on the first move and zombie
+		player wins. Thus, $z(H) \leq |DS(G)|$. Now suppose we have zombies less than $z < |DS(G)|$. We prove survivor can
+		avoid being captured.
+
+		Suppose zombie player has placed his zombies. Since we have $n$ bipartite subgraphs and $z < n$, there is a
+		bipartite subgraph, without any zombies in it ($k$-th bipartite graph). Since zombies are not dominating $G$,
+		there is a vertex $v$, not dominated by them. We place the survivor on vertex $(k,v,b)$ $b = 1$. Survivor has no
+		neighbours occupied by a zombie. On each survivor turn, there is a vertex $v$ in $G$ not dominated by a zombie,
+		survivor will move to vertex $(k,v,3 - b)$. We prove by following this strategy, he will survive. On zombie
+		turn, zombie player has zombies on either $G$ or some $K_i$ $(i \neq k)$ or $K_k$. Initially there is no zombie
+		in $K_k$. Now whenever a zombie wants to join $K_k$, first it has to be in $G$ in order to reach $K_k$, since
+		there is no connection between $K$-subgraphs. Zombies in $G$ (e.g. at vertex $u$) are at distance 2 from
+		survivor $(u \rightarrow (k,u,3 - b) \rightarrow (k,v,b))$, which means at the end of their turn all of them should be at one of
+		$(k,v,b)$'s neighbours, $v , N[v] $ or, $ (k,1 \leq i \leq n,3 - b)$  on their next move. Therefore, each zombie
+		joining $K_k$ does not share the same partition as survivor, and on the next survivor move, he goes to vertex
+		$(k,v,3-b)$ and shares the same partition with all zombies in $K_k$, and since this vertex has no neighbour in
+		$G$ or other $K$-subgraphs, survivor will not be captured.
+
+		Now we have proved with zombies less than $|DS(G)|$, survivor will not be captured and with $|DS(G)|$ number of
+		zombies, he will be. This means by being able to solve $Z$ problem, we can obtain $DS(G)$, therefore dominating
+		set problem is reduced to $Z$.
+
+	\end{proof}
 
 \begin{thebibliography}{999}
 	
