@@ -114,7 +114,7 @@ A {\it G-edge} is an edge in one of the $G_{i}$s and an {\it H-edge} is an edge 
 is a move made on a {\it G-edge}. Similarly, an {\it H-Move} is a move made on an {\it H-edge}. If the survivor decides
 to remain in its current vertex, this move is considered both a {\it G-move} and an {\it H-move}. 
 
-$dist_I(j,k)$ is the distance between $j$ and $k$ vertices on a graph $I$.
+$dist_I(j,k)$ is the distance between $j$ and $k$ vertices on a graph $I$. Length of a path $P$ is shown by $len(P)$. 
 
 A $G$-equivalent graph, is defined as a graph where each zombie in an arbitrary set of them, say in vertex $(z_x,z_y)$, is
 placed on $z_x$ vertex and survivor is placed on $x$ vertex. $H$-equivalent is also defined in the same way. 
@@ -125,7 +125,7 @@ placed on $z_x$ vertex and survivor is placed on $x$ vertex. $H$-equivalent is a
 	\centering
 	\includegraphics[width=0.9\textwidth]{fig/cp3.png}
 	%\includegraphics[width=200pt]{cp.png}
-	\caption{$G \square H$, $G_i$s, and $H_i$s .}
+	\caption{$G \square H$, $G_i$s, and $H_i$s.}
 	\label{fig:p1}
 \end{figure}
 
@@ -155,27 +155,29 @@ placed on $z_x$ vertex and survivor is placed on $x$ vertex. $H$-equivalent is a
 
 \begin{proof}
 	We provide a winning strategy for the Cartesian product of $G$ and $H$ using $z(G)+z(H)$ zombies. First, we place
-	$z(G)$ zombies, that have a winning strategy on a single $G$, say $G_{1}$ and call them {\it G-zombies}. We do the
-	same for $H_{1}$ and call them {\it H-zombies}. Initially all {\it G-zombies} share the same $G_{i}$. We name the
-	subgraph $G_{i}$ shared by them $G_{z}$. We define $H_{s}$ in the same manner. As stated before, initially $z=s=1$.
-	Consider one of the shortest paths between vertices $z$ and $y$ in $H$ and call it $p_H$. We also define $p_G$ in
-	the same manner between $s$ and $x$. We name these paths' length, $d_H$ and $d_G$ respectively. 
+	$z(G)$ zombies, that have a winning strategy on a single $G$, say $G_{z = 1}$ and call them {\it G-zombies}. We do the
+	same for $H_{s = 1}$ and call them {\it H-zombies}.
 
 
-	On each zombie turn, if $z \neq y$, each {\it G-zombie} will move along the $d_H$ path in its corresponding $H$
+	Consider one of the shortest paths between vertices $z$(the $G$-subgraph shared by {\it G-zombies}) and $y$ in $H$
+	and call it $p_H$. We also define $p_G$ in the same manner between $s$ and $x$.
+
+
+	On each zombie turn, if $z \neq y$, each {\it G-zombie} will move along the $p_H$ path in its corresponding $H$
 	subgraph. According to Lemma \ref{shortestpathlemma}, since zombies' and survivor's equivalents on $H$ are getting
-	closer, thus their actual vertices on $G \square H$ are getting closer as well. Now consider when $z = y$. {\it
-	G-zombies} will only play their winning strategy (that they had on a single $G$) in this case. This move is also
-	possible since in $G$'s strategy, zombies would get closer to survivor on each turn . If $z = y$ and survivor makes
-	an {\it H-move}, {\it G-zombies} will only try to maintain their positioning by mimicking the exact same move on
-	their corresponding $H$. This means for those turns that $z=y$ holds, if we consider the $G$-equivalent graph
-	between {\it G-zombies} and survivor, it is just like a simple game played on a single $G$. {\it H-zombies} will
-	follow the same strategy but in their corresponding environment.
+	closer, thus their actual vertices on $G \square H$ are getting closer as well and this move is possible. Since they
+	are all moving along similar paths (in their corresponding $H$-subgraphs) they will still share the same
+	$G$-subgraph. Now consider when $z = y$, {\it G-zombies} will play their winning strategy (that they had on a single
+	$G$) in this case. This move is also possible since in $G$'s strategy, zombies would get closer to survivor on each
+	turn. If $z = y$ and survivor makes an {\it H-move}, {\it G-zombies} will maintain their positioning by mimicking
+	the exact same move on their corresponding $H$. This means for those turns that $z=y$ holds, if we consider the
+	$G$-equivalent graph between {\it G-zombies} and survivor, it is just like a simple game played on a single $G$.
+	{\it H-zombies} will follow the same strategy but in their corresponding environment.
 	
 	
 	Suppose using this strategy $G \square H$ is {\it survivor-win}, then our survivor must either do infinite {\it
-	G-move}s or infinite {\it H-move}s. Without loss of generality, suppose the survivor makes infinite {\it H-move}s.
-	We prove that this is not possible. After $d_G$ number of {\it H-move}s, {\it H-zombies} will get to $H_x$. Now for
+	G-move}s or infinite {\it H-move}s. Without loss of generality, suppose the survivor makes infinite {\it H-move}s,
+	we prove that this is not possible. After $len(p_G)$ number of {\it H-move}s, {\it H-zombies} will get to $H_x$. Now for
 	each {\it G-move} made by survivor and having zombies chasing him, nothing changes in their $H$-equivalent graph.
 	Since the survivor can do infinite {\it H-move}s and prevent being caught, it means that survivor could also avoid
 	being caught on a single $H$ which contradicts our assumption.
@@ -193,7 +195,7 @@ An example for further understading can be found at \ref{cartesianProductExample
 	$z(Q_1) = 1$. For $n > 3$, we consider $Q_n$ as the Cartesian product of $Q_3$ and $Q_{n-3}$. Using the induction
 	base, we know that $z(Q_{n-3}) \leq \ceil*{\frac{2n - 6}{3}}$. According to the proved conjecture $z(Q_n) \leq
 	z(Q_{n-3}) + z(Q_3)$ and $z(Q_{n-3}) \leq \ceil*{\frac{2n - 6}{3}} = \ceil*{\frac{2n}{3}} - 2$, we can see that
-	$z(Q_n) \leq \ceil*{\frac{2n}{3}}$ .
+	$z(Q_n) \leq \ceil*{\frac{2n}{3}}$.
 \end{proof}
 
 It is already proved that at least $\ceil*{\frac{2n}{3}}$ zombies are needed to capture one survivor on graph $Q_n$
@@ -341,7 +343,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		We reduce dominating-set problem to $Z$.
 
 		To do this, we add $n$ new complete bipartite graphs $K_{n,n}$ to $G$. We call the new graph obtained $H$ and
-		recall the $G$-subgraph simply as $G$ and $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $K_i$ . We name the
+		recall the $G$-subgraph simply as $G$ and $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $K_i$. We name the
 		$j$-th $(1 \leq i \leq n)$ vertex in $K_i$ in $b$-th $(b = 1,2)$ part $(i,j,b)$. For each
 		vertex $(i,j,b)$ we connect it to vertices $j$ and $N_G[j]$ (neighbours of vertex $j$) in $G$. A vertex is We solve
 		the $Z$ problem on this new graph.
@@ -422,9 +424,9 @@ neither {\it H or G-zombies} share $H_x$ or $G_y$ with the survivor, they will s
 
 Now {\it H-zombie} shares the same copy of $H$ as survivor and it is survivor's turn. If survivor moves to another $H_i$,
 {\it H-zombie} will mimic the move. If survivor makes an {\it H-move}, {\it H-zombie} will do whatever it did on a
-single $H$. This means survivor can not do infinite {\it H-move}s. Thus for him being able to survive he has to do
+single $H$. This means survivor cannot do infinite {\it H-move}s. Thus for him being able to survive he has to do
 infinite {\it G-move}s, which again leads to {\it G-zombie} capturing him. For other moves, you can see
-Figure\ref{fig:p6}. We can not discuss each possible survivor move since they are a lot, but you can still easily apply
+Figure\ref{fig:p6}. We cannot discuss each possible survivor move since they are a lot, but you can still easily apply
 the strategy provided above. 
 
 \begin{figure}[h!]
