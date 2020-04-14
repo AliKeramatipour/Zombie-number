@@ -296,7 +296,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		Now consider $MDS(G)$. For each vertex $v \in MDS(G)$ place a zombie on vertex $v$ of $G'$. These zombies can
 		capture the survivor in at most $k$ moves. To show this consider survivor's initial vertex, if it is an old
 		vertex, that is not in the newly added vertices, it can be captured in one move. Now suppose survivor is
-		initially on $(u,i)$. Since $u$ is domniated by a zombie, after zombies' move, survivor will be trapped inside
+		initially on $(u,i)$. Since $u$ is dominated by a zombie, after zombies' move, survivor will be trapped inside
 		the $u-path$, and would be captured in at most $k$ moves. Therefore, $z \leq |MDS(G)|$.
 
 		By combining results, $z = |MDS(G)|$. Therefore dominating-set problem is reduced to $Lcz_k$. In the following
@@ -345,24 +345,24 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		To do this, we add $n$ new complete bipartite graphs, $K_{n,n}$ to $G$. We call the newly obtained graph $H$,
 		and recall the $G$-subgraph simply as $G$, and the $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $K_i$.
 		$(i,j,b)$ represents the $j$-th vertex in $K_i$'s $b$-th part $(b = 1,2)$ . For each vertex $(i,j,b)$ we connect
-		it to vertices $j$ and $N_G[j]$ (neighbours of vertex $j$ in $G$).
+		it to vertices $j$ and $N_G[j]$ (neighbors of vertex $j$ in $G$).
 
-		By having zombies on each vertex of $G$'s minumum dominating-set, survivor will be captured on the first move and zombie
+		By having zombies on each vertex of $G$'s minimum dominating-set, survivor will be captured on the first move and zombie
 		player wins. Thus, $z(H) \leq |MDS(G)|$. Now suppose we have zombies less than $z < |MDS(G)|$. We prove survivor can
 		avoid being captured.
 
 		Suppose zombie player has placed his zombies. Since we have $n$ bipartite subgraphs and $z < n$, there is a
 		bipartite subgraph, without any zombies in it ($k$-th bipartite graph). Since zombies are not dominating $G$,
 		there is a vertex $v$, not dominated by them. We place the survivor on vertex $(k,v,b = 1)$ and survivor has no
-		neighbours occupied by a zombie. On each survivor turn, there is a vertex $v$ in $G$ not dominated by a zombie,
+		neighbors occupied by a zombie. On each survivor turn, there is a vertex $v$ in $G$ not dominated by a zombie,
 		survivor will move to vertex $(k,v,3 - b)$. We prove by following this strategy, he will survive. On zombie
 		turn, zombie player has zombies on either $G$ or some $K_i$ $(i \neq k)$ or $K_k$. Initially there is no zombie
 		in $K_k$. Now whenever a zombie wants to join $K_k$, first it has to be in $G$ in order to reach $K_k$, as there
 		is no connection between $K$-subgraphs. Zombies in $G$ (e.g. at vertex $u$) are at distance 2 from survivor $(u
 		\rightarrow (k,u,3 - b) \rightarrow (k,v,b))$, which means after their move all of them should be at one of
-		$(k,v,b)$'s neighbours, that is, $v , N[v] $ or, $ (k,1 \leq i \leq n,3 - b)$. Therefore, each zombie joining $K_k$ does
+		$(k,v,b)$'s neighbors, that is, $v , N[v] $ or, $ (k,1 \leq i \leq n,3 - b)$. Therefore, each zombie joining $K_k$ does
 		not share the same partition as survivor's. Survivor now moves to $(k,v,3-b)$ and will be sharing the same
-		partition as zombies' in $K_k$. As survivor does not have any neighbours in $G$ or $K_k$ on each zombie player's
+		partition as zombies' in $K_k$. As survivor does not have any neighbors in $G$ or $K_k$ on each zombie player's
 		turn, he will not be captured.
 
 		It is now proved that $z(H) = |MDS(G)|$, thus the dominating-set problem is reduced to $Z$.
