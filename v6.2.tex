@@ -58,14 +58,14 @@
 The {\it Zombies and Survivors} game is played on a simple graph by two players. The deterministic version of this game
 \cite{Fitz16} is played as follows (note that we only consider the game with a single survivor in this paper).
 Initially, the zombie player chooses a number $z$ and places $z$ zombies on the graph vertices. Then the survivor player
-chooses one single vertex which is the survivor's initial position. Starting with the zombie player, on each turn,
-survivor player either moves to an adjacent vertex or stays at his current location, while zombie player must move each
-zombie to one of its adjacent vertices so that they get closer to the survivor. Here lies the difference between {\it
-Zombies and Survivor} and {\it Cops and Robbers} games, as in {\it Cops and Robbers} cops should not necessarily get
-closer to the {\it Robber}, they can either hold their current position, get closer, or further away from the robber. If
-any zombie and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins. The zombie
-number of a graph $G$, denoted as $z(G)$, is the minimum number of zombies required so that the zombie player can always
-capture the survivor no matter how survivor moves.
+chooses one single vertex which is the survivor's initial position. Starting with the zombie player, on each player's
+turn, survivor player either moves to an adjacent vertex or stays at his current location, while zombie player must move
+each zombie to one of its adjacent vertices so that they get closer to the survivor. Here lies the difference between
+{\it Zombies and Survivor} and {\it Cops and Robbers} games, as in {\it Cops and Robbers} cops should not necessarily
+get closer to the {\it Robber}, they can either hold their current position, get closer, or further away from the
+robber. If any zombie and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins.
+The zombie number of a graph $G$, denoted as $z(G)$, is the minimum number of zombies required so that the zombie player
+can always capture the survivor no matter how survivor moves.
 
 The Cartesian product $G \square H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
@@ -116,7 +116,7 @@ to remain in its current vertex, this move is considered both a {\it G-move} and
 
 $dist_I(j,k)$ is the distance between $j$ and $k$ vertices on a graph $I$.
 
-A $G$-equivalent graph, is defined as a graph where each zombie in a set of zombies, say in vertex $(z_x,z_y)$, is
+A $G$-equivalent graph, is defined as a graph where each zombie in an arbitrary set of them, say in vertex $(z_x,z_y)$, is
 placed on $z_x$ vertex and survivor is placed on $x$ vertex. $H$-equivalent is also defined in the same way. 
 
 
@@ -209,15 +209,11 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	
 
 \section{Capture time and Cartesian product}\label{capturetime}
-	We define two new parameters, $CT(G,z)$ (capture time) and $ZCT(G,k)$ (zombie capture time), where $G$ is a graph,
-	and $z$ and $k$ are two integers.
+	We define a new parameter, $CT(G,z)$ (capture time), where $G$ is a graph, and $z$ is an integer.
 	
-	$CT(G,z)$ is the number of turns that survivor can avoid being caught, assuming that both players choose their best
+	$CT(G,z)$ is the maximum number of turns that survivor can avoid being caught, assuming that both players choose their best
 	strategies. Zombie player will play with $z$ zombies and tries to make this number as least as possible, while
 	survivor tries to maximize this.
-
-	$ZCT(G,k)$ is the minimum number of {\it zombies} needed so that zombie player is able to capture the survivor in at
-	most $k$ turns.
 
 	Also $diam(G)$ is the length of $G$'s diamater.
 	\begin{theorem}
@@ -235,14 +231,24 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		Since each of survivor's moves is either {\it G-move} or an {\it H-move} or even both (check definition above),
 		total number of moves cannot exceed $diam(G) + diam(H) + CT(G, Z_G) + CT(H, Z_H)$.
 	\end{proof}
-\section{Zombie Capture time Problem is NP-Hard}\label{np-capturetime}
-	We define zombie capture time ($ZCT_k$) problem as below:
+\section{Limited capture time zombie number Problem is NP-Hard}\label{np-capturetime}
+
+	NP-hardness (non-deterministic polynomial-time hardness) is, in computational complexity theory, the defining property
+	of a class of problems that are informally "at least as hard as the hardest problems in NP". A simple example of an
+	NP-hard problem is the dominating set problem in graph theory. A problem is assigned to the NP (nondeterministic polynomial time) class if
+	it is solvable in polynomial time by a nondeterministic Turing machine.
+
+
+	We define $LCZ(G,k)$ as the minimum number of {\it zombies} needed so that zombie player is able to capture the survivor in at
+	most $k$ turns.
+
+	We define limited capture time zombie number ($LCZ_k$) problem as below:
 
 
 	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given graph $G$ and a positive integer $z$.
 
 
-	QUESTION: Is $ZCT(G,k) \leq z$ ? In other words, can we capture the survivor after at most $k$ turns using $z$ zombies in graph $G$ ?
+	QUESTION: Is $LCZ(G,k) \leq z$ ? In other words, can we capture the survivor after at most $k$ turns using $z$ zombies in graph $G$ ?
 
 	The {\it dominating set} problem is a well-known NP-Hard problem and is defined below:
 
@@ -251,15 +257,15 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	QUESTION : Does G have a dominating set of size at most z ?
 
 	\begin{theorem}
-		$ZCT_k$ $\in$ NP-Hard
+		$LCZ_k$ $\in$ NP-Hard
 	\end{theorem}
 	\begin{proof}
-		We prove this by reducing a well-known NP-Hard problem (dominating set problem) to $ZCT_k$ in polynomial time.
+		We prove this by reducing a well-known NP-Hard problem (dominating set problem) to $LCZ_k$ in polynomial time.
 
 		To have a better understanding, consider the case where $k=1$. For zombie player being able to capture survivor in
 		one move, every vertex not occupied by a zombie, should have a zombie neighbour. This is exactly the definition
 		of a dominating set. Dominating set is a subset $D$ of $V(G)$ such that every vertex not in $D$ is adjacent to
-		at least one vertex of $D$. This simply shows that $ZCT_1 \in$ NP-Hard 
+		at least one vertex of $D$. This simply shows that $LCZ_1 \in$ NP-Hard 
 
 		Now consider $k$ to be an arbitrary number bigger than 1. We construct a new graph $G'$ from $G$. Suppose $G$
 		has $n$ vertices. For each vertex $v \in V(G)$, we add a {\it new} path with $k$ vertices ending in $v$.
@@ -269,13 +275,13 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		
 		\begin{figure}[h!]
 			\centering
-			\includegraphics[width=0.9\linewidth]{fig/ZCT.png}
+			\includegraphics[width=0.9\linewidth]{fig/LCZ.png}
 			\caption{$G'$ obtained from $G = C_5$ where for $k = 1,2,3$}
 			\label{fig:p7}
 		\end{figure}		
 
 
-		$|V(G')|$ is of $O(nk)$. Thus creating $G'$ can be done in polynomial time. Now we solve $ZCT_k$ on graph $G'$
+		$|V(G')|$ is of $O(nk)$. Thus creating $G'$ can be done in polynomial time. Now we solve $LCZ_k$ on graph $G'$
 		and get a number $z$, and a set $S$ of vertices as our zombies' initial positions. We build a set $DS$ on $G$
 		from set $S$ on $G'$. For each vertex $v \in S$ or $(v,i) \in S$ add $v$ to $DS$. Now suppose $DS$ is not a
 		dominating set, thus there is a vertex $u$ not dominated by $DS$. This means there was no zombie on vertices $u$
@@ -292,7 +298,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		will move to $u$. Thus our survivor is trapped again and will be captured within $k$ moves. Therefore, $z \leq
 		|minimumDominatingSet(G)|$.
 
-		By combining results, $z = |minimumDominatingSet(G)|$. Therefore dominating set problem is reduced to $ZCT_k$.
+		By combining results, $z = |minimumDominatingSet(G)|$. Therefore dominating set problem is reduced to $LCZ_k$.
 		In the following lemma \ref{limit-moves}, we prove this assumption changes nothing.
 
 	\end{proof}
