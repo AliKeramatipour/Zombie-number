@@ -7,7 +7,7 @@
 
 \modulolinenumbers[5]
 
-\setlength{\parskip}{.3em} 
+\setlength{\parskip}{.4em} 
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil} \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
@@ -243,27 +243,27 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\end{proof}
 \section{Limited capture time zombie number Problem is NP-Hard}\label{np-capturetime}
 
-	NP-hardness (non-deterministic polynomial-time hardness) is, in computational complexity theory, a class of problems
+	{\it NP-hardness} (non-deterministic polynomial-time hardness) is, in computational complexity theory, a class of problems
 	that are informally "at least as hard as the hardest problems in NP". A well known example of an NP-hard problem is
-	the dominating-set problem in graph theory. A problem is assigned to the NP (nondeterministic polynomial time) class
+	the {\it dominating-set} problem in graph theory. A problem is assigned to the NP (nondeterministic polynomial time) class
 	if it is solvable in polynomial time by a nondeterministic Turing machine.
 
 
-	Define $Lcz(G,k)$ as the minimum number of zombies needed so that zombie player is able to capture the survivor in
+	Define $Lcz(G,k)$ (limited capture time zombie number) as the minimum number of zombies needed so that zombie player is able to capture the survivor in
 	at most $k$ moves on graph $G$. 
 
 	A {\it dominating-set} for a graph $G = (V, E)$ is a subset $D$ of $V$ such that every vertex not in $D$ is adjacent
 	to at least one member of $D$. The domination number $\gamma$(G) is the number of vertices in the smallest
 	dominating-set for $G$.
 	
-	Limited capture time zombie number ($Lcz_k$) problem is defined as below:
+	$Lcz_k$ problem is defined as below:
 	{\newline}
 	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given graph $G$ and a positive integer $z$.
 	{\newline}
 	QUESTION: Is $Lcz(G,k) \leq z$ ? In other words, can we capture the survivor after at most $k$ moves using $z$ zombies in graph $G$ ?
 	{\newline}
 	{\newline}
-	The {\it dominating-set} problem is defined below:
+	The dominating-set problem is defined below:
 	{\newline}
 	INSTANCE : Given a graph G and an integer z.
 	{\newline}
@@ -282,10 +282,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		Now consider $k$ to be an arbitrary number bigger than 1. We construct a new graph $G'$ from $G$. Suppose $G$
 		has $n$ vertices. For each vertex $v \in V(G)$, we add a {\it new} path with $k$ vertices ending in $v$ (as
 		shown in figure \ref{fig:p7}), and name each {\it new} vertex $(v,i)$ for $1 \leq i < k$. 
-		
-		A vertex $v$ is dominated by vertex $u$, if $v = u$ or $v \in N[u]$. A vertex $v$ is dominated by a set $S$, if
-		there is a $u \in S$ which dominates $v$.
-		
+
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.9\linewidth]{fig/LCZ.png}
@@ -294,22 +291,20 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		\end{figure}		
 
 
-		$|V(G')|$ is of $O(nk)$. Thus creating $G'$ can be done in polynomial time. Now we solve $Lcz_k$ on graph $G'$
-		and get a number $z$, and a set $S$ of vertices as zombies' initial positions. We now build another set,
-		$DS$, on $G$ from set $S$ on $G'$. For each vertex $v \in S$ or $(v,i) \in S$ add $v$ to $DS$. Now suppose $DS$
-		is not a dominating-set, thus there is a vertex $u$ not dominated by $DS$. This means there was no zombie on
-		vertices $u$ and $(u,i)$ on graph $G'$. By having the survivor on $(u,k-1)$, there is no zombie with distance of
-		$k$ or less from him which means that he will not be captured if he doesn't move. Thus, $DS$ must be a
-		dominating-set and $ |MDS(G)| \leq |DS| \leq |S| \leq z$.
+		$|V(G')| = nk$ is of $O(n)$. Thus creating $G'$ can be done in polynomial time. Consider set $S'$ as zombies'
+		initial vertices on $G'$, so that zombies are able to capture the survivor in $k$ moves. For each vertex $v \in
+		S'$ or $(v,i) \in S'$ add $v$ to a new set of $G$'s vertices, $S$. If there is a vertex $u$ not dominated by
+		$S$, then there is no vertex $v$ that $v \in S'$ and $v \in N_{G'}[u] \cup \{u, (u,1 \leq i < k)\}$. By having
+		the survivor in vertex $(u, k-1)$, there is no vertex at distance $k$ or less from him which means he will not
+		be captrued. Thus $\gamma(G) \leq Lcz(G',k)$ holds.
+		
+		Now for each vertex $v$ in one of $G$'s smallest dominating sets, place a zombie on vertex $v$ of $G'$. These
+		zombies can capture the survivor in at most $k$ moves. To show this, consider survivor's initial vertex, if it
+		is not a newly added vertex, it can be captured in one move. Now suppose survivor is initially on $(u,i)$. Since
+		$u$ is dominated by a zombie, after zombies' first move, survivor will be trapped inside the $u$'s path, and would
+		be captured in at most $k$ moves. Therefore, $Lcz(G',k) \leq \gamma(G)$.
 
-		Now consider $MDS(G)$. For each vertex $v \in MDS(G)$ place a zombie on vertex $v$ of $G'$. These zombies can
-		capture the survivor in at most $k$ moves. To show this consider survivor's initial vertex, if it is an old
-		vertex, that is not in the newly added vertices, it can be captured in one move. Now suppose survivor is
-		initially on $(u,i)$. Since $u$ is dominated by a zombie, after zombies' move, survivor will be trapped inside
-		the $u-path$, and would be captured in at most $k$ moves. Therefore, $z \leq |MDS(G)|$.
-
-		By combining results, $z = |MDS(G)|$. Therefore dominating-set problem is reduced to $Lcz_k$. In the following
-		lemma \ref{limit-moves}, we prove this assumption changes nothing.
+		By combining results, $Lcz(G',k) = gamma(G)$. Therefore dominating-set problem is reduced to $Lcz_k$.
 
 	\end{proof}
 
@@ -318,10 +313,10 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		If survivor can avoid being captured after $(n + 1) * n^2$ moves, he can avoid being captured forever.
 	\end{lemma}
 	\begin{proof}
-		Define $zombieDist$ as sum of the distances between each zombie and survivor. It is not hard to see that after
-		each two rounds of play, that is each player has played once, $zombieDist$ won't increase, since zombies are
-		always getting closer. Now we show that if $zombieDist$ does not strictly decrease after each player takes turn
-		for $n + 1$ times, survivor can avoid being captured forever. Consider the sequence of vertices occupied by
+		Define $zombieDist$ as the sum of the distances between each zombie and the survivor. It is not hard to see that
+		after each two rounds of play, that is each player has played once, $zombieDist$ won't increase, since zombies
+		are always getting closer. Now we show that if $zombieDist$ does not strictly decrease after each player takes
+		turn for $n + 1$ times, survivor can avoid being captured forever. Consider the sequence of vertices occupied by
 		survivor in $n + 1$ consecutive moves. By pigeonhole principle, one vertex has been seen by survivor at least
 		twice. If survivor keeps repeating those moves, he will maintain his distance from zombies and will avoid being
 		captured forever.
@@ -333,13 +328,13 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\end{proof}
 
 	By using this lemma, we can see $Lcz_k$ problem for $k > (n + 1) * n^2$ and a graph with $n$ vertices are as same as
-	the problem for $Lcz_{(n + 1) * n^2}$, and by solving $Lcz_{(n + 1) * n^2}$ for $G$, we get $z(G)$ as well.
+	the problem $Lcz_{(n + 1) * n^2}$, and by solving $Lcz_{(n + 1) * n^2}$ for $G$, we get $z(G)$ as well.
 
 
 	
 	\section{Zombie Number Problem is NP-Hard}\label{np-zombienumber}
 
-	Now define zombie number ($Z$) problem:
+	Now define zombie number ($\NPZ$) problem:
 	{\newline}
 	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given graph $G$.
 	{\newline}
@@ -349,9 +344,9 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		$\NPZ \in$ NP-Hard
 	\end{theorem}
 	\begin{proof}
-		We reduce dominating-set problem to $Z$.
+		We reduce dominating-set problem to $\NPZ$.
 
-		To do this, we add $n$ new complete bipartite graphs, $K_{n,n}$ to $G$. We call the newly obtained graph $H$,
+		To do this, we add $n$ new complete bipartite graphs, $K_{n,n}$, to $G$. We call the newly obtained graph $H$,
 		and recall the $G$-subgraph simply as $G$, and the $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $K_i$.
 		$(i,j,b)$ represents the $j$-th vertex in $K_i$'s $b$-th part $(b = 1,2)$ . For each vertex $(i,j,b)$ we connect
 		it to vertices $j$ and $N_G[j]$ (neighbors of vertex $j$ in $G$).
@@ -374,7 +369,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		partition as zombies' in $K_k$. As survivor does not have any neighbors in $G$ or $K_k$ on each zombie player's
 		turn, he will not be captured.
 
-		It is now proved that $z(H) = |MDS(G)|$, thus the dominating-set problem is reduced to $Z$.
+		It is now proved that $z(H) = |MDS(G)|$, thus the dominating-set problem is reduced to $NPZ$.
 
 	\end{proof}
 
