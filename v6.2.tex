@@ -123,7 +123,7 @@ to remain in its current vertex, this move is considered both a {\it G-move} and
 
 $dist_I(j,k)$ is the distance between $j$ and $k$ vertices on a graph $I$. Length of a path $P$ is shown by $len(P)$. 
 
-For vertex $(u,v)$ , $G$-equivalent vertex is $v$ on graph $G$, and $H$-equivalent vertex is $u$ on graph $H$.
+For vertex $(u,v)$, $G$-equivalent vertex, is $v$ on graph $G$, and $H$-equivalent vertex, is $u$ on graph $H$.
 $G$-equivalent graph is a graph where we put each zombie and the survivor on its $G$-equivalent vertex. $H$-equivalent
 graph is defined in the same way.
 
@@ -150,7 +150,7 @@ graph is defined in the same way.
 	\rightarrow (u_2,v_1) \rightarrow (u_2,v_2)$ is happening, we can do $(u_1,v_1) \rightarrow (u_1,v_2) \rightarrow
 	(u_2,v_2)$. Since we can swap each two moves of different type, suppose all {\it G-move}s happen before all {\it
 	H-move}s in the shortest path. Since this path has a length less than $dist_G(x,u) + dist_H(y,v)$, we have found a
-	path in either $G$ between $x$ and $u$ with length less than $dist_G(x,u)$, or in $H$ between $y$ and $v$ with
+	path in either $G$ between $x$ and $u$, with length less than $dist_G(x,u)$, or in $H$ between $y$ and $v$, with
 	length less than $dist_H(y,v)$, which is a contradiction. Thus the statement holds.
 \end{proof}
 
@@ -179,7 +179,7 @@ graph is defined in the same way.
 	$G$) in this case. This move is also possible since in $G$'s strategy, zombies would get closer to survivor on each
 	turn. If $z = y$ and survivor makes an {\it H-move}, {\it G-zombie}s will maintain their positioning by mimicking
 	the exact same move on their corresponding $H$. This means for those turns that $z=y$ holds, if we consider the
-	$G$-equivalent graph between {\it G-zombie}s and survivor, it is just like a simple game played on a single $G$.
+	$G$-equivalent graph between {\it G-zombie}s and the survivor, it is just like a simple game played on a single $G$.
 	{\it H-zombie}s will follow the same strategy but in their corresponding environment.
 	
 	
@@ -219,7 +219,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	
 
 \section{Capture time and Cartesian product}\label{capturetime}
-	Define a new parameter, $capt(G,z)$ (capture time), where $G$ is a graph and $z$ is an integer as the maximum number
+	Define a new parameter, $capt(G,z)$ (capture time), where $G$ is a graph and $z$ is an integer, as the maximum number
 	of moves that survivor can avoid being caught, assuming that both players choose their best strategies. Zombie
 	player will play with $z$ zombies and tries to make this number as least as possible, while survivor tries to
 	maximize this.
