@@ -14,6 +14,9 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{example}[theorem]{Example}
 
+\newcommand{\NPZ}{\ooalign{$Z$\cr\hfil\rule[.8ex]{.3em}{.09ex}\hfil\cr}}
+\newcommand{\zn}{\ooalign{$z$\cr\hfil\rule[.5ex]{.2em}{.08ex}\hfil\cr}}
+
 \journal{Discrete Applied Mathematics}
 
 \bibliographystyle{elsarticle-num}
@@ -212,29 +215,28 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	
 
 \section{Capture time and Cartesian product}\label{capturetime}
-	Define a new parameter, $ct(G,z)$ (capture time), where $G$ is a graph, and $z$ is an integer.
-	
-	$ct(G,z)$ is the maximum number of moves that survivor can avoid being caught, assuming that both players choose their best
-	strategies. Zombie player will play with $z$ zombies and tries to make this number as least as possible, while
-	survivor tries to maximize this.
+	Define a new parameter, $capt(G,z)$ (capture time), where $G$ is a graph and $z$ is an integer as the maximum number
+	of moves that survivor can avoid being caught, assuming that both players choose their best strategies. Zombie
+	player will play with $z$ zombies and tries to make this number as least as possible, while survivor tries to
+	maximize this.
 
 	Also $diam(G)$ is the length of $G$'s diameter.
 	\begin{theorem}
 		\label{T5}
-		$ct( G \square H, z_G + z_H ) \leq diam(G) + diam(H) + ct(G, z_G) + ct(H, z_H)$
+		$capt( G \square H, z_G + z_H ) \leq diam(G) + diam(H) + capt(G, z_G) + capt(H, z_H)$
 	\end{theorem}
 	\begin{proof}
 		By having $z_G$ zombies as {\it G-zombie}s and $z_H$ zombies as {\it H-zombie}s, and having them follow the same
 		set of moves provided in section \ref{conj-proof}, we show that survivor's {\it G-move}s cannot exceed $diam(H)
-		+ ct(G, z_G)$. With the same conclusion, it can be shown that {\it H-move}s cannot exceed $diam(G) + ct(H, z_H)$
+		+ capt(G, z_G)$. With the same conclusion, it can be shown that {\it H-move}s cannot exceed $diam(G) + capt(H, z_H)$
 		as well.
 
 		After at most first $diam(H)$ {\it G-move}s that survivor makes, $z$ = $y$ holds. Now since for each {\it
 		G-move} made from now on by survivor, {\it G-zombie}s can follow their strategy on a $G$ graph, after at most
-		$ct(G,z_G)$ {\it G-move}s, survivor will be captured. 
+		$capt(G,z_G)$ {\it G-move}s, survivor will be captured. 
 		
 		Since each of survivor's moves is either a {\it G-move} or an {\it H-move} or both, total number of moves cannot
-		exceed $diam(G) + diam(H) + ct(G, z_G) + ct(H, z_H)$.
+		exceed $diam(G) + diam(H) + capt(G, z_G) + capt(H, z_H)$.
 	\end{proof}
 \section{Limited capture time zombie number Problem is NP-Hard}\label{np-capturetime}
 
@@ -244,8 +246,8 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	(nondeterministic polynomial time) class if it is solvable in polynomial time by a nondeterministic Turing machine.
 
 
-	Define $Lcz(G,k)$ as the minimum number of {\it zombies} needed so that zombie player is able to capture the survivor in at
-	most $k$ moves. Also $MDS(G)$ is the {\it minimum dominating-set} of graph $G$.
+	Define $Lcz(G,k)$ as the minimum number of zombies needed so that zombie player is able to capture the survivor in
+	at most $k$ moves. Also $MDS(G)$ is the {\it minimum dominating-set} of graph $G$.
 	
 	Limited capture time zombie number ($Lcz_k$) problem is defined as below:
 	{\newline}
@@ -335,10 +337,10 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	{\newline}
 	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given graph $G$.
 	{\newline}
-	QUESTION: Is $z(G) \leq z$ ?
+	QUESTION: Is $\zn (G) \leq z$ ?
 
 	\begin{theorem}
-		$Z \in$ NP-Hard
+		$\NPZ \in$ NP-Hard
 	\end{theorem}
 	\begin{proof}
 		We reduce dominating-set problem to $Z$.
