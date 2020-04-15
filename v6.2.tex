@@ -4,7 +4,10 @@
 \usepackage{lineno,hyperref}
 \usepackage{amsmath, amssymb, amscd, amsthm, amsfonts}
 \usepackage{mathtools}
+
 \modulolinenumbers[5]
+
+\setlength{\parskip}{.3em} 
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil} \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
@@ -240,14 +243,18 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\end{proof}
 \section{Limited capture time zombie number Problem is NP-Hard}\label{np-capturetime}
 
-	NP-hardness (non-deterministic polynomial-time hardness) is, in computational complexity theory, the defining
-	property of a class of problems that are informally "at least as hard as the hardest problems in NP". A well known
-	example of an NP-hard problem is the dominating-set problem in graph theory. A problem is assigned to the NP
-	(nondeterministic polynomial time) class if it is solvable in polynomial time by a nondeterministic Turing machine.
+	NP-hardness (non-deterministic polynomial-time hardness) is, in computational complexity theory, a class of problems
+	that are informally "at least as hard as the hardest problems in NP". A well known example of an NP-hard problem is
+	the dominating-set problem in graph theory. A problem is assigned to the NP (nondeterministic polynomial time) class
+	if it is solvable in polynomial time by a nondeterministic Turing machine.
 
 
 	Define $Lcz(G,k)$ as the minimum number of zombies needed so that zombie player is able to capture the survivor in
-	at most $k$ moves. Also $MDS(G)$ is the {\it minimum dominating-set} of graph $G$.
+	at most $k$ moves on graph $G$. 
+
+	A {\it dominating-set} for a graph $G = (V, E)$ is a subset $D$ of $V$ such that every vertex not in $D$ is adjacent
+	to at least one member of $D$. The domination number $\gamma$(G) is the number of vertices in the smallest
+	dominating-set for $G$.
 	
 	Limited capture time zombie number ($Lcz_k$) problem is defined as below:
 	{\newline}
@@ -256,11 +263,11 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	QUESTION: Is $Lcz(G,k) \leq z$ ? In other words, can we capture the survivor after at most $k$ moves using $z$ zombies in graph $G$ ?
 	{\newline}
 	{\newline}
-	The {\it dominating-set} problem is a well-known NP-Hard problem and is defined below:
+	The {\it dominating-set} problem is defined below:
 	{\newline}
 	INSTANCE : Given a graph G and an integer z.
 	{\newline}
-	QUESTION : Does G have a dominating-set of size at most z ?
+	QUESTION : Is $\gamma(G) \leq z$ ?
 
 	\begin{theorem}
 		$Lcz_k$ $\in$ NP-Hard
@@ -270,8 +277,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 
 		To have a better understanding, consider the case where $k=1$. For zombie player being able to capture survivor in
 		one move, every vertex not occupied by a zombie, should have a zombie neighbor. This is exactly the definition
-		of a dominating-set. Dominating set is a subset $D$ of $V(G)$ such that every vertex not in $D$ is adjacent to
-		at least one vertex of $D$. This simply shows that $Lcz_1 \in$ NP-Hard 
+		of a dominating-set. This simply shows that $Lcz_1 \in$ NP-Hard 
 
 		Now consider $k$ to be an arbitrary number bigger than 1. We construct a new graph $G'$ from $G$. Suppose $G$
 		has $n$ vertices. For each vertex $v \in V(G)$, we add a {\it new} path with $k$ vertices ending in $v$ (as
