@@ -92,7 +92,7 @@ use it to show that $z(Q_n) = \ceil*{\frac{2n}{3}}$.
 3) We introduce a variation of {\it zombies and survivor} game which zombie player must win in a limited number of
 moves and prove it belongs to {\it NP-Hard} set of problems.
 
-4) We prove our original {\it zombies and survivor} game belongs to {\it NP-Hard}.
+4) We prove the original {\it zombies and survivor} game belongs to {\it NP-Hard}.
 
 
 \section{Zombie number of Cartesian product of two graphs}\label{conj-proof}
@@ -175,7 +175,7 @@ is placed on $z_x$ vertex and survivor is placed on $x$ vertex. $H$-equivalent i
 	{\it H-zombie}s will follow the same strategy but in their corresponding environment.
 	
 	
-	Suppose using this strategy $G \square H$ is {\it survivor-win}, then our survivor must either do infinite {\it
+	Suppose using this strategy $G \square H$ is {\it survivor-win}, then the survivor must either do infinite {\it
 	G-move}s or infinite {\it H-move}s. Without loss of generality, suppose the survivor makes infinite {\it H-move}s,
 	we prove that this is not possible. After $len(p_G)$ number of {\it H-move}s, {\it H-zombie}s will get to $H_x$. Now for
 	each {\it G-move} made by survivor and having zombies chasing him, nothing changes in their $H$-equivalent graph.
@@ -223,10 +223,10 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		$ct( G \square H, z_G + z_H ) \leq diam(G) + diam(H) + ct(G, z_G) + ct(H, z_H)$
 	\end{theorem}
 	\begin{proof}
-		By having $z_G$ zombies as our {\it G-zombie}s and $z_H$ zombies as our {\it H-zombie}s, and having them follow
-		the same set of moves provided in section \ref{conj-proof}, we show that survivor's {\it G-move}s cannot exceed
-		$diam(H) + ct(G, z_G)$. With the same conclusion, it can be shown that {\it H-move}s cannot exceed $diam(G) +
-		ct(H, z_H)$ as well.
+		By having $z_G$ zombies as {\it G-zombie}s and $z_H$ zombies as {\it H-zombie}s, and having them follow the same
+		set of moves provided in section \ref{conj-proof}, we show that survivor's {\it G-move}s cannot exceed $diam(H)
+		+ ct(G, z_G)$. With the same conclusion, it can be shown that {\it H-move}s cannot exceed $diam(G) + ct(H, z_H)$
+		as well.
 
 		After first $diam(H)$ {\it G-move}s that survivor makes, $z$ = $y$ holds. Now since for each {\it G-move} made
 		from now on by survivor, {\it G-zombie}s can follow their strategy on a $G$ graph, after at most $ct(G,z_G)$
@@ -286,10 +286,10 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 
 
 		$|V(G')|$ is of $O(nk)$. Thus creating $G'$ can be done in polynomial time. Now we solve $Lcz_k$ on graph $G'$
-		and get a number $z$, and a set $S$ of vertices as our zombies' initial positions. We now build another set,
+		and get a number $z$, and a set $S$ of vertices as zombies' initial positions. We now build another set,
 		$DS$, on $G$ from set $S$ on $G'$. For each vertex $v \in S$ or $(v,i) \in S$ add $v$ to $DS$. Now suppose $DS$
 		is not a dominating-set, thus there is a vertex $u$ not dominated by $DS$. This means there was no zombie on
-		vertices $u$ and $(u,i)$ on graph $G'$. By having our survivor on $(u,k-1)$, there is no zombie with distance of
+		vertices $u$ and $(u,i)$ on graph $G'$. By having the survivor on $(u,k-1)$, there is no zombie with distance of
 		$k$ or less from him which means that he will not be captured if he doesn't move. Thus, $DS$ must be a
 		dominating-set and $ |MDS(G)| \leq |DS| \leq |S| \leq z$.
 
