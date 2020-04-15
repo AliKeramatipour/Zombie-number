@@ -254,7 +254,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	Define $Lc\zn(G,k)$ (limited capture time zombie number) as the minimum number of zombies needed so that zombie player is able to capture the survivor in
 	at most $k$ moves on graph $G$. 
 
-	A {\it dominating-set} for a graph $G = (V, E)$ is a subset $D$ of $V$ such that every vertex not in $D$ is adjacent
+	A {\it dominating-set} for a graph $G$ is a subset $D$ of $V(G)$ such that every vertex not in $D$ is adjacent
 	to at least one member of $D$. The domination number $\gamma$(G) is the number of vertices in the smallest
 	dominating-set for $G$.
 
@@ -262,14 +262,14 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	
 	$Lcz_k$ problem is defined as below:
 	{\newline}
-	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given graph $G$ and a positive integer $z$.
+	INSTANCE: Given a graph $G$ and a positive integer $z$.
 	{\newline}
 	QUESTION: Is $Lc\zn(G,k) \leq z$ ? In other words, can we capture the survivor after at most $k$ moves using $z$ zombies in graph $G$ ?
 	{\newline}
 	{\newline}
 	The dominating-set problem is defined below:
 	{\newline}
-	INSTANCE : Given a graph G and an integer z.
+	INSTANCE : Given a graph $G$ and a positive integer $z$.
 	{\newline}
 	QUESTION : Is $\gamma(G) \leq z$ ?
 
@@ -296,7 +296,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 
 
 		$|V(G')| = nk$ is of $O(n)$. Thus creating $G'$ can be done in polynomial time. Consider set $S'$ as zombies'
-		initial vertices on $G'$, so that zombies are able to capture the survivor in $k$ moves. For each vertex $v \in
+		initial vertices on $G'$, so that zombies are able to capture the survivor within $k$ moves. For each vertex $v \in
 		S'$ or $(v,i) \in S'$ add $v$ to a new set of $G$'s vertices, $S$. If there is a vertex $u$ not dominated by
 		$S$, then there is no vertex $v$ that $v \in S'$ and $v \in N_{G'}[u] \cup \{u, (u,1 \leq i < k)\}$. By having
 		the survivor in vertex $(u, k-1)$, there is no vertex at distance $k$ or less from him which means he will not
