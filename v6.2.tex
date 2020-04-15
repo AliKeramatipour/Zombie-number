@@ -61,11 +61,12 @@ player chooses a number $z$ and places $z$ zombies on the graph vertices. Then t
 vertex which is the survivor's initial position. Starting with the zombie player, on each player's turn, survivor player
 either moves to an adjacent vertex or stays at his current location, while zombie player must move each zombie to one of
 its adjacent vertices so that they get closer to the survivor. Here lies the difference between {\it Zombies and
-Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)} cops should not necessarily get closer to the
-robber(s), they can either hold their current position, get closer, or further away from the robber(s). If any zombie
-and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins. The zombie number of
-a graph $G$, denoted as $z(G)$, is the minimum number of zombies required so that the zombie player can always capture
-the survivor, no matter how survivor moves.
+Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)} cops should not necessarily get closer to
+the robber(s), they can either hold their current position, get closer, or further away from the robber(s). Although
+zombies are not as intelligent as robbers, they can still choose their path intelligently between the shortest paths.
+If any zombie and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins. The
+zombie number of a graph $G$, denoted as $z(G)$, is the minimum number of zombies required so that the zombie player can
+always capture the survivor, no matter how survivor moves.
 
 The Cartesian product $G \square H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
@@ -228,12 +229,12 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		+ ct(G, z_G)$. With the same conclusion, it can be shown that {\it H-move}s cannot exceed $diam(G) + ct(H, z_H)$
 		as well.
 
-		After first $diam(H)$ {\it G-move}s that survivor makes, $z$ = $y$ holds. Now since for each {\it G-move} made
-		from now on by survivor, {\it G-zombie}s can follow their strategy on a $G$ graph, after at most $ct(G,z_G)$
-		{\it G-move}s, survivor will be captured. 
+		After at most first $diam(H)$ {\it G-move}s that survivor makes, $z$ = $y$ holds. Now since for each {\it
+		G-move} made from now on by survivor, {\it G-zombie}s can follow their strategy on a $G$ graph, after at most
+		$ct(G,z_G)$ {\it G-move}s, survivor will be captured. 
 		
-		Since each of survivor's moves is either {\it G-move} or an {\it H-move} or even both (check definition above),
-		total number of moves cannot exceed $diam(G) + diam(H) + ct(G, z_G) + ct(H, z_H)$.
+		Since each of survivor's moves is either a {\it G-move} or an {\it H-move} or both, total number of moves cannot
+		exceed $diam(G) + diam(H) + ct(G, z_G) + ct(H, z_H)$.
 	\end{proof}
 \section{Limited capture time zombie number Problem is NP-Hard}\label{np-capturetime}
 
