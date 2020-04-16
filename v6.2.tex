@@ -45,11 +45,11 @@
 		{\it Zombies and Survivors} is a variant of the pursuit-evasion game {\it Cops and Robbers}, with the difference
 		that zombies must always move closer to one of their closest survivors. The game is played on a simple graph by
 		two players. The goal of the zombies is to catch the survivors while survivors' objective is to avoid being
-		captured. The zombie number of $G$, denoted as $\zn(G)$, is the minimum number of zombies required to capture a
+		captured. The {\it zombie number} of $G$, denoted as $\zn(G)$, is the minimum number of zombies required to capture a
 		single survivor on $G$, no matter what moves survivor makes. In this paper, we prove a conjecture by Fitzpatrick
-		et al.\cite{Fitz16} about the zombie number of the Cartesian product of two graphs. This result provides a new
+		et al.\cite{Fitz16} about the zombie number of the {\it cartesian product} of two graphs. This result provides a new
 		proof for $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. We also introduce a new problem regarding {\it capture time} in
-		Cartesian product of two graphs. At last, we study computational complexity of zombie number of a graph G, with
+		cartesian product of two graphs. At last, we study computational complexity of zombie number of a graph G, with
 		and without a limited capture time.
 		\end{abstract}
 		
@@ -74,9 +74,9 @@ If any zombie and the survivor ever occupy the same vertex, the survivor is capt
 zombie number of a graph $G$, denoted as $\zn(G)$, is the minimum number of zombies required so that the zombie player can
 always capture the survivor, no matter how survivor moves.
 
-The Cartesian product $G \square H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
+The cartesian product $G \square H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
-$u_2 = v_2$ and $ \{u_1 , v_1 \} \in E_{G}$ \cite{West02}. Figure \ref{fig:p2} shows an example of the Cartesian product
+$u_2 = v_2$ and $ \{u_1 , v_1 \} \in E_{G}$ \cite{West02}. Figure \ref{fig:p2} shows an example of the cartesian product
 of two graphs.
 
 Capture time in a game, is the maximum number of moves survivor can avoid being captured, while zombie player has $z$
@@ -85,7 +85,7 @@ zombies. If this goes to infinity, a survivor-win play exist.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.9\linewidth]{fig/CpWest.png}
-	\caption{$C_3 \square C_4$ an example of a Cartesian product}
+	\caption{$C_3 \square C_4$ an example of a cartesian product}
 	\label{fig:p2}
 \end{figure}
 
@@ -94,7 +94,7 @@ Our contributions can be summarized as follows:
 1) In \cite{Fitz16}, Fitzpatrick et al. conjectured that $\zn(G \square H) \leq \zn(G) + \zn(H)$. We prove this conjecture and
 use it to show that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. 
 
-2) We introduce a new problem regarding {\it capture time} and prove a new result in Cartesian product of graphs.
+2) We introduce a new problem regarding {\it capture time} and prove a new result in cartesian product of graphs.
 
 3) We introduce a variation of {\it zombies and survivor} game which zombie player must win in a limited number of
 moves and prove it belongs to {\it NP-Hard} set of problems.
@@ -102,7 +102,7 @@ moves and prove it belongs to {\it NP-Hard} set of problems.
 4) We prove the original {\it zombies and survivor} game belongs to {\it NP-Hard}.
 
 
-\section{Zombie number of Cartesian product of two graphs}\label{conj-proof}
+\section{Zombie number of cartesian product of two graphs}\label{conj-proof}
 
 To prove $\zn(G \square H) \leq \zn(G) + \zn(H)$, we show that $\zn(G) + \zn(H)$ zombies are enough for the zombie player to
 capture the survivor on $G \square H$.
@@ -113,7 +113,7 @@ respectively.
 Define $G_{i}$ as the induced subgraph by all vertices $(u,v)$ in $G \square H$, where $v=i$. Similarly
 $H_{j}$ is defined as the induced subgraph by vertices $(u,v)$ in $G \square H$, where $u=j$.
 
-In the Cartesian product of $G$ and $H$, each $G_{i}$ $(1 \leq i \leq m)$ is isomorphic to $G$, and each $H_{j}$ $(1
+In the cartesian product of $G$ and $H$, each $G_{i}$ $(1 \leq i \leq m)$ is isomorphic to $G$, and each $H_{j}$ $(1
 \leq j \leq n)$ is isomorphic to $H$. We name the common vertex between $G_{i}$ and $H_{j}$, $(j,i)$. Also $(x,y)$ is
 the vertex where the survivor is located. Figure \ref{fig:p1} illustrates these definitions.
 
@@ -163,7 +163,7 @@ graph is defined in the same way.
 \end{theorem}
 
 \begin{proof}
-	We provide a winning strategy for the Cartesian product of $G$ and $H$ using $\zn(G)+\zn(H)$ zombies. First, we place
+	We provide a winning strategy for the cartesian product of $G$ and $H$ using $\zn(G)+\zn(H)$ zombies. First, we place
 	$\zn(G)$ zombies, that have a winning strategy on a single $G$, $G_{z = 1}$ and call them {\it G-zombie}s. We do the
 	same for $H_{s = 1}$ and call them {\it H-zombie}s.
 
@@ -199,9 +199,9 @@ An example for further understanding can be found at \ref{cartesianProductExampl
 	$\zn(Q_{n}) \leq \ceil*{\frac{2n}{3}}$
 \end{corollary}
 \begin{proof}
-	We prove this by using both induction and the theorem proved above. First note that the Cartesian product of
+	We prove this by using both induction and the theorem proved above. First note that the cartesian product of
 	hypercube graphs $Q_{m}$ and $Q_{n}$ is equal to $Q_{m+n}$. It is easy to see $\zn(Q_3) = 2$, $\zn(Q_2) = 2$, and
-	$\zn(Q_1) = 1$. For $n > 3$, we consider $Q_n$ as the Cartesian product of $Q_3$ and $Q_{n-3}$. Using the induction
+	$\zn(Q_1) = 1$. For $n > 3$, we consider $Q_n$ as the cartesian product of $Q_3$ and $Q_{n-3}$. Using the induction
 	base, we know that $\zn(Q_{n-3}) \leq \ceil*{\frac{2n - 6}{3}}$. According to the proved conjecture $\zn(Q_n) \leq
 	\zn(Q_{n-3}) + \zn(Q_3)$ and $\zn(Q_{n-3}) \leq \ceil*{\frac{2n - 6}{3}} = \ceil*{\frac{2n}{3}} - 2$, we can see that
 	$\zn(Q_n) \leq \ceil*{\frac{2n}{3}}$.
@@ -219,7 +219,7 @@ Combining {\it Corollary \ref{C3}} and {\it Theorem \ref{T4}} we can conclude th
 This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Offner19} with a different method. 
 	
 
-\section{Capture time and Cartesian product}\label{capturetime}
+\section{Capture time in cartesian product of graphs}\label{capturetime}
 	Define a new parameter, $capt(G,z)$ (capture time), where $G$ is a graph and $z$ is an integer, as the maximum number
 	of moves that survivor can avoid being caught, assuming that both players choose their best strategies. Zombie
 	player will play with $z$ zombies and tries to make this number as least as possible, while survivor tries to
