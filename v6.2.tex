@@ -354,8 +354,16 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 
 		To do this, we add $n$ new complete bipartite graphs, $K_{n,n}$, to $G$. We call the newly obtained graph $H$,
 		and call the $G$-subgraph simply as $G$, and the $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $K_i$.
-		$(i,j,b)$ represents the $j$-th vertex in $K_i$'s part $b$ ($b = 1,2$) . For each vertex $(i,j,b)$ we connect
-		it to vertices $j$ and $N_G[j]$.
+		$(i,j,b)$ represents the $j$-th vertex in $K_i$'s part $b$ ($b = 1,2$) . For each vertex $(i,j,b)$ we connect it
+		to vertices $j$ and $N_G[j]$ (See figure \ref{fig:p8}). Since we are adding $2n^2$ new vertices, this can be
+		done in polynomial time.
+
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.9\linewidth]{fig/sec5.png}
+			\caption{$H$ obtained from $P_4$, zombie player needs at least $\gamma(P_4) = 2$ zombies to win}
+			\label{fig:p8}
+		\end{figure}
 
 		By having zombies on each vertex of $G$'s dominating-set, survivor will be captured on the first move and zombie
 		player wins. Thus, $\zn(H) \leq \gamma(G)$. Now suppose we have zombies less than the domination number of
