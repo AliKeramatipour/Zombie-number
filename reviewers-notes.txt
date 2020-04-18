@@ -1,6 +1,6 @@
-Dear reviewers Thank you for taking the time to review our paper and special thanks for your helpful comments and
-suggestions for improving this paper. In response to your suggestions, we have outlined the changes and provided the
-necessary explanations.
+Dear reviewers, thank you for your time to review our paper and special thanks for your helpful comments and suggestions
+for improving this paper. In response to your suggestions, we have outlined the changes and provided the necessary
+explanations.
 
 
 Reviewer #1:
@@ -8,8 +8,8 @@ Reviewer #1:
 
     On minor comments: 
     
-    P1 L39) In cop-version, as explained in new paper, cops can choose any edge and move along it or either save their
-    current position, while zombies must always get closer to the survivor. 
+    P1 L39) In cop-version, as explained in the new paper, cops can choose any edge and move along it or either save
+    their current position, while zombies must always get closer to the survivor. 
     
     P1 L43) By having a winning strategy, we meant zombie player can always win no matter how survivors moves. We
     changed the statement in the new revised version
@@ -17,8 +17,8 @@ Reviewer #1:
     P1 L45 and 48, P2 FIG1, P1 L31, P4 L17, P4 L18) Thanks for your comments, we have changed these in the new version.
 
 Reviewer #2:
-    Our proof was not so clear and it also had some issues regarding coordinates of vertices. We changed it in the new
-    version.
+    Our proof was not so clear and it also had some issues regarding coordinates of the cartesian product vertices. We
+    changed it in the new version.
     
     On your first comment: G-zombies will move along H-edges (HG-path as in previous version) if possible. They
     prioritize H-moves over G-moves. Our strategy makes them share the same G-subgraph. Now if one can do an H-move,
@@ -74,7 +74,7 @@ Reviewer #3:
 
 
 Reviewer #4:
-    Lemma 1) Lemma 1 was changed on the new version. Altough it's not a hard problem, but we believe stating it before the
+    Lemma 1) Lemma 1 was changed on the new version. Although it's not a hard problem, but we believe stating it before the
     actual proof is useful for a better understanding.
 
     Note or Paper) We did submit this as a "note" instead of "paper". We also added two more new results in the new
