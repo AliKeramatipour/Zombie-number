@@ -49,7 +49,7 @@
 		capture a single survivor on $G$, no matter what moves survivor makes. In this paper, we prove a conjecture by
 		Fitzpatrick et al.\cite{Fitz16} about the zombie number of the {\it cartesian product} of two graphs. This
 		result provides a new proof for $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. We also introduce a new problem regarding
-		{\it capture time} in cartesian product of two graphs. At last, we study computational complexity of finding the
+		{\it capture time} in the cartesian product of two graphs. At last, we study computational complexity of finding the
 		zombie number of a graph G, with and without a limited {\it capture time}.
 		\end{abstract}
 		
@@ -85,7 +85,7 @@ $z_c$ zombies. If this goes to infinity, a survivor-win play exist.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.9\linewidth]{fig/CpWest.png}
-	\caption{$C_3 \square C_4$ an example of a cartesian product}
+	\caption{$C_3 \square C_4$ an example of the cartesian product}
 	\label{fig:p2}
 \end{figure}
 
@@ -94,7 +94,7 @@ Our contributions can be summarized as follows:
 1) In \cite{Fitz16}, Fitzpatrick et al. conjectured that $\zn(G \square H) \leq \zn(G) + \zn(H)$. We prove this conjecture and
 use it to show that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. 
 
-2) We provide a new bound in cartesian product of graphs regarding {\it capture time} of {\it zombies and survivor} game.
+2) We provide a new bound in the cartesian product of graphs regarding {\it capture time} of {\it zombies and survivor} game.
 
 3) We introduce a variation of {\it zombies and survivor} game, in which zombie player is restricted to winning in a
 limited number of moves and prove it belongs to {\it NP-Hard} class of problems.
@@ -102,7 +102,7 @@ limited number of moves and prove it belongs to {\it NP-Hard} class of problems.
 4) We prove the original {\it zombies and survivor} game belongs to {\it NP-Hard} class of problems.
 
 
-\section{Zombie number of cartesian product of two graphs}\label{conj-proof}
+\section{Zombie number of the cartesian product of two graphs}\label{conj-proof}
 
 To prove $\zn(G \square H) \leq \zn(G) + \zn(H)$, we show that $\zn(G) + \zn(H)$ zombies are enough for the zombie player to
 capture the survivor on $G \square H$.
@@ -355,8 +355,8 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		To do this, we add $n$ new complete bipartite graphs, $K_{n,n}$, to $G$. We call the newly obtained graph $H$,
 		and call the $G$-subgraph simply as $G$, and the $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $K_i$.
 		$(i,j,b)$ represents the $j$-th vertex in $K_i$'s part $b$ ($b = 1,2$) . For each vertex $(i,j,b)$ we connect it
-		to vertices $j$ and $N_G[j]$ (See figure \ref{fig:p8}). Since we are adding $2n^2$ new vertices, this can be
-		done in polynomial time.
+		to vertices $j$ and $N_G[j]$ (See figure \ref{fig:p8}). Since we are adding $2n^2$ new vertices, building $H$
+		can be done in polynomial time.
 
 		\begin{figure}[h!]
 			\centering
