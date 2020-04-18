@@ -63,16 +63,16 @@
 
 The {\it Zombies and Survivors} game is played on a simple graph by two players. The deterministic version of this game
 \cite{Fitz16} is played as follows (note that we only consider the game with a single survivor). Initially, the zombie
-player chooses a number $z_c$ and places $z_c$ zombies on the graph vertices. Then the survivor player chooses one single
-vertex which is the survivor's initial position. Starting with the zombie player, on each player's turn, survivor player
-either moves to an adjacent vertex or stays at his current location, while zombie player must move each zombie to one of
-its adjacent vertices so that they get closer to the survivor. Here lies the difference between {\it Zombies and
-Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)} cops should not necessarily get closer to
-the robber(s), they can either hold their current position, get closer, or further away from the robber(s). Although
-zombies are not as intelligent as cops, they can still choose their path intelligently between the shortest paths.
-If any zombie and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins. The
-zombie number of a graph $G$, denoted as $\zn(G)$, is the minimum number of zombies required so that the zombie player can
-always capture the survivor, no matter how survivor moves.
+player chooses a number $z_c$ and places $z_c$ zombies on the graph vertices. Then the survivor player chooses one
+single vertex which is the survivor's initial position. Starting with the zombie player, on each player's turn, the
+survivor player either moves to an adjacent vertex or stays at his current location, while zombie player must move each
+zombie to one of its adjacent vertices so that they get closer to the survivor. Here lies the difference between {\it
+Zombies and Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)} cops should not necessarily get
+closer to the robber(s), they can either hold their current position, get closer, or further away from the robber(s).
+Although zombies are not as intelligent as cops, they can still choose their path intelligently between the shortest
+paths. If any zombie and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins.
+The zombie number of a graph $G$, denoted as $\zn(G)$, is the minimum number of zombies required so that the zombie
+player can always capture the survivor, no matter how survivor moves.
 
 The cartesian product $G \square H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
@@ -96,7 +96,7 @@ use it to show that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$.
 
 2) We provide a new bound in the cartesian product of graphs regarding {\it capture time} of {\it zombies and survivor} game.
 
-3) We introduce a variation of {\it zombies and survivor} game, in which zombie player is restricted to winning in a
+3) We introduce a variation of {\it zombies and survivor} game, in which the zombie player is restricted to winning in a
 limited number of moves and prove it belongs to {\it NP-Hard} class of problems.
 
 4) We prove the original {\it zombies and survivor} game belongs to {\it NP-Hard} class of problems.
@@ -123,7 +123,7 @@ to remain in its current vertex, this move is considered both a {\it G-move} and
 
 $dist_I(j,k)$ is the distance between $j$ and $k$ vertices on a graph $I$. Length of a path $P$ is shown by $len(P)$. 
 
-For vertex $(u,v)$, $G$-equivalent vertex, is vertex $v$ on graph $G$, and $H$-equivalent vertex, is vertex $u$ on graph
+For vertex $(u,v)$, $G$-equivalent vertex, is vertex $u$ on graph $G$, and $H$-equivalent vertex, is vertex $v$ on graph
 $H$. $G$-equivalent graph is a graph where we put each zombie and the survivor on its $G$-equivalent vertex.
 $H$-equivalent graph is defined in the same way.
 
@@ -186,10 +186,10 @@ $H$-equivalent graph is defined in the same way.
 	
 	Suppose using this strategy $G \square H$ is {\it survivor-win}, then the survivor must either do infinite {\it
 	G-move}s or infinite {\it H-move}s. Without loss of generality, suppose the survivor makes infinite {\it H-move}s,
-	we prove that this is not possible. After $len(p_G)$ number of {\it H-move}s, {\it H-zombie}s will get to $H_x$. Now for
-	each {\it G-move} made by survivor and having zombies chasing him, nothing changes in their $H$-equivalent graph.
-	Since the survivor can do infinite {\it H-move}s and prevent being caught, it means that survivor could also avoid
-	being caught on a single $H$ which contradicts our assumption.
+	we prove that this is not possible. After $len(p_G)$ number of {\it H-move}s, {\it H-zombie}s will get to $H_x$. Now
+	for each {\it G-move} made by survivor and having zombies chasing him, nothing changes in their $H$-equivalent
+	graph. Since the survivor can do infinite {\it H-move}s and prevent being caught, it means that the survivor could
+	also avoid being caught on a single $H$ which contradicts our assumption.
 	
 \end{proof}
 An example for further understanding can be found at \ref{cartesianProductExample}.
@@ -261,7 +261,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	
 	$LC\NPZ_k$ problem is defined as below:
 	{\newline}
-	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given a graph $G$ and a two positive integers $z_c$ and $k$.
+	INSTANCE: Let $G = (V,E)$ be a simple undirected graph. Given a graph $G$ and two positive integers $z_c$ and $k$.
 	{\newline}
 	QUESTION: Is $Lc\zn(G,k) \leq z_c$ ? In other words, can the zombie player capture the survivor after at most $k$ moves using 
 	$z_c$ zombies in graph $G$ ?
@@ -279,9 +279,9 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\begin{proof}
 		We prove this by reducing the dominating-set problem to $LC\NPZ_k$ in polynomial time.
 
-		To have a better understanding, consider the case where $k=1$. For zombie player being able to capture survivor in
-		one move, every vertex not occupied by a zombie, should have a zombie neighbor. This is exactly the definition
-		of a dominating-set. This simply shows that $LC\NPZ_1 \in$ NP-Hard class.
+		To have a better understanding, consider the case where $k=1$. For zombie player being able to capture the
+		survivor in one move, every vertex not occupied by a zombie, should have a zombie neighbor. This is exactly the
+		definition of a dominating-set. This simply shows that $LC\NPZ_1 \in$ NP-Hard class.
 
 		Now consider $k$ to be an arbitrary integer bigger than 1. We construct a new graph $G'_k$ from $G$. Suppose $G$
 		has $n$ vertices. For each vertex $v \in V(G)$, we add a {\it new} path with $k$ vertices ending in $v$ (as
@@ -415,8 +415,8 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 It is easy to show that $\zn(P_3) = \zn(P_4) = 1$. On each of these path graphs, zombie's initial position could be any
 vertex of the graph. For this example, we put the {\it G-zombie} and {\it H-zombie} ($G = P_3$ and $H = P_4$) both on
 vertex $(1,1)$. We show the survivor with blue color, {\it H-zombie} with red, and {\it G-zombie} with green. {\it
-G-zombie} will try to get to the same $G_{i}$ as survivor which is $G_3$ using an {\it H-edge}. {\it H-zombie} will try
-to get to $H_3$ (See figure \ref{fig:p4}).
+G-zombie} will try to get to the same $G_{i}$ as survivor's which is $G_3$ using an {\it H-edge}. {\it H-zombie} will
+try to get to $H_3$ (See figure \ref{fig:p4}).
 
 \begin{figure}[h!]
 	\centering
