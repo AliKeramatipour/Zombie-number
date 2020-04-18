@@ -74,7 +74,7 @@ Reviewer #3:
 
 
 Reviewer #4:
-    Lemma 1) Lemma 1 was changed on the new version. Altough it's not a hard problem, but i think stating it before the
+    Lemma 1) Lemma 1 was changed on the new version. Altough it's not a hard problem, but we believe stating it before the
     actual proof is useful for a better understanding.
 
     Note or Paper) We did submit this as a "note" instead of "paper". We also added two more new results in the new
