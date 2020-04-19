@@ -328,13 +328,13 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		and will avoid being captured forever.
 
 		Therefore, for a graph $G$ which zombie-player can win, after each $(n + 1)$ moves, $zombieDist$ should strictly
-		decrease. $zombieDist$ is at most $n * diam(G)$, since there is not more than $n$ zombies and each zombie is at distance
-		at most $diam(G)$ from survivor (this bound can be easily improved). Thus, after $(n + 1) * n * diam(G)$ moves, zombies would
+		decrease. $zombieDist$ is at most $n \times diam(G)$, since there is not more than $n$ zombies and each zombie is at distance
+		at most $diam(G)$ from survivor (this bound can be easily improved). Thus, after $(n + 1) \times n \times diam(G)$ moves, zombies would
 		capture the survivor.
 	\end{proof}
 
-	By using this lemma, we can see $LC\NPZ_k$ problem for $k > (n + 1) * n * diam(G)$ and a graph with $n$ vertices are the same as
-	the problem $LC\NPZ_{(n + 1) * n * diam(G)}$, and by solving $LC\NPZ_{(n + 1) * n * diam(G)}$ for $G$, we get $\zn(G)$ as well.
+	By using this lemma, we can see $LC\NPZ_k$ problem for $k > (n + 1) \times n \times diam(G)$ and a graph with $n$ vertices are the same as
+	the problem $LC\NPZ_{(n + 1) \times n \times diam(G)}$, and by solving $LC\NPZ_{(n + 1) \times n \times diam(G)}$ for $G$, we get $\zn(G)$ as well.
 
 
 	
