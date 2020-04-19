@@ -100,7 +100,7 @@ Reviewer #3:
     Robbers” throughout, rather then sometimes as “Cops and Robber”)
 
         -> Since we are considering the game with one zombie, we referred to this game as "Cops and Robber". In the new
-        version we changed it to "Cops and Robber(s)"
+        version we changed it to "Cops and Robber(s)".
 
     Mathematical suggestions:
 
