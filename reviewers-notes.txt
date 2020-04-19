@@ -32,7 +32,15 @@ Reviewer #2:
     Our proof was not so clear and it also had some issues regarding coordinates of the cartesian product vertices. We
     changed it in the new version.
     
-    On your first comment: 
+    -- I think that I have found some flaws in the proof given in the current manuscript.  Most importantly, the premise
+    stated on P3 L39 that "Since $G$-Zombies are initially on the same $G_i$ after each move they would still be on the
+    same $G_i$" is, I believe, false.  To describe a situation that illustrates that this statement is false, suppose
+    that there are 3 $G$-Zombies, located on three distinct vertices, say $u, v, w$ of some $G_i$.  By virtue of being
+    $G$-Zombies, these three zombies will move within $G_i$ before choosing to move along an $H$-edge.  However, suppose
+    that the survivor is located in the same copy of $H$ as vertex $v$.  Then the zombie at $v$ will now move along an
+    $H$-edge, whereas the zombies at $u$ and $w$ will move along $G$-edges.  $u,v,w$ will now fail to be in the same
+    copy of $G$, contrary to what the authors have stated in their proof.
+        
         -> G-zombies will move along H-edges (HG-path as in previous version) if possible. They prioritize H-moves over
         G-moves. Our strategy makes them share the same G-subgraph. Now if one can do an H-move, they will all do the
         same.
@@ -77,14 +85,36 @@ Reviewer #3:
         -> Thank you for your suggestion. We went through the paper and looked for such places. We believe
         it is much more readable now.
 
-    -- Other comments from P1 L17, P1 L33, P1 L36, P1 L40, P1 L45, P1 L48, P4 L17, P4 L19
+    -- P1 L17: “The Zombies and Survivors” should be “Zombies and Survivors”
+    -- P1 L33: “The Zombies and Survivor game” should be “The Zombies and Survivors game”
+    -- P1 L36: “Starting by” should be “Starting with”
+    -- P1 L45: “Cartesian product” should be “The Cartesian product”
+    -- P1 L48: “Cartesian product” should be “the Cartesian product”
+    -- P4 L17: Z ( Q 2 ) should be Z(Q 2 ) (parenthesis should not be subscript).
+    -- P4 L19: “proved conjecture” should be “Theorem 2”
 
         -> Thanks for your comments, we have changed these in the new version.
 
+
+    -- P1 L40: “cop-version” should be “Cops and Robbers” ( I would also advise referring to the Cop game as “Cops and
+    Robbers” throughout, rather then sometimes as “Cops and Robber”)
+
+        -> Since we are considering the game with one zombie, we referred to this game as "Cops and Robber". In the new
+        version we changed it to "Cops and Robber(s)"
+
     Mathematical suggestions:
 
-    -- On comments from P2 L18, P2 L33, P2 L35, P3 L25, P3 L29, P3 L30
-        
+    -- P2 L18: You could add to the caption that this is the Cartesian product GH = C 3 C4  of G = C 3 and H = C 4 . The
+    vertex labels do not seem to have a purpose and should be removed (or made consistent with the notation used in the
+    paper).
+    -- P2 L33: You already deﬁned G i and H j on Page 1 so you should not repeat the deﬁnition here.
+    -- P2 L35: I would suggest adopting the convention that the vertices of G and H are numbered and just referring to
+    the vertex (i, j) rather than V i,j (the V doesn’t add any information).
+    -- P3 L25: In Figure 2, H and G do not necessarily have the same number of vertices, so there should not be n copies
+    of each.
+    -- P3 L29: “Conjecture 2” should be “Theorem 2”
+    -- P3 L30: The sentence before the proof does not add anything and should be removed.
+    
         -> Thanks for your comments, we have changed these in the new version.
 
     -- P2 L22: I think it is more standard to use z for zombie number rather than Z.
@@ -98,7 +128,28 @@ Reviewer #3:
         -> We removed the lemma completely. We added another lemma which is not really complicated but we believe its
         needed for understanding and to show that the moves made by zombies are possible.
 
-    -- P3 L34:
+    -- P3 L34: There are a number of issues with the proof. The main one is that the zombie strategy is not precisely
+    deﬁned. Given a survivor vertex and a set of zombie vertices, the exact move made by each zombie must be clearly
+    speciﬁed. Below I propose a way to make your idea a precise strategy. Since the strategy is not precisely deﬁned, it
+    also makes the proof of correctness diﬃcult. But once you specify the strategy precisely, you need to verify that
+    every move that the zombies make is legal, and brings them closer to their goal. One way to do this would be to
+    introduce notation for the current G i for the G-zombies and the survivor (E.g. G z and G s , and similar for
+    H-zombies), and note that until either the G-zombies are in the same G i as the survivor or the H zombies are in the
+    same H j as the survivor that the distance in H edges from G s to G z plus the distance in G edges from H s to H z
+    strictly decreases after each move. Then once G s = G z (or H s = H z ) you can use a more precise argument that the
+    robber will only be able to make a ﬁnite number of moves on G-edges (or H-edges). Once G s = G z and H s = H z the
+    robber can pnly make a ﬁnite a number of moves of any kind before being caught. Here is a proposal for one way to
+    make your strategy precise. First you would deﬁne what it means for zombies to start in a winning position (can
+    catch the survivor no matter where they are), or to be in a winning position relative to the survivor’s current
+    position, and specify that the G-zombies begin in a winning position on one of the G i ’s and the H-zombies begin in
+    a winning position for one of the H j. Suppose the survivor is at (x, y). Then on their turn, if the G-zombies are
+    in G i , and i = ̸ y, all G-zombies should move to the same G j , where j is one step closer to y in H than i. If i
+    = y, then the G-zombies should play their winning strategy on G i (Note in the proof of correctness, you need to
+    argue why following this strategy keeps the G-zombies in a Gwinning position–this is a subtle point, and the reason
+    is because they do not start playing their strategy on G until they are in the same G i as the survivor, at which
+    point they are in a winning position (because their ﬁrst coordinates have not changed). From that point on, every
+    time the survivor makes a G move, the G-zombies counter with their winning strategy on G, thus maintaining their
+    winning position. You can specify the strategy (and justiﬁcation) for H the same way.
 
         -> We really appreciate your comments. In the new version, we used a fixed path (p_G and p_H) for the zombies
         to follow. The statement "G-Zombies will move on an HG-path" is not true since the H-part of the HG-path needs to be
