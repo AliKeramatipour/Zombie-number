@@ -1,4 +1,3 @@
-*.*
 !v6.2.tex
 !.gitignore
 !reviewers-notes.txt
@@ -8,3 +7,21 @@ etc
 !reviewers-notes.docx
 !reviewers-notes.pdf
 !CRediT.docx
+.DS_Store
+.vscode/settings.json
+v6.2/v6.2.aux
+v6.2/v6.2.fdb_latexmk
+v6.2/v6.2.fls
+v6.2/v6.2.log
+v6.2/v6.2.out
+v6.2/v6.2.spl
+v6.2/v6.2.synctex.gz
+v6.2/v6.2.xdv
+v7/v7.aux
+v7/v7.fdb_latexmk
+v7/v7.fls
+v7/v7.log
+v7/v7.out
+v7/v7.spl
+v7/v7.synctex.gz
+v7/v7.xdv

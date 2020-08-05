@@ -1,0 +1,9 @@
+{\it Zombies and Survivors} is a variant of the pursuit-evasion game {\it Cops and Robbers}, with the difference that
+zombies must always move closer to one of their closest survivors. The game is played on a simple graph by two players.
+The goal of the zombies is to catch the survivors while survivors' objective is to avoid being captured. The {\it zombie
+number} of $G$, denoted as $\zn(G)$, is the minimum number of zombies required to capture a single survivor on $G$, no
+matter what moves survivor makes. In this paper, we prove a conjecture by Fitzpatrick et al.\cite{Fitz16} about the
+zombie number of the {\it Cartesian product} of two graphs. This result provides a new proof for $\zn(Q_n) =
+\ceil*{\frac{2n}{3}}$. We also introduce a new problem regarding {\it capture time} in the Cartesian product of two
+graphs. At last, we study computational complexity of finding the zombie number of a graph G, with and without a limited
+{\it capture time}.
