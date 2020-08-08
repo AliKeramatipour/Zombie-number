@@ -50,7 +50,7 @@
 		Fitzpatrick et al.\cite{Fitz16} about the zombie number of the {\it Cartesian product} of two graphs. This
 		result provides a new proof for $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. We also introduce a new problem regarding
 		{\it capture time} in the Cartesian product of two graphs. At last, we study computational complexity of finding the
-		zombie number of a graph G, with and without a limited {\it capture time}.
+		zombie number of a graph $G$, with and without a limited {\it capture time}.
 		\end{abstract}
 		
 		\begin{keyword}
@@ -65,22 +65,22 @@ The {\it Zombies and Survivors} game is played on a simple graph by two players.
 \cite{Fitz16} is played as follows (note that we only consider the game with a single survivor). Initially, the zombie
 player chooses a number $z_c$ and places $z_c$ zombies on the graph vertices. Then the survivor player chooses one
 single vertex which is the survivor's initial position. Starting with the zombie player, on each player's turn, the
-survivor player either moves to an adjacent vertex or stays at his current location, while zombie player must move each
-zombie to one of its adjacent vertices so that they get closer to the survivor. Here lies the difference between {\it
-Zombies and Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)} cops should not necessarily get
-closer to the robber(s), they can either hold their current position, get closer, or further away from the robber(s).
-Although zombies are not as intelligent as cops, they can still choose their path intelligently between the shortest
-paths. If any zombie and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins.
-The zombie number of a graph $G$, denoted as $\zn(G)$, is the minimum number of zombies required so that the zombie
-player can always capture the survivor, no matter how survivor moves.
+zombie player must move each zombie to one of its adjacent vertices so that they get closer to the survivor, while the
+survivor player either moves to an adjacent vertex or stays at his current location. Here lies the difference
+between {\it Zombies and Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)} cops should not
+necessarily get closer to the robber(s), they can either hold their current position, get closer, or further away from
+the robber(s). Although zombies are not as intelligent as cops, they can still choose their path intelligently between
+the shortest paths. If any zombie and the survivor ever occupy the same vertex, the survivor is captured and the zombie
+player wins. The zombie number of a graph $G$, denoted as $\zn(G)$, is the minimum number of zombies required so that
+the zombie player can always capture the survivor, no matter how survivor moves.
 
 The Cartesian product $G \square H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
 $u_2 = v_2$ and $ \{u_1 , v_1 \} \in E_{G}$ \cite{West02}. Figure \ref{fig:p2} shows an example of the Cartesian product
 of two graphs.
 
-{\it Capture time} in a game, is the maximum number of moves survivor can avoid being captured, while zombie player has
-$z_c$ zombies. If this goes to infinity, a survivor-win play exist.
+{\it Capture time} in a game with $z_c$ zombies for the zombie player, is the maximum number of rounds, that survivor
+can survive. If this goes to infinity, a survivor-win play exists.
 
 \begin{figure}[h!]
 	\centering
@@ -91,17 +91,16 @@ $z_c$ zombies. If this goes to infinity, a survivor-win play exist.
 
 Our contributions can be summarized as follows:
 
-1) In \cite{Fitz16}, Fitzpatrick et al. conjectured that $\zn(G \square H) \leq \zn(G) + \zn(H)$. In \ref{conj-proof} We prove this conjecture and
+1) In \cite{Fitz16}, Fitzpatrick et al. conjectured that $\zn(G \square H) \leq \zn(G) + \zn(H)$. In section \ref{conj-proof} We prove this conjecture and
 use it to show that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. 
 
-2) In \ref{capturetime}, we provide a new bound on {\it capture time} of {\it zombies and survivor} game played on the Cartesian
+2) In section \ref{capturetime}, we provide a new bound on {\it capture time} of {\it zombies and survivor} game played on the Cartesian
 product of two graphs. 
 
 3) We introduce a variation of {\it zombies and survivor} game, in which the zombie player is restricted to winning in a
-limited number of moves in \ref{np-capturetime}, and prove it belongs to {\it NP-Hard} class of problems.
+limited number of moves in section \ref{np-capturetime}, and prove it belongs to {\it NP-Hard} class of problems.
 
-
-4) In \ref{np-zombienumber}, we prove that the original {\it zombies and survivor} game belongs to {\it NP-Hard} class
+4) In section \ref{np-zombienumber}, we prove that the original {\it zombies and survivor} game belongs to {\it NP-Hard} class
 of problems.
 
 
@@ -121,7 +120,7 @@ In the Cartesian product of $G$ and $H$, each $G_{i}$ $(1 \leq i \leq m)$ is iso
 the vertex where the survivor is located. Figure \ref{fig:p1} illustrates these definitions.
 
 A {\it G-edge} is an edge in one of the $G_{i}$s and an {\it H-edge} is an edge in one of the $H_{j}$s. A {\it G-move}
-is a move made on a {\it G-edge}. Similarly, an {\it H-Move} is a move made on an {\it H-edge}. If the survivor decides
+is a move made on a {\it G-edge}. Similarly, an {\it H-move} is a move made on an {\it H-edge}. If the survivor decides
 to remain in its current vertex, this move is considered both a {\it G-move} and an {\it H-move}. 
 
 $dist_I(j,k)$ is the distance between $j$ and $k$ vertices on a graph $I$. Length of a path $P$ is shown by $len(P)$. 
@@ -147,11 +146,11 @@ $H$-equivalent graph is defined in the same way.
 \begin{proof}
 	Since there is a path from $(x,y)$ to $(x,v)$ with length $dist_H(y,v)$ and a path from $(x,v)$ to $(u,v)$ of length
 	$dist_G(x,u)$, we only need to prove there can be no path with length less than $dist_G(x,u) + dist_H(y,v)$.
-	Suppose not, this path uses some {\it G-move}s and some {\it H-move}s. If a {\it G-move} is followed by an {\it
-	H-move} (or vice-versa), then we can swap these moves and still end up in the same vertex. For example if $(u_1,v_1)
+	Suppose not, this path uses some {\it G-edge}s and some {\it H-edge}s. If a {\it G-edge} is followed by an {\it
+	H-edge} (or vice-versa), then we can swap these edges and still end up in the same vertex. For example if $(u_1,v_1)
 	\rightarrow (u_2,v_1) \rightarrow (u_2,v_2)$ is happening, we can do $(u_1,v_1) \rightarrow (u_1,v_2) \rightarrow
-	(u_2,v_2)$. Since we can swap each two moves of different type, suppose all {\it G-move}s happen before all {\it
-	H-move}s in the shortest path. Since this path has a length less than $dist_G(x,u) + dist_H(y,v)$, we have found a
+	(u_2,v_2)$. Since we can swap each two edges of different type, suppose all {\it G-edge}s happen before all {\it
+	H-edge}s in the shortest path. Since this path has a length less than $dist_G(x,u) + dist_H(y,v)$, we have found a
 	path in either $G$ between $x$ and $u$, with length less than $dist_G(x,u)$, or in $H$ between $y$ and $v$, with
 	length less than $dist_H(y,v)$, which is a contradiction. Thus the statement holds.
 \end{proof}
@@ -175,7 +174,7 @@ $H$-equivalent graph is defined in the same way.
 
 
 	On each zombie turn, if $a \neq y$, each {\it G-zombie} will move along the $p_H$ path in its corresponding $H$
-	subgraph. According to Lemma \ref{shortestpathlemma}, since zombies' and survivor's equivalents on $H$ are getting
+	subgraph. According to lemma \ref{shortestpathlemma}, since zombies' and survivor's equivalents on $H$ are getting
 	closer, thus their actual vertices on $G \square H$ are getting closer as well and this move is possible. Since they
 	are all moving along similar paths (in their corresponding $H$-subgraphs) they will still share the same
 	$G$-subgraph. Now consider when $a = y$, {\it G-zombie}s will play their winning strategy (that they had on a single
@@ -233,7 +232,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\end{theorem}
 	\begin{proof}
 		By using $z_G$ zombies as {\it G-zombie}s and $z_H$ zombies as {\it H-zombie}s, and having them follow the same
-		set of moves provided in theorem \ref{T2}, we show that survivor's {\it G-move}s cannot exceed $diam(H)
+		set of moves provided in Theorem \ref{T2}, we show that survivor's {\it G-move}s cannot exceed $diam(H)
 		+ capt(G, z_G)$. With the same conclusion, it can be shown that {\it H-move}s cannot exceed $diam(G) + capt(H, z_H)$
 		as well.
 
@@ -247,7 +246,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 \section{Limited capture time zombie number problem is NP-Hard}\label{np-capturetime}
 
 	{\it NP-hardness} (non-deterministic polynomial-time hardness) is, in computational complexity theory, a class of
-	problems that are informally "at least as hard as the hardest problems in NP class". A problem is assigned to the NP
+	problems that are informally ``at least as hard as the hardest problems in NP class". A problem is assigned to the NP
 	(non-deterministic polynomial time) class if it is solvable in polynomial time by a non-deterministic Turing
 	machine.
 
@@ -259,7 +258,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	We define $Lc\zn(G,k)$ ({\it limited capture time zombie number}) as the minimum number of zombies needed so that
 	zombie player is able to capture the survivor in at most $k$ moves on graph $G$. 
 
-	Also $N_G[u]$ represents the set of neighbors of $u$ in graph $G$.
+	Also $N_G[u]$ represents the closed neighborhood of $u$ in graph $G$.
 	
 	$LC\NPZ_k$ problem is defined as below:
 	{\newline}
@@ -300,8 +299,8 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		$|V(G'_k)| = nk$ is of $O(n)$. Thus creating $G'_k$ can be done in polynomial time. Consider set $S'$ as zombies'
 		initial vertices on $G'_k$, so that zombies are able to capture the survivor within $k$ moves. For each vertex $v \in
 		S'$ or $(v,i) \in S'$ add $v$ to a new set of $G$'s vertices, $S$. If there is a vertex $u \in G$ not dominated by
-		$S$, then there is no vertex $v$ such that $v \in S'$ and $v \in N_{G'_k}[u] \cup \{u, (u,1 \leq i < k)\}$. By having
-		the survivor in vertex $(u, k-1)$, there is no vertex at distance $k$ or less from him, which means he will not
+		$S$, then there is no vertex $v$ such that $v \in S'$ and $v \in N_{G'_k}[u] \cup \{(u,1 \leq i < k)\}$. By having
+		the survivor in vertex $(u, k-1)$, there is no zombie at distance $k$ or less from him, which means he will not
 		be captured. Thus $\gamma(G) \leq Lc\zn(G'_k,k)$ holds.
 		
 		Now for each vertex $v$ in one of $G$'s smallest dominating-sets, place a zombie on vertex $v$ of $G'_k$. These
@@ -314,31 +313,6 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		$LC\NPZ_k$.
 
 	\end{proof}
-
-	\begin{lemma}
-		\label{limit-moves}
-		Let $n$ be the number of vertices of graph $G$. If survivor can avoid being captured on $G$ after $(n + 1)
-		\times n \times diam(G)$ moves, he can forever avoid being captured on $G$.
-	\end{lemma}
-	\begin{proof}
-		Define $zombieDist$ as the sum of the distances between each zombie and the survivor. It is not hard to see that
-		after each two rounds of play, that is each player has played once, $zombieDist$ will not increase, since
-		zombies are always getting closer to the survivor. Now we show that if $zombieDist$ does not strictly decrease
-		after each player takes turn for $n + 1$ times, survivor can avoid being captured forever. Consider the sequence
-		of vertices occupied by survivor in $n + 1$ consecutive moves. By pigeonhole principle, one vertex has been seen
-		by survivor at least twice. If survivor keeps repeating those moves, he will maintain his distance from zombies
-		and will avoid being captured forever.
-
-		Therefore, for a graph $G$ which zombie-player can win, after each $(n + 1)$ moves, $zombieDist$ should strictly
-		decrease. $zombieDist$ is at most $n \times diam(G)$, since there is not more than $n$ zombies and each zombie is at distance
-		at most $diam(G)$ from survivor (this bound can be easily improved). Thus, after $(n + 1) \times n \times diam(G)$ moves, zombies would
-		capture the survivor.
-	\end{proof}
-
-	By using this lemma, we can see $LC\NPZ_k$ problem for $k > (n + 1) \times n \times diam(G)$ and a graph with $n$ vertices are the same as
-	the problem $LC\NPZ_{(n + 1) \times n \times diam(G)}$, and by solving $LC\NPZ_{(n + 1) \times n \times diam(G)}$ for $G$, we get $\zn(G)$ as well.
-
-
 	
 	\section{Zombie Number Problem is NP-Hard}\label{np-zombienumber}
 
@@ -357,7 +331,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		To do this, we add $n$ new complete bipartite graphs, $K_{n,n}$, to $G$. We call the newly obtained graph $H$,
 		and call the $G$-subgraph simply as $G$, and the $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $K_i$.
 		$(i,j,b)$ represents the $j$-th vertex in $K_i$'s part $b$ ($b = 1,2$) . For each vertex $(i,j,b)$ we connect it
-		to vertices $j$ and $N_G[j]$ (See figure \ref{fig:p8}). Since we are adding $2n^2$ new vertices, building $H$
+		to vertices in $N_G[j]$ (See figure \ref{fig:p8}). Since we are adding $2n^2$ new vertices, building $H$
 		can be done in polynomial time.
 
 		\begin{figure}[h!]
@@ -380,7 +354,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		$(i \neq k)$ or $K_k$. Initially there is no zombie in $K_k$, this means whenever a zombie wants to join $K_k$,
 		it has to be in $G$ in order to reach $K_k$, as there is no connection between $K_i$-subgraphs. Zombies in $G$
 		(e.g. at vertex $u$) are at distance 2 from survivor $(u \rightarrow (k,u,3 - b) \rightarrow (k,v,b))$, which
-		means after their move all of them should be at one of $(k,v,b)$'s neighbors, that is, $v , N_G[v] $ or, $ (k,1
+		means after their move all of them should be at one of $(k,v,b)$'s neighbors, that is, $N_G[v] $ or, $ (k,1
 		\leq i \leq n,3 - b)$. Therefore, each zombie joining $K_k$ does not share the same partition as survivor's.
 		Survivor now moves to $(k,v,3-b)$ and will be sharing the same partition as zombies' in $K_k$. As survivor does
 		not have any neighbors in $G$ or $K_k$ on each zombie player's turn, he will not be captured. Therefore,
@@ -392,13 +366,13 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 \begin{thebibliography}{999}
 	
 	\bibitem{Fitz16}
-	Fitzpatrick, Shannon L., J. Howell, Margaret-Ellen Messinger, and David A. Pike. "A deterministic version of the
+	Fitzpatrick, Shannon L., J. Howell, Margaret-Ellen Messinger, and David A. Pike. ``A deterministic version of the
 	game of zombies and survivors on graphs." Discrete Applied Mathematics 213 (2016): 1-12.
 	\bibitem{Offner19}
-	Offner, David, and Kerry Ojakian. "Comparing the power of cops to zombies in pursuit-evasion games." Discrete
+	Offner, David, and Kerry Ojakian. ``Comparing the power of cops to zombies in pursuit-evasion games." Discrete
 	Applied Mathematics (2019).
 	\bibitem{West02}
-	West, Douglas B. "Introduction to Graph Theory." Prentice hall, (1996).
+	West, Douglas B. ``Introduction to Graph Theory." Prentice hall, (1996).
 \end{thebibliography}
 
 \newpage
