@@ -4,167 +4,140 @@ explanations.
 
 
 Reviewer #1:
+    Abstract
     -- P1 L19: I am not sure why you use italics in various spots in the abstract
+    -- P1 L24 and throughout the paper: I would use “the survivor” instead of “survivor”
 
-        -> We changed the usage in the new version, we only use it for new terms in our paper.
 
-    -- p.1, line 43:  "player always has a winning strategy" [do the zombies exactly have a 'strategy'?  They follow a
-    simple algorithm, so it's unclear to the reader; it's also unclear what move the zombies make when faced with
-    multiple shortest paths]:
-
-        -> By having a winning strategy, we meant zombie player can always win no matter how survivors
-        moves. We changed the statement in the new revised version
-
+    Introduction
     -- P1 L47: “cops should not” should be “cops need not”
     -- P1 L48: “They can either hold...” should be its own sentence.
-    -- p.3, line 31: the word "the" should precede "zombie number"
-    -- p.4, line 17: subscript on Z(Q_2)
-    -- p.4, line 18: the word "Cartesian" is capitalized elsewhere in the proof. 
-        
-        -> Thanks for your comments, we have changed these in the new version.
+        --> Thanks for your comments, we have changed these in the new version.
+    -- P2 L15: There should not be a comma after “Capture time in a game”
+    -- P2 L17: “exists” should be “exist”
+        --> We changed this part in the new version and moved capture time related definitions from part 3 to here.
+    -- P2 L26 and throughout the paper: Notation for Cartesian product looks strange. Is there a better way to typeset?
+        --> Thank you for your comment, we made the square smaller.
+    -- P2 L41, L45, L47: Instead of 3, 4, 5, write “Section 3”, “Section 4”, “Section 5”
+        --> Thanks for your comments, we have changed these in the new version.
+
+    Zombie number of the Cartesian product of two graphs
+    -- P3 L6: “notations” should be “notation”
+    -- P3 L8: It would be clearer to write “For 1 ≤ i ≤ m, define Gi to be the subgraph induced by..”
+    -- P3 L9: It would be clearer to write “Similarly, for 1 ≤ j ≤ n, define Hj to be the subgraph induced by..”
+    -- P3 L9: It is redundant to define (j, i) as the common vertex Gi and Hj . You could remind the reader of the notation.
+    -- P3 L20: It would be clearer to write ”Define distI (j, k) to be the distance between vertices j and k on a graph I. Define the length of a path P to be len(P).”
+    -- P3 L23: It would be clearer to write “For a vertex (u,v) ∈ G􏰀H, define its G-equivalent vertex to be u ∈ V (G). You should also make the definition of G-equivalent graph more formal then “where we put”.
+        --> Thanks for your comments, we have changed these in the new version.
+    -- P3 L52: It would seem clearer to talk about G- and H-edges rather than moves.
+    -- P4 L6: I think this proof should be more formal. Instead of writing some moves are happening, you could specify that the path of the same length with G-edges before H-edges has all G-edges in Gy and all H edges in Hu.
+        --> Reviewer #3 suggested to remove the proof of this lemma and only state it. We have removed the proof in the new version.
+    -- P4 L30: I think the sentence “If a = y and the survivor makes an H-move, ...” is not necessary (the zombie strategy does depends only on the position when it is their turn).
+        --> We have removed this sentence.
+    -- P4 L39: I think the sentence “Now for each G-move...” is not clear. Is the point you’re trying to make that whenever the survivor makes an H-move, that the zombies will all be on Hx?
+        --> Yes. Instead of H-equivalent we should have used H_x. We changed this in the new version.
+    -- P4 L49, 53: It would be clearer to write “Theorem 2” rather than “theorem proved above” and “proved conjecture”
+        --> Thanks for your comments, we have changed these in the new version.
+
+
+    Capture time in Cartesian product of graphs
+    -- P5 L23 and throughout: I think in Theorem 5 you could replace diameter of the graph with radius (just start the cops at the vertices that minimize the length of the longest path). Also you could subtract 1 from the capture time since it is only necessary for the G or H-zombies to catch the survivor, not both.
+        --> Thanks for your comment. We applied these comments in the new version.
+    -- P5 L26: Theorem 2 should be captitalized.
+    -- P5 L35: “total number” should be “the total number”
+        --> Thanks for your comments, we have changed these in the new version.
+
+
+    Limited capture time zombie number problem is NP-Hard
+    -- P5 L42: Quotation mark is backward
+    -- P5 L46: You should include a reference that dominating set is NP-Hard.
+    -- P5 L54: “Also NG[u] represents...” should be “Let NG[u] represent...” and you should specify whether this set includes u itself (is it the closed or open neighborhood)?
+    -- P6 L6: First sentence should be “The LCZk problem...”
+    -- P6 L7: The instance should be: “Let G = (V,E) be a simple undirected graph and let zc and k be positive integers.”
+    -- P6 L9: The second sentence of the question is not needed (or should be placed outside the formal definition).
+    -- P6 L13: The instance should be “Let G = (V,E) be a simple undirected graph and let d be a positive integer.”
+        --> Thanks for your comments, we have changed these in the new version.
+    -- P6 L30: You should explicitly state adjacencies for (v, i)’s.
+        --> We stated the exact path in the new version. I think it is much more clear now and adjacencies are stated as well.
+    -- P6 L43: Why are the k’s capitalized in the figure?
+        --> We used small letters in the new version. There was no intention and it was a mistake.
+    -- P6 L48: Also note the number of edges in Gk is O(n).
+        --> Reviewer #3 noted that this line is too clear and it is not needed. In the new version we just stated that G'k can be build in polynomial time.
+    -- P6 L50: It would be clearer to say: “Let S be the set of vertices v ∈ V (G) such that v ∈ S′ or (v, i) ∈ S`.”
+        --> Thanks for your comment, we changed this in the new version.
+    -- P7 L17: I am not convinced by the proof of Lemma 7. It is certainly true that if the survivor moves n + 1 times, they will be on the same vertex twice. But that does not imply that the zombies will be in the same position both times (even if their total distance is the same). Without this fact I don’t think you can argue that the survivor could repeat the same moves.
+        --> The proof of Lemma 7 is wrong and it will be removed. Since it was not used anywhere else other theorems still hold.
+
+
+    Zombie number problem is NP-Hard
+    -- P7 L45: The instance should be: “Let G = (V, E) be a simple undirected graph and let zc be a positive integer.”
+    -- P8:
+        --> Thanks for your comments, we have changed these in the new version.
+
+
+
+
 
 Reviewer #2:
-    Our proof was not so clear and it also had some issues regarding coordinates of the cartesian product vertices. We
-    changed it in the new version.
+    -- P1. Line 29.  The final G in the Abstract needs to be in math mode.
+    -- P1. Lines 43-45.  Since the zombie player starts first, why present the survivor's details before the zombie's details?
+    -- P2. Lines 15-16.  The attempt to define capture time has too many grammar mistakes to be understood.  Please revise this.
+    -- P2. Lines 39-47.  Don't say "2", "3", etc.  Say "Section 2", etc.
+    -- P3. Line 16.  H-Move should be H-move
+        -->  Thanks for your comments, we have changed these in the new version.
+
+    -- P3-4.  In the proof of Lemma 1 there are several mentions of moves.  However, the lemma does not involve any players, and so there are no entities that would be in motion.  I believe that several of the references to "moves" in this proof should instead refer to "edges".  
+        --> Reviewer #3 suggested to remove the proof of this lemma and only state it. We have removed the proof in the new version.
+
+    -- P5. L26.  Theorem 2 (not theorem 2)
+    -- P5. L42.  The quotes are in the wrong direction.  This also happens elsewhere in the paper, such as in the References.
+        -->  Thanks for your comments, we have changed these in the new version.
     
-    -- I think that I have found some flaws in the proof given in the current manuscript.  Most importantly, the premise
-    stated on P3 L39 that "Since $G$-Zombies are initially on the same $G_i$ after each move they would still be on the
-    same $G_i$" is, I believe, false.  To describe a situation that illustrates that this statement is false, suppose
-    that there are 3 $G$-Zombies, located on three distinct vertices, say $u, v, w$ of some $G_i$.  By virtue of being
-    $G$-Zombies, these three zombies will move within $G_i$ before choosing to move along an $H$-edge.  However, suppose
-    that the survivor is located in the same copy of $H$ as vertex $v$.  Then the zombie at $v$ will now move along an
-    $H$-edge, whereas the zombies at $u$ and $w$ will move along $G$-edges.  $u,v,w$ will now fail to be in the same
-    copy of $G$, contrary to what the authors have stated in their proof.
-        
-        -> G-zombies will move along H-edges (HG-path as in previous version) if possible. They prioritize H-moves over
-        G-moves. Our strategy makes them share the same G-subgraph. Now if one can do an H-move, they will all do the
-        same.
-    
-    On minor comments:
+    -- P5. L44.  I believe that the class that has been described is P, not NP.  The authors should ensure that NP is correctly defined.
+        --> This part was removed in the new version.
 
-    -- P1 L49.  $G \Box H$ is defined on vertex set $V(G) \times V(H)$.  Hence by fixing $u$ in the pair $(u,v)$ it is a
-    copy of $H$, not a copy of $G$, that is obtained.  Likewise, fixing $v$ yields a copy of $G$, not $H$.
-    -- Figure 1 shows $G \Box H$ with the copies of $G$ taking vertical form.  But in Figure 2 they are shown horizontally.
-    I recommend using a consistent portrayal.
+    -- P5. L53.  Do the authors truly want the closed neighborhood of u, and not the open neighborhood?  If yes, then they should say so.  Alternatively, if they want the open neighborhood, then they should not use the notation for closed neighborhood.
+        --> We refer to this as closed neighborhood in the new version.
+    -- P6. L52-53.  Surely vertex $(u,k-1)$ is adjacent to an other vertex, and so the statement that "there is no vertex at distance $k$ or less" is false.
+        --> We meant there is no zombie at distance k or less. We changed it in the new version.
+    -- P7. L22.  I believe "each two rounds" is meant to be "each round"
+    -- P7. L28-30.  I agree with the pigeonhole principle statement.  But I am not yet convinced that the final sentence of the paragraph is correct.  Couldn't the positions of the players have now changed from the previous time when the survivor was on the previously visited vertex, and if so, might there now be an opportunity for distances to be reduced in the coming moves (which will not be the same moves as before)?
+        --> The proof of Lemma 7 is wrong and it will be removed. Since it was not used anywhere else other theorems still hold.
 
-        -> Thanks for your comments, we have changed these in the new version.
 
-    -- P3 L53.  Although the distance between the two stated vertices is at most $n$, the survivor is not guaranteed to be
-    stationary.  So it is unclear that $H_y$ can be reached within $n$ $H$-moves.
 
-        -> Our proof was unclear here. We changed it and also added a new figure in appendix for further understanding.
-        We are sorry for this mistake, by H_y we meant H_x since the survivor's H-subgraph would be H_x.
-        When survivor does an H-move, its H subgraph wont change. This means, H-zombies will follow their path and
-        get to the survivor's H-subgraph (H_x). So after at most n(or diameter of graph G) H-moves by survivor, H-zombies
-        will be in H_x. From now on, for each G-move made by survivor, they will mimic it so they would still be in H_x. For
-        each H-move made by survivor, H-zombies will play the game just like they would on a single H graph. Since they can
-        win on H, survivor cannot do unlimited H-moves.
-
-    -- P3 L54.  The authors state that by making $H$-moves the $H$-Zombies will reach $H_y$.  But if they are making
-    $H$-moves, then these zombies are staying within their current copy of $H$. 
-
-        -> This statement was also unclear. We meant after at most n H-moves done by survivor , and not H-zombies.
     
 Reviewer #3:
-    We really appreciate the time you have put and your comments to help improving this paper. This new paper was not
-    possible without your comments.
-
-    On writing suggestions:
-
-    -- P1 L25: “We also use the proved conjecture to provide a new proof for Z(Q n ) = ⌈ 2n/3 ⌉ ” could be written more
-    eﬃciently as something like “This result provides a new proof for Z(Q n ) = ⌈ 2n/3 ⌉ ” In general there are many
-    places where the writing could be tighter, and such changes would result in a more readable manuscript. I suggest
-    the authors go through the paper looking for such places (Phrases like “We can now see that” can be repaced by
-    “thus” for example.)
-
-        -> Thank you for your suggestion. We went through the paper and looked for such places. We believe
-        it is much more readable now.
-
-    -- P1 L17: “The Zombies and Survivors” should be “Zombies and Survivors”
-    -- P1 L33: “The Zombies and Survivor game” should be “The Zombies and Survivors game”
-    -- P1 L36: “Starting by” should be “Starting with”
-    -- P1 L45: “Cartesian product” should be “The Cartesian product”
-    -- P1 L48: “Cartesian product” should be “the Cartesian product”
-    -- P4 L17: Z ( Q 2 ) should be Z(Q 2 ) (parenthesis should not be subscript).
-    -- P4 L19: “proved conjecture” should be “Theorem 2”
-
-        -> Thanks for your comments, we have changed these in the new version.
-
-
-    -- P1 L40: “cop-version” should be “Cops and Robbers” ( I would also advise referring to the Cop game as “Cops and
-    Robbers” throughout, rather then sometimes as “Cops and Robber”)
-
-        -> Since we are considering the game with one zombie, we referred to this game as "Cops and Robber". In the new
-        version we changed it to "Cops and Robber(s)".
-
-    Mathematical suggestions:
-
-    -- P2 L18: You could add to the caption that this is the Cartesian product GH = C 3 C4  of G = C 3 and H = C 4 . The
-    vertex labels do not seem to have a purpose and should be removed (or made consistent with the notation used in the
-    paper).
-    -- P2 L33: You already deﬁned G i and H j on Page 1 so you should not repeat the deﬁnition here.
-    -- P2 L35: I would suggest adopting the convention that the vertices of G and H are numbered and just referring to
-    the vertex (i, j) rather than V i,j (the V doesn’t add any information).
-    -- P3 L25: In Figure 2, H and G do not necessarily have the same number of vertices, so there should not be n copies
-    of each.
-    -- P3 L29: “Conjecture 2” should be “Theorem 2”
-    -- P3 L30: The sentence before the proof does not add anything and should be removed.
+    -- 1: We have changed the definition and only refer to this game as "Zombies and Survivor" instead "Zombies and Survivors"
+    -- 2: We changed this in the new version. Now zombies player is given "z" zombies instead of choosing "z" himself.
+    -- 3: We changed this in the new version and made a custom "z" for z_c. By c in z_c we meant "count" but it surely was not clear.
+    -- 4: Thanks for your comment, a new line was added.
+    -- 5: We moved the definition from page 5 to here and also added the reference you mentioned.
+    -- 6: Thanks for your comment, we replaced this with "capt" function in the new version.
+    -- 7: "G-equivalent graph" is a new graph "G", where we put each survivor and zombies, on their "G-equivalent" position. Since it is a graph, i believe "G-equivalent graph" suits it more than "G-equivalent game position".
+    -- 8: We have removed the proof and just stated the lemma.
+    -- 9: 
+        (a) Above figure 2, we stated that survivor is located at (x,y). In the new version we have added a new line to remind the reader.
+        (b) p_H refers to a single object which is a path in graph H. Every zombies will move along this path in its H-subgraph. Also choosing a single path is key to this proof, since if we use different paths for our zombies, they might end up in different H-subgraphs which makes us unable to discuss the game on a single H. Therefore, i believe referring to this path as p_H is more clear.
+        (c) We changed this in the new version.
+        (d) We made some minor changed to make the proof shorter and easier to understand.
+    -- 10: We will remove this and add a reference for it. Although i am not sure which website do u want me to place this example at.
+    -- 11: Thanks for your comment, we changed this in the new version.
+    -- 12: Reference was added.
+    -- 13: We changed the definition and also moved it to above figure 1.
+    -- 14: We replaced diameter with radius and wrote "Let $rad(G)$ represent the $G$'s radius".
+    -- 15: Thanks for your comment, these lines were removed.
+    -- 16: Thanks for your comment, we changed this to closed neighborhood.
+    -- 17: k is not an input to problem and is a parameter. We changed the INSTANCE of LCZ_k problem and now "k" is not an input.
+    -- 18: Thanks for your comment, we changed this in the new version.
+    -- 19: Thanks for your comment, we have applied these changes in the new version.
+    -- 20: We added this reference and also mentioned the cops and robbers version of this problem at page 2.
+    -- 21: The proof of Lemma 7 is wrong and it will be removed. Since it was not used anywhere else other theorems still hold.
+    -- 22: Reference was added.
+    -- 23: Thanks for your comment, we have changed this in the new version.
+    -- 24: Thanks for your comment, We used B_i in the new version.
+    -- 25: Thanks for you comment, we did this in the new version.
+    -- 26: In abstract we added a note that we only discuss connected graphs.
+    -- 27: These parts of proof were modified using Reviewer #1's comments. I believe it is clearer now.
     
-        -> Thanks for your comments, we have changed these in the new version.
-
-    -- P2 L22: I think it is more standard to use z for zombie number rather than Z.
-
-        -> We used a different "z" for zombie number in the new version. Also "Z" is now used for the zombie number
-        problem.
     
-    -- P2 L41: Lemma 1 is not used in the rest of the paper and should be deleted. IF it turns out to be useful, my
-    comments about it are below. 
-
-        -> We removed the lemma completely. We added another lemma which is not really complicated but we believe its
-        needed for understanding and to show that the moves made by zombies are possible.
-
-    -- P3 L34: There are a number of issues with the proof. The main one is that the zombie strategy is not precisely
-    deﬁned. Given a survivor vertex and a set of zombie vertices, the exact move made by each zombie must be clearly
-    speciﬁed. Below I propose a way to make your idea a precise strategy. Since the strategy is not precisely deﬁned, it
-    also makes the proof of correctness diﬃcult. But once you specify the strategy precisely, you need to verify that
-    every move that the zombies make is legal, and brings them closer to their goal. One way to do this would be to
-    introduce notation for the current G i for the G-zombies and the survivor (E.g. G z and G s , and similar for
-    H-zombies), and note that until either the G-zombies are in the same G i as the survivor or the H zombies are in the
-    same H j as the survivor that the distance in H edges from G s to G z plus the distance in G edges from H s to H z
-    strictly decreases after each move. Then once G s = G z (or H s = H z ) you can use a more precise argument that the
-    robber will only be able to make a ﬁnite number of moves on G-edges (or H-edges). Once G s = G z and H s = H z the
-    robber can pnly make a ﬁnite a number of moves of any kind before being caught. Here is a proposal for one way to
-    make your strategy precise. First you would deﬁne what it means for zombies to start in a winning position (can
-    catch the survivor no matter where they are), or to be in a winning position relative to the survivor’s current
-    position, and specify that the G-zombies begin in a winning position on one of the G i ’s and the H-zombies begin in
-    a winning position for one of the H j. Suppose the survivor is at (x, y). Then on their turn, if the G-zombies are
-    in G i , and i = ̸ y, all G-zombies should move to the same G j , where j is one step closer to y in H than i. If i
-    = y, then the G-zombies should play their winning strategy on G i (Note in the proof of correctness, you need to
-    argue why following this strategy keeps the G-zombies in a Gwinning position–this is a subtle point, and the reason
-    is because they do not start playing their strategy on G until they are in the same G i as the survivor, at which
-    point they are in a winning position (because their ﬁrst coordinates have not changed). From that point on, every
-    time the survivor makes a G move, the G-zombies counter with their winning strategy on G, thus maintaining their
-    winning position. You can specify the strategy (and justiﬁcation) for H the same way.
-
-        -> We really appreciate your comments. In the new version, we used a fixed path (p_G and p_H) for the zombies
-        to follow. The statement "G-Zombies will move on an HG-path" is not true since the H-part of the HG-path needs to be
-        unique. Otherwise G-zombies might lose their arrangement and will not be able to follow their strategy when they
-        reach G_y. But by having a unique path, this will not be a problem.
-
-    Suggestions for extension:
-
-        -> Thanks for your suggestions. By thinking about capture time and bounding it in our strategy, a new variation of the
-        zombies and survivors game regarding capture time was added as well. This new problem is like the original game but
-        zombie player must win in limited number of moves. We prove this new problem and original version of the game
-        belongs to NP-Hard class of problems.
-
-
-Reviewer #4:
-    -- On lemma 1: 
-    
-        -> Lemma 1 was changed on the new version. Although it's not a hard problem, but we believe stating it before
-        the actual proof is useful for a better understanding.
-
-    -- Submitting:
-
-        -> We did submit this as a "note" instead of "paper". We also added two more new results in the new version.
