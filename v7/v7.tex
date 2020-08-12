@@ -65,7 +65,7 @@
 
 The {\it Zombies and Survivor} game is played on a simple graph by two players (we only discuss connected graphs, proofs
 can be easily modified for disconnected graphs). The deterministic version of this game \cite{Fitz16} is played as
-follows. Initially, the zombie player has $\mathpzc{z}$ zombies and places them on the graph vertices. This initial
+follows. Initially, the zombie player has $\mathpzc{z}$ zombies and places them on the graph's vertices. This initial
 arrangement that zombie player chooses is essential for him to win.  Then the survivor player chooses one single vertex
 which is the survivor's initial position. Starting with the zombie player, on each player's turn, the zombie player must
 move each zombie to one of its adjacent vertices so that they get closer to the survivor, while the survivor player
@@ -101,8 +101,8 @@ use it to show that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$.
 2) In section \ref{capturetime}, we provide a new bound on {\it capture time} of {\it zombies and survivor} game played on the Cartesian
 product of two graphs. 
 
-3) We introduce a variation of {\it zombies and survivor} game, in which the zombie player is restricted to winning in a
-limited number of moves in section \ref{np-capturetime}, and prove it belongs to {\it NP-Hard} class of problems.
+3) In section \ref{np-capturetime}, we introduce a variation of {\it zombies and survivor} game, in which the zombie
+player is restricted to win in a limited number of moves, and prove it belongs to {\it NP-Hard} class of problems.
 
 4) In section \ref{np-zombienumber}, we prove that the original {\it zombies and survivor} game belongs to {\it NP-Hard} class
 of problems.
@@ -183,11 +183,11 @@ $H$-equivalent graph is defined in the same way.
 	closer, thus their actual vertices on $G \square H$ are getting closer as well and this move is possible. Since they
 	are all moving along similar paths (in their corresponding $H$-subgraphs) they will still share the same
 	$G$-subgraph. Now consider when $a = y$, {\it G-zombie}s will play their winning strategy (that they had on a single
-	$G$) in this case. This move is also possible since in $G$'s strategy, zombies would get closer to survivor on each
-	turn. If $a = y$ and survivor makes an {\it H-move}, {\it G-zombie}s will maintain their positioning by mimicking
-	the exact same move on their corresponding $H$. This means for those turns that $a=y$ holds, if we consider the
-	$G$-equivalent graph between {\it G-zombie}s and the survivor, it is just like a simple game played on a single $G$.
-	{\it H-zombie}s will follow the same strategy but in their corresponding environment.
+	$G$) in this case. This move is also possible since in $G$'s strategy, zombies would get closer to the survivor on
+	each turn. If $a = y$ and the survivor makes an {\it H-move}, {\it G-zombie}s will maintain their positioning by
+	mimicking the exact same move on their corresponding $H$. This means for those turns that $a=y$ holds, if we
+	consider the $G$-equivalent graph between {\it G-zombie}s and the survivor, it is just like a simple game played on
+	a single $G$. {\it H-zombie}s will follow the same strategy but in their corresponding environment.
 	
 	
 	Suppose using this strategy the survivor wins, then the survivor must either do infinite {\it G-move}s or infinite
@@ -221,7 +221,7 @@ It is already proved that at least $\ceil*{\frac{2n}{3}}$ zombies are needed to 
 	For each integer $n \geq 1$, $\zn(Q_n) \geq \ceil*{\frac{2n}{3}} $.
 \end{theorem}
 
-Combining {\it Corollary \ref{C3}} and {\it Theorem \ref{T4}} we can conclude that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$.
+Combining Corollary \ref{C3} and Theorem \ref{T4} we can conclude that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$.
 This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Offner19} with a different method. 
 	
 
@@ -235,7 +235,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\begin{proof}
 		By using $z_G$ zombies as {\it G-zombie}s and $z_H$ zombies as {\it H-zombie}s, and having them follow the same
 		set of moves provided in Theorem \ref{T2}, with the difference that initially $a$ and $b$ are centers of graphs
-		$H$ and $G$. we show that survivor's {\it G-move}s cannot exceed $rad(H) + capt(G, z_G)$. With the same
+		$H$ and $G$. We show that survivor's {\it G-move}s cannot exceed $rad(H) + capt(G, z_G)$. With the same
 		conclusion, it can be shown that {\it H-move}s cannot exceed $rad(G) + capt(H, z_H)$ as well.
 
 		According to the definition of the radius of a graph, after at most first $radius(H)$ {\it G-move}s that
@@ -275,8 +275,8 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\begin{proof}
 		We prove this by reducing the dominating-set problem to $LC\NPZ_k$ in polynomial time.
 
-		Consider $k$ to be an arbitrary positive integer. We construct a new graph $G'_k$ from $G$. Suppose $G$
-		has $n$ vertices. For each $v \in V(G)$, we add $k-1$ new vertices $(v,1 \leq i < k)$ making a {\it new} path,
+		Consider $k$ to be an arbitrary positive integer. We construct a new graph $G'_k$ from $G$. Suppose $G$ has $n$
+		vertices. For each $v \in V(G)$, we add $k-1$ new vertices $(v,1 \leq i < k)$ making a new path,
 		$(v,(v,1),(v,2),...,(v,k-1))$ (as shown in figure \ref{fig:p7}). Creating $G'_k$ can be done in polynomial time.
 
 		\begin{figure}[h!]
@@ -287,16 +287,16 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		\end{figure}		
 
 
-		We prove this by showing $Lc\zn(G'_k,k) = \gamma(G)$. Consider set $S'$ as zombies' initial vertices on $G'_k$,
+		We prove this theorem by showing $Lc\zn(G'_k,k) = \gamma(G)$. Consider set $S'$ as zombies' initial vertices on $G'_k$,
 		so that zombies are able to capture the survivor within $k$ moves. Let $S$ be the set of vertices $v \in V(G)$
-		such that $v \in S'$ or $(v,i) \in S'$. If there is a vertex $u \in G$ not dominated by $S$, then there is no
+		such that $v \in S'$ or $(v,i) \in S'$. If there is a vertex $u \in V(G)$ not dominated by $S$, then there is no
 		vertex $v$ such that $v \in S'$ and $v \in N_{G'_k}[u] \cup \{(u,1 \leq i < k)\}$. By having the survivor in
 		vertex $(u, k-1)$, there is no zombie at distance $k$ or less from him, which means he will not be captured.
 		Thus $\gamma(G) \leq Lc\zn(G'_k,k)$ holds.
 		
 		Now for each vertex $v$ in one of $G$'s smallest dominating-sets, place a zombie on vertex $v$ of $G'_k$. These
 		zombies can capture the survivor in at most $k$ moves. To show this, consider survivor's initial vertex, if it
-		is not a {\it new}ly added vertex, he can be captured in one move. Now suppose survivor is initially on $(u,i)$. Since
+		is not a newly added vertex, he can be captured in one move. Now suppose survivor is initially on $(u,i)$. Since
 		$u$ is dominated by a zombie, after zombies' first move, survivor will be trapped inside the $u$'s path, and would
 		be captured in at most $k$ moves. Therefore, $Lc\zn(G'_k,k) \leq \gamma(G)$.
 

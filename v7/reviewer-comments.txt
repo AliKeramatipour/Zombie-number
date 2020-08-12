@@ -4,14 +4,9 @@ explanations.
 
 
 Reviewer #1:
-    Three new results was added to paper.
+    -- P1 L19: I am not sure why you use italics in various spots in the abstract
 
-    On minor comments: 
-    
-    -- P1. Line 29.  The final G in the Abstract needs to be in math mode.:
-
-        -> In cop-version, as explained in the new paper, cops can choose any edge and move along it or either save
-        their current position, while zombies must always get closer to the survivor. 
+        -> We changed the usage in the new version, we only use it for new terms in our paper.
 
     -- p.1, line 43:  "player always has a winning strategy" [do the zombies exactly have a 'strategy'?  They follow a
     simple algorithm, so it's unclear to the reader; it's also unclear what move the zombies make when faced with
@@ -20,8 +15,8 @@ Reviewer #1:
         -> By having a winning strategy, we meant zombie player can always win no matter how survivors
         moves. We changed the statement in the new revised version
 
-    -- p.1, line 45 and line 48 The word "the" should precede "Cartesian product"
-    -- p.2, Figure 1: the figure is a little confusing given the numbers of the vertices in H (I assume it was copied from an example illustrating a colouring or independent set?, but given the preceding paragraph referring to indexed vertices, it could be confusing.)
+    -- P1 L47: “cops should not” should be “cops need not”
+    -- P1 L48: “They can either hold...” should be its own sentence.
     -- p.3, line 31: the word "the" should precede "zombie number"
     -- p.4, line 17: subscript on Z(Q_2)
     -- p.4, line 18: the word "Cartesian" is capitalized elsewhere in the proof. 
