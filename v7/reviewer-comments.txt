@@ -3,7 +3,7 @@ for improving this paper. In response to your suggestions, we have outlined the 
 explanations.
 
 
-Reviewer #1:
+In response to the comments of Reviewer #1:
     Abstract
     -- P1 L19: I am not sure why you use italics in various spots in the abstract
         --> We now only use italics on the newly defined terms and phrases like "G-zombie" or "G-move" etc.
@@ -91,7 +91,7 @@ Reviewer #1:
 
 
 
-Reviewer #2:
+In response to the comments of Reviewer #2:
     -- P1. Line 29.  The final G in the Abstract needs to be in math mode.
     -- P1. Lines 43-45.  Since the zombie player starts first, why present the survivor's details before the zombie's details?
     -- P2. Lines 15-16.  The attempt to define capture time has too many grammar mistakes to be understood.  Please revise this.
@@ -122,7 +122,7 @@ Reviewer #2:
 
 
     
-Reviewer #3:
+In response to the comments of Reviewer #3:
     -- 1: We have changed the definition and only refer to this game as "Zombies and Survivor" instead "Zombies and Survivors"
     -- 2: We changed this in the new version. Now zombies player is given "z" zombies instead of choosing "z" himself.
     -- 3: We changed this in the new version and made a custom "z" for z_c. By c in z_c we meant "count" but it surely was not clear.
