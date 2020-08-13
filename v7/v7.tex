@@ -72,7 +72,7 @@
 		players. The goal of the zombies is to catch the survivor while the survivor's objective is to avoid being
 		captured. The {\it zombie number} of $G$, denoted as $\zn(G)$, is the minimum number of zombies required to
 		capture a single survivor on $G$, no matter what moves the survivor makes. In this paper, we prove a conjecture
-		by Fitzpatrick et al.\cite{Fitz16} about the zombie number of the {\it Cartesian product} of two graphs. This
+		by Fitzpatrick et al.\cite{Fitz16} about the zombie number of the Cartesian product of two graphs. This
 		result provides a new proof for $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. We also introduce a new problem regarding
 		{\it capture time} in the Cartesian product of two graphs. At last, we study computational complexity of finding
 		the zombie number of a graph $G$, with and without a limited {\it capture time}.
@@ -125,10 +125,10 @@ use it to show that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$.
 product of two graphs. 
 
 3) In section \ref{np-capturetime}, we introduce a variation of {\it Zombies and Survivor} game, in which the zombie
-player is restricted to win in a limited number of moves, and prove it belongs to {\it NP-Hard} class of problems.
+player is restricted to win in a limited number of moves, and prove it belongs to NP-Hard class of problems.
 
 4) The complexity of the {\it Cops and Robber(s)} game is known \cite{Kinnersley15}. In section \ref{np-zombienumber},
-we prove that the original {\it Zombies and Survivor} game belongs to {\it NP-Hard} class of problems.
+we prove that the original {\it Zombies and Survivor} game belongs to NP-Hard class of problems.
 
 
 \section{Zombie number of the Cartesian product of two graphs}\label{conj-proof}
@@ -198,15 +198,15 @@ We start off by stating a simple lemma regarding distance in Cartesian product:
 	same strategy but in their corresponding environment.
 	
 	
-	Suppose using this strategy the survivor wins, therefore survivor must be able to do either infinite {\it G-move}s
-	or infinite {\it H-move}s. Without loss of generality, suppose the survivor makes infinite {\it H-move}s. After
-	$len(p_G)$ number of {\it H-move}s, {\it H-zombie}s will get to $H_x$. Now for each {\it G-move} made by the
+	Suppose using this strategy the survivor wins, therefore the survivor must be able to do either infinite {\it
+	G-move}s or infinite {\it H-move}s. Without loss of generality, suppose the survivor makes infinite {\it H-move}s.
+	After $len(p_G)$ number of {\it H-move}s, {\it H-zombie}s will get to $H_x$. Now for each {\it G-move} made by the
 	survivor and having zombies mimicking it, they will still be on $H_x$. Since the survivor can do infinite {\it
 	H-move}s and prevent being caught, it means that the survivor could also avoid being caught on a single $H$ which
 	contradicts our assumption.
 	
 \end{proof}
-An example for further understanding can be found at \cite{CartesianProductExample}.
+An example for further understanding can be found in supplementary materials of this paper.
 
 \begin{corollary}
 	\label{C3}
@@ -254,11 +254,12 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		Since each of the survivor's moves is either a {\it G-move} or an {\it H-move} or both, after less than $rad(G)
 		+ rad(H) + capt(G, z_G) + capt(H, z_H)$ moves the survivor will be captured.
 	\end{proof}
-\section{Limited capture time zombie number problem is NP-Hard}\label{np-capturetime}
-	A well known example of an NP-hard problem is the {\it dominating-set} problem in graph theory\cite{Hopcroft07}. A
-	{\it dominating-set} for a graph $G$ is a subset $D$ of $V(G)$ such that every vertex not in $D$ is adjacent to at
-	least one member of $D$. The domination number $\gamma(G)$ is the number of vertices in the smallest dominating-set
-	for $G$.
+\section{Limited capture time zombie number problem is NP-Hard}\label{np-capturetime} 
+
+	A well known example of an NP-hard problem is the dominating-set problem in graph theory\cite{Hopcroft07}. A
+	dominating-set for a graph $G$ is a subset $D$ of $V(G)$ such that every vertex not in $D$ is adjacent to at least
+	one member of $D$. The domination number $\gamma(G)$ is the number of vertices in the smallest dominating-set for
+	$G$.
 
 	We define $Lc\zn(G,k)$ ({\it limited capture time zombie number}) as the minimum number of zombies needed so that
 	zombie player is able to capture the survivor in at most $k$ moves on graph $G$. 
@@ -327,7 +328,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\begin{proof}
 		We reduce dominating-set problem to $\NPZ$.
 
-		To do this, we add $n$ copies of $K_{n,n}$ to $G$. We call the newly obtained graph $H$, and call the
+		To do this, we add $n = |V(G)|$ copies of $K_{n,n}$ to $G$. We call the newly obtained graph $H$, and call the
 		$G$-subgraph simply as $G$, and the $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $B_i$. $(i,j,b)$ represents
 		the $j$-th vertex in $B_i$'s part $b$ ($b = 1,2$) and labels $1,2,..,n$ represent $G$'s vertices. For each vertex
 		$(i,j,b)$ we connect it to vertices in $N_G[j]$ (See figure \ref{fig:p8}). Since we are adding $2n^2$ new
@@ -380,7 +381,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\bibitem{Fomin10}
 	Fomin, Golovach, Kratochvil, Nisse, ``Pursing fast robber in graphs", Theoretical Computer Science, 411 (2010) 1167 - 1181
 	\bibitem{Kinnersley15}
-	W. B. Kinnersley, ``Cops and Robbers is EXPTIME-complete", Journal of Combina- torial Theory Series B, 111 (2015), 201–220.
+	W. B. Kinnersley, ``Cops and Robbers is EXPTIME-complete", Journal of Combinatorial Theory Series B, 111 (2015), 201–220.
 	\bibitem{CartesianProductExample}
 	``An example for zombie number of Cartesian product of two graphs'', 2020 available at: link.link.link
 \end{thebibliography}
