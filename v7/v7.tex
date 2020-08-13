@@ -68,14 +68,14 @@
 		
 		\begin{abstract}
 		{\it Zombies and Survivor} is a variant of the pursuit-evasion game {\it Cops and Robber(s)}, with the
-		difference that zombies must always move closer to the survivor. The game is played on a simple graph by two
-		players. The goal of the zombies is to catch the survivor while the survivor's objective is to avoid being
-		captured. The {\it zombie number} of $G$, denoted as $\zn(G)$, is the minimum number of zombies required to
-		capture a single survivor on $G$, no matter what moves the survivor makes. In this paper, we prove a conjecture
-		by Fitzpatrick et al.\cite{Fitz16} about the zombie number of the Cartesian product of two graphs. This
-		result provides a new proof for $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. We also introduce a new problem regarding
-		{\it capture time} in the Cartesian product of two graphs. At last, we study computational complexity of finding
-		the zombie number of a graph $G$, with and without a limited {\it capture time}.
+		difference that zombies must always move closer to the survivor. The game is played on a simple connected graph
+		by two players. The goal of the zombies is to catch the survivor while the survivor's objective is to avoid
+		being captured. The {\it zombie number} of $G$, denoted as $\zn(G)$, is the minimum number of zombies required
+		to capture a single survivor on $G$, no matter what moves the survivor makes. In this paper, we prove a
+		conjecture by Fitzpatrick et al.\cite{Fitz16} about the zombie number of the Cartesian product of two graphs.
+		This result provides a new proof for $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. We also introduce a new problem
+		regarding {\it capture time} in the Cartesian product of two graphs. At last, we study computational complexity
+		of finding the zombie number of a graph $G$, with and without a limited {\it capture time}.
 		\end{abstract}
 		
 		\begin{keyword}
@@ -86,19 +86,18 @@
 	
 \section{Introduction}\label{section-introduction}
 
-The {\it Zombies and Survivor} game is played on a simple graph by two players (we only discuss connected graphs, proofs
-can be easily modified for disconnected graphs). The deterministic version of this game \cite{Fitz16} is played as
-follows. Initially, the zombie player is given $\mathpzc{z}$ zombies and places them on the graph's vertices. This
-initial arrangement that zombie player chooses is essential for him to win.  Then the survivor player chooses one single
-vertex which is the survivor's initial position. Starting with the zombie player, on each player's turn, the zombie
-player must move each zombie to one of its adjacent vertices so that they get closer to the survivor, while the survivor
-player either moves to an adjacent vertex or stays at his current location. Here lies the difference between {\it
-Zombies and Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)} cops need not necessarily get
-closer to the robber(s). They can either hold their current position, get closer, or further away from the robber(s).
-Although zombies are not as intelligent as cops, they can still choose their path intelligently between the shortest
-paths. If any zombie and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins.
-The zombie number of a graph $G$, denoted as $\zn(G)$, is the minimum number of zombies required so that the zombie
-player can always capture the survivor, no matter how survivor moves.
+The {\it Zombies and Survivor} game is played on a simple connected graph by two players. The deterministic version of
+this game \cite{Fitz16} is played as follows. Initially, the zombie player is given $\mathpzc{z}$ zombies and places
+them on the graph's vertices. This initial arrangement that zombie player chooses is essential for him to win.  Then the
+survivor player chooses one single vertex which is the survivor's initial position. Starting with the zombie player, on
+each player's turn, the zombie player must move each zombie to one of its adjacent vertices so that they get closer to
+the survivor, while the survivor player either moves to an adjacent vertex or stays at his current location. Here lies
+the difference between {\it Zombies and Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)}
+cops need not necessarily get closer to the robber(s). They can either hold their current position, get closer, or
+further away from the robber(s). Although zombies are not as intelligent as cops, they can still choose their path
+intelligently between the shortest paths. If any zombie and the survivor ever occupy the same vertex, the survivor is
+captured and the zombie player wins. The zombie number of a graph $G$, denoted as $\zn(G)$, is the minimum number of
+zombies required so that the zombie player can always capture the survivor, no matter how survivor moves.
 
 The Cartesian product $G \sq H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
@@ -374,12 +373,14 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\bibitem{West02}
 	West, Douglas B. ``Introduction to Graph Theory." Prentice hall, (1996).
 	\bibitem{Hopcroft07}
-	J. E. Hopcroft, R. Motwani, and J. D. Ullman. ``Introduction to Automata Theory, Languages, and Computation.''
-	Pearson Addison-Wesley, (2007).
+	Hopcroft, John E., Rajeev Motwani, and Jeffrey D. Ullman, ``Introduction to Automata Theory, Languages, and
+	Computation.'' Pearson Addison-Wesley, (2007).
 	\bibitem{Bonato09}
-	A. Bonato, P. Golovach, G. Hahn, and J. Kratochvıl, ``The capture time of a graph'', Discrete Mathematics 309 (2009), 5588–5595.
+	Bonato, Anthony, Petr Golovach, Gena Hahn, and Jan Kratochvíl, ``The capture time of a graph'', Discrete Mathematics
+	309 (2009), 5588–5595.
 	\bibitem{Fomin10}
-	Fomin, Golovach, Kratochvil, Nisse, ``Pursing fast robber in graphs", Theoretical Computer Science, 411 (2010) 1167 - 1181
+	Fomin, Fedor V., Petr A. Golovach, Jan Kratochvíl, Nicolas Nisse, and Karol Suchan, ``Pursuing a fast robber on a
+	graph", Theoretical Computer Science, 411 (2010) 1167 - 1181
 	\bibitem{Kinnersley15}
 	W. B. Kinnersley, ``Cops and Robbers is EXPTIME-complete", Journal of Combinatorial Theory Series B, 111 (2015), 201–220.
 \end{thebibliography}
