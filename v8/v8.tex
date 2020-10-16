@@ -138,8 +138,8 @@ capture the survivor on $G \sq H$.
 To explain the proof we first need to define some notation. Assume $H$ and $G$ have $m$ and $n$ vertices,
 respectively. 
 
-For $1 \leq i \leq m$, define $G_i$ to be the subgraph induced by vertices $(u,v = i)$. Similarly, for $1 \leq j \leq
-n$, define $H_{j}$ to be the subgraph induced by vertices $(u = j,v)$.
+For $1 \leq i \leq m$, define $G_i$ to be the subgraph of $G \sq H$ induced by vertices $(u,v = i)$. Similarly, for $1 \leq j \leq
+n$, define $H_{j}$ to be the subgraph of $G \sq H$ induced by vertices $(u = j,v)$.
 
 In the Cartesian product of $G$ and $H$, each $G_{i}$ $(1 \leq i \leq m)$ is isomorphic to $G$, and each $H_{j}$ $(1
 \leq j \leq n)$ is isomorphic to $H$. Also the common vertex between $G_{i}$ and $H_{j}$ is $(j,i)$, and $(x,y)$ is the
@@ -149,7 +149,7 @@ A {\it G-edge} is an edge in one of the $G_{i}$s and an {\it H-edge} is an edge 
 is a move made on a {\it G-edge}. Similarly, an {\it H-move} is a move made on an {\it H-edge}. If the survivor decides
 to remain in its current vertex, this move is considered both a {\it G-move} and an {\it H-move}. 
 
-Define $dist_I(j,k)$ to be the distance between vertices $j$ and $k$ on a graph $I$. Define the length of a path $P$ to be $len(P)$. 
+Denote $dist_I(j,k)$ to be the distance between vertices $j$ and $k$ on a graph $I$. Denote the length of a path $P$ to be $len(P)$. 
 
 For vertex $(u,v)$, define its $G$-equivalent vertex to be vertex $u \in G$, and its $H$-equivalent vertex, to be vertex
 $v \in H$. $G$-equivalent graph is a graph $G$ where each zombie and the survivor is put on its $G$-equivalent vertex.
@@ -232,9 +232,10 @@ Combining Corollary \ref{C3} and Theorem \ref{T4} we can conclude that $\zn(Q_n)
 This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Offner19} with a different method. 
 	
 
-\section{Capture time in Cartesian product of graphs}\label{capturetime}
-	
-	Let $rad(G)$ represent the $G$'s radius.
+\section{Capture time in Cartesian product of graphs}\label{capturetime} 
+
+	The eccentricity of a vertex $v$ is the greatest distance between $v$ and any other vertex. The radius of a graph is the
+	minimum eccentricity of its vertices. Let $rad(G)$ represent the $G$'s radius.
 	\begin{theorem}
 		\label{T5}
 		$capt( G \sq H, z_G + z_H ) < rad(G) + rad(H) + capt(G, z_G) + capt(H, z_H)$
@@ -245,7 +246,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		$H$ and $G$. We show that the survivor's {\it G-move}s cannot exceed $rad(H) + capt(G, z_G)$. With the same
 		conclusion, it can be shown that {\it H-move}s cannot exceed $rad(G) + capt(H, z_H)$ as well.
 
-		According to the definition of the radius of a graph, after at most first $radius(H)$ {\it G-move}s that the
+		According to the definition of the radius of a graph, after at most first $rad(H)$ {\it G-move}s that the
 		survivor makes, $a = y$ holds. Now since for each {\it G-move} made from now on by the survivor, {\it G-zombie}s
 		can follow their strategy on a $G$ graph, and after at most $capt(G,z_G)$ {\it G-move}s, the survivor will be
 		captured. 
@@ -344,19 +345,19 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		player wins. Thus, $\zn(H) \leq \gamma(G)$. Now suppose we have zombies less than the domination number of
 		graph: $\mathpzc{z} < \gamma(G)$. We prove the survivor can avoid being captured.
 		
-		Since there are $n$ bipartite subgraphs, one of them is initially free of zombies. Further, since zombies are
+		Since there are $n$ bipartite subgraphs, one of them, say $B_k$, is initially free of zombies. Further, since zombies are
 		not dominating $G$, there will be a vertex $w \in V(G)$ with no zombies as its neighbors. Thus the survivor can
 		safely start at vertex $(k,v = w,b = 1)$ (let $(k,v,b)$ denote the survivor's vertex).
 
 		Zombies in $G$ (e.g. at vertex $u$) are at distance 2 from the survivor $(u \rightarrow (k,u,3 - b) \rightarrow
 		(k,v,b))$, which means after their move all of them should be at one of $(k,v,b)$'s neighbors, that is, $N_G[v]
-		$ or, $ (k,1 \leq i \leq n,3 - b)$. Therefore, each zombie joining $B_k$ does not share the same partition of
+		$ or, $ (k,1 \leq i \leq n,3 - b)$. Therefore, each zombie joining $B_k$ does not share the same part of
 		$B_k$ as the survivor, since it has to be on one of its neighbors.
 		
 		On each survivor turn, assume that the survivor is at $(k,v,b)$ and zombies are either in $G$, or in $B_{(i \neq
-		k)}$, or in $B_k$ at a vertex of the form $(k,j,3-b)$ (not in the same partition as the survivor). Since there
+		k)}$, or in $B_k$ at a vertex of the form $(k,j,3-b)$ (not in the same part as the survivor). Since there
 		is a vertex $w \in G$ not being dominated by zombies, the survivor should move to vertex $(k,w,3-b)$. Since the
-		survivor is now sharing the same partition as all zombies in $B_k$, and $N_G[w]$ is empty of zombies, none of
+		survivor is now sharing the same part as all zombies in $B_k$, and $N_G[w]$ is empty of zombies, none of
 		his neighbors is occupied by a zombie and the survivor will be safe by following this strategy indefinitely.
 
 		It is now proved that $\zn(H) = \gamma(G)$, thus the dominating-set problem is reduced to $\NPZ$.
@@ -378,9 +379,6 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\bibitem{Bonato09}
 	Bonato, Anthony, Petr Golovach, Gena Hahn, and Jan Kratochvíl, ``The capture time of a graph'', Discrete Mathematics
 	309 (2009), 5588–5595.
-	\bibitem{Fomin10}
-	Fomin, Fedor V., Petr A. Golovach, Jan Kratochvíl, Nicolas Nisse, and Karol Suchan, ``Pursuing a fast robber on a
-	graph", Theoretical Computer Science, 411 (2010) 1167 - 1181
 	\bibitem{Kinnersley15}
 	W. B. Kinnersley, ``Cops and Robbers is EXPTIME-complete", Journal of Combinatorial Theory Series B, 111 (2015), 201–220.
 \end{thebibliography}
