@@ -1,0 +1,158 @@
+Dear reviewers, thank you for your time to review our paper and special thanks for your helpful comments and suggestions
+for improving this paper. In response to your suggestions, we have outlined the changes and provided the necessary
+explanations.
+
+
+In response to the comments of Reviewer #1:
+    Abstract
+    -- P1 L19: I am not sure why you use italics in various spots in the abstract
+        --> We now only use italics on the newly defined terms and phrases like "G-zombie" or "G-move" etc.
+
+    -- P1 L24 and throughout the paper: I would use “the survivor” instead of “survivor”
+    Introduction
+    -- P1 L47: “cops should not” should be “cops need not”
+    -- P1 L48: “They can either hold...” should be its own sentence.
+        --> Thanks for your comments, we have changed these in the new version.
+
+    -- P2 L15: There should not be a comma after “Capture time in a game”
+    -- P2 L17: “exists” should be “exist”
+        --> We changed this part in the new version and moved capture time related definitions from part 3 to here.
+
+    -- P2 L26 and throughout the paper: Notation for Cartesian product looks strange. Is there a better way to typeset?
+        --> Thank you for your comment, we made the square smaller.
+
+    -- P2 L41, L45, L47: Instead of 3, 4, 5, write “Section 3”, “Section 4”, “Section 5”
+        --> Thanks for your comments, we have changed these in the new version.
+
+    Zombie number of the Cartesian product of two graphs
+    -- P3 L6: “notations” should be “notation”
+    -- P3 L8: It would be clearer to write “For 1 ≤ i ≤ m, define Gi to be the subgraph induced by..”
+    -- P3 L9: It would be clearer to write “Similarly, for 1 ≤ j ≤ n, define Hj to be the subgraph induced by..”
+    -- P3 L9: It is redundant to define (j, i) as the common vertex Gi and Hj . You could remind the reader of the notation.
+    -- P3 L20: It would be clearer to write ”Define distI (j, k) to be the distance between vertices j and k on a graph I. Define the length of a path P to be len(P).”
+    -- P3 L23: It would be clearer to write “For a vertex (u,v) ∈ G􏰀H, define its G-equivalent vertex to be u ∈ V (G). You should also make the definition of G-equivalent graph more formal then “where we put”.
+        --> Thanks for your comments, we have changed these in the new version.
+
+    -- P3 L52: It would seem clearer to talk about G- and H-edges rather than moves.
+    -- P4 L6: I think this proof should be more formal. Instead of writing some moves are happening, you could specify that the path of the same length with G-edges before H-edges has all G-edges in Gy and all H edges in Hu.
+        --> Reviewer #3 suggested to remove the proof of this lemma and only state it. We have removed the proof in the new version.
+
+    -- P4 L30: I think the sentence “If a = y and the survivor makes an H-move, ...” is not necessary (the zombie strategy does depends only on the position when it is their turn).
+        --> We have removed this sentence.
+
+    -- P4 L39: I think the sentence “Now for each G-move...” is not clear. Is the point you’re trying to make that whenever the survivor makes an H-move, that the zombies will all be on Hx?
+        --> Yes. Instead of H-equivalent we should have used H_x. We changed this in the new version.
+
+    -- P4 L49, 53: It would be clearer to write “Theorem 2” rather than “theorem proved above” and “proved conjecture”
+        --> Thanks for your comments, we have changed these in the new version.
+
+
+    Capture time in Cartesian product of graphs
+    -- P5 L23 and throughout: I think in Theorem 5 you could replace diameter of the graph with radius (just start the cops at the vertices that minimize the length of the longest path). Also you could subtract 1 from the capture time since it is only necessary for the G or H-zombies to catch the survivor, not both.
+        --> Thanks for your comment. We applied these comments in the new version.
+
+    -- P5 L26: Theorem 2 should be captitalized.
+    -- P5 L35: “total number” should be “the total number”
+        --> Thanks for your comments, we have changed these in the new version.
+
+
+    Limited capture time zombie number problem is NP-Hard
+    -- P5 L42: Quotation mark is backward
+    -- P5 L46: You should include a reference that dominating set is NP-Hard.
+    -- P5 L54: “Also NG[u] represents...” should be “Let NG[u] represent...” and you should specify whether this set includes u itself (is it the closed or open neighborhood)?
+    -- P6 L6: First sentence should be “The LCZk problem...”
+    -- P6 L7: The instance should be: “Let G = (V,E) be a simple undirected graph and let zc and k be positive integers.”
+    -- P6 L9: The second sentence of the question is not needed (or should be placed outside the formal definition).
+    -- P6 L13: The instance should be “Let G = (V,E) be a simple undirected graph and let d be a positive integer.”
+        --> Thanks for your comments, we have changed these in the new version.
+
+    -- P6 L30: You should explicitly state adjacencies for (v, i)’s.
+        --> We stated the exact path in the new version. I think it is much more clear now and adjacencies are stated as well.
+
+    -- P6 L43: Why are the k’s capitalized in the figure?
+        --> We used small letters in the new version. There was no intention and it was a mistake.
+
+    -- P6 L48: Also note the number of edges in Gk is O(n).
+        --> Reviewer #3 noted that this line is too clear and it is not needed. In the new version we just stated that G'k can be built in polynomial time.
+
+    -- P6 L50: It would be clearer to say: “Let S be the set of vertices v ∈ V (G) such that v ∈ S′ or (v, i) ∈ S`.”
+        --> Thanks for your comment, we changed this in the new version.
+
+    -- P7 L17: I am not convinced by the proof of Lemma 7. It is certainly true that if the survivor moves n + 1 times, they will be on the same vertex twice. But that does not imply that the zombies will be in the same position both times (even if their total distance is the same). Without this fact I don’t think you can argue that the survivor could repeat the same moves.
+        --> The proof of Lemma 7 is wrong and it will be removed. Since it was not used anywhere else other theorems still hold.
+
+
+    Zombie number problem is NP-Hard
+    -- P7 L45: The instance should be: “Let G = (V, E) be a simple undirected graph and let zc be a positive integer.”
+    -- P8:
+        --> Thanks for your comments, we have changed these in the new version.
+
+
+
+
+
+In response to the comments of Reviewer #2:
+    -- P1. Line 29.  The final G in the Abstract needs to be in math mode.
+    -- P1. Lines 43-45.  Since the zombie player starts first, why present the survivor's details before the zombie's details?
+    -- P2. Lines 15-16.  The attempt to define capture time has too many grammar mistakes to be understood.  Please revise this.
+    -- P2. Lines 39-47.  Don't say "2", "3", etc.  Say "Section 2", etc.
+    -- P3. Line 16.  H-Move should be H-move
+        -->  Thanks for your comments, we have changed these in the new version.
+
+    -- P3-4.  In the proof of Lemma 1 there are several mentions of moves.  However, the lemma does not involve any players, and so there are no entities that would be in motion.  I believe that several of the references to "moves" in this proof should instead refer to "edges".  
+        --> Reviewer #3 suggested to remove the proof of this lemma and only state it. We have removed the proof in the new version.
+
+    -- P5. L26.  Theorem 2 (not theorem 2)
+    -- P5. L42.  The quotes are in the wrong direction.  This also happens elsewhere in the paper, such as in the References.
+        -->  Thanks for your comments, we have changed these in the new version.
+    
+    -- P5. L44.  I believe that the class that has been described is P, not NP.  The authors should ensure that NP is correctly defined.
+        --> This part was removed in the new version.
+
+    -- P5. L53.  Do the authors truly want the closed neighborhood of u, and not the open neighborhood?  If yes, then they should say so.  Alternatively, if they want the open neighborhood, then they should not use the notation for closed neighborhood.
+        --> We refer to this as closed neighborhood in the new version.
+
+    -- P6. L52-53.  Surely vertex $(u,k-1)$ is adjacent to an other vertex, and so the statement that "there is no vertex at distance $k$ or less" is false.
+        --> We meant there is no zombie at distance k or less. We changed it in the new version.
+
+    -- P7. L22.  I believe "each two rounds" is meant to be "each round"
+    -- P7. L28-30.  I agree with the pigeonhole principle statement.  But I am not yet convinced that the final sentence of the paragraph is correct.  Couldn't the positions of the players have now changed from the previous time when the survivor was on the previously visited vertex, and if so, might there now be an opportunity for distances to be reduced in the coming moves (which will not be the same moves as before)?
+        --> The proof of Lemma 7 is wrong and it will be removed. Since it was not used anywhere else other theorems still hold.
+
+
+
+    
+In response to the comments of Reviewer #3:
+    -- 1: We have changed the definition and only refer to this game as "Zombies and Survivor" instead "Zombies and Survivors"
+    -- 2: We changed this in the new version. Now zombies player is given "z" zombies instead of choosing "z" himself.
+    -- 3: We changed this in the new version and made a custom "z" for z_c. By c in z_c we meant "count" but it surely was not clear.
+    -- 4: Thanks for your comment, a new line was added.
+    -- 5: We moved the definition from page 5 to here and also added the reference you mentioned.
+    -- 6: We replaced this with "capt" function in the new version.
+    -- 7: "G-equivalent graph" is a new graph "G", where we put each survivor and zombies, on their "G-equivalent" position. Since it is a graph, i believe "G-equivalent graph" suits it more than "G-equivalent game position".
+    -- 8: We have removed the proof and just stated the lemma.
+    -- 9: 
+        (a) Above figure 2, we stated that survivor is located at (x,y). In the new version we have added a new line to remind the reader.
+        (b) p_H refers to a single object which is a path in graph H. Every G-zombie will move along this path in its H-subgraph. Also choosing a single path is key to this proof, since if we use different paths for our zombies, they might end up in different H-subgraphs which makes us unable to discuss the game on a single H. Therefore, i believe referring to this path as p_H is more clear.
+        (c) We changed this in the new version.
+        (d) We made some minor changed to make the proof shorter and easier to understand.
+    -- 10: We will remove this and add a reference for it. Although i am not sure which website do u want me to place this example at.
+    -- 11: Thanks for your comment, we changed this in the new version.
+    -- 12: Reference was added.
+    -- 13: We changed the definition and also moved it to above figure 1.
+    -- 14: We replaced diameter with radius and wrote "Let $rad(G)$ represent the $G$'s radius".
+    -- 15: These lines were removed.
+    -- 16: We changed this to closed neighborhood.
+    -- 17: k is not an input to problem and is a parameter. We changed the INSTANCE of LCZ_k problem, and now "k" is not an input.
+    -- 18: Thanks for your comment, we changed this in the new version.
+    -- 19: Thanks for your comment, we have applied these changes in the new version.
+    -- 20: We added this reference and also mentioned the cops and robbers version of this problem at page 2.
+    -- 21: The proof of Lemma 7 is wrong and it will be removed. Since it was not used anywhere else other theorems still hold.
+    -- 22: Reference was added.
+    -- 23: Thanks for your comment, we have changed this in the new version.
+    -- 24: B_i is now used in the new version instead of K_i.
+    -- 25: Thanks for you comment, we did this in the new version.
+    -- 26: In abstract we added a note that we only discuss connected graphs.
+    -- 27: These parts of proof were modified using Reviewer #1's comments. I believe it is more clear now.
+    
+    
