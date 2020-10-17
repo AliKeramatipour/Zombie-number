@@ -75,7 +75,7 @@
 		conjecture by Fitzpatrick et al.\cite{Fitz16} about the zombie number of the Cartesian product of two graphs.
 		This result provides a new proof for $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. We also introduce a new problem
 		regarding {\it capture time} in the Cartesian product of two graphs. At last, we study computational complexity
-		of finding the zombie number of a graph $G$, with and without a limited {\it capture time}.
+		of finding the zombie number of a graph $G$, with and without a limited capture time.
 		\end{abstract}
 		
 		\begin{keyword}
@@ -88,25 +88,26 @@
 
 The {\it Zombies and Survivor} game is played on a simple connected graph by two players. The deterministic version of
 this game \cite{Fitz16} is played as follows. Initially, the zombie player is given $\mathpzc{z}$ zombies and places
-them on the graph's vertices. This initial arrangement that zombie player chooses is essential for him to win.  Then the
-survivor player chooses one single vertex which is the survivor's initial position. Starting with the zombie player, on
-each player's turn, the zombie player must move each zombie to one of its adjacent vertices so that they get closer to
-the survivor, while the survivor player either moves to an adjacent vertex or stays at his current location. Here lies
-the difference between {\it Zombies and Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)}
-cops need not necessarily get closer to the robber(s). They can either hold their current position, get closer, or
-further away from the robber(s). Although zombies are not as intelligent as cops, they can still choose their path
-intelligently between the shortest paths. If any zombie and the survivor ever occupy the same vertex, the survivor is
-captured and the zombie player wins. The zombie number of a graph $G$, denoted as $\zn(G)$, is the minimum number of
-zombies required so that the zombie player can always capture the survivor, no matter how survivor moves.
+them on the graph's vertices. Then the survivor player chooses one single vertex which is the survivor's initial
+position. Starting with the zombie player and having turns alternating, on each player's turn, the zombie player must
+move each zombie to one of its adjacent vertices so that they get closer to the survivor, while the survivor player
+either moves to an adjacent vertex or stays at his current location. Here lies the difference between {\it Zombies and
+Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)} cops need not necessarily get closer to the
+robber(s). They can either hold their current position, get closer, or further away from the robber(s). Although zombies
+are not as intelligent as cops, they can still choose their path intelligently between the shortest paths. If any zombie
+and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins. The zombie number of
+a graph $G$, denoted as $\zn(G)$, is the minimum number of zombies required so that the zombie player can always capture
+the survivor, no matter how survivor moves. Since zombies' moves are restricted, the initial arrangement that the zombie
+player chooses is essential for him to win.
 
-The Cartesian product $G \sq H$ of two graphs $G$ and $H$, is a graph with vertex set of $V(G) \times V(H)$, where
+The Cartesian product $G \sq H$ of two graphs $G$ and $H$, is a graph with vertex set $V(G) \times V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
 $u_2 = v_2$ and $ \{u_1 , v_1 \} \in E_{G}$ \cite{West02}. Figure \ref{fig:p2} shows an example of the Cartesian product
 of two graphs.
 
 {\it Capture time} of a game \cite{Bonato09}, noted as $capt(G,\mathpzc{z})$, represents the maximum number of moves
 that the survivor can avoid being caught on a graph $G$, while the zombie player tries to catch the survivor as quickly
-as possible using $\mathpzc{z}$ zombies. If the survivor can win, $capt(G,\mathpzc{z})$ goes to infinity.
+as possible using $\mathpzc{z}$ zombies. If the survivor can win, $capt(G,\mathpzc{z})$ is infinite.
 
 \begin{figure}[h!]
 	\centering
@@ -117,17 +118,19 @@ as possible using $\mathpzc{z}$ zombies. If the survivor can win, $capt(G,\mathp
 
 Our contributions can be summarized as follows:
 
-1) In \cite{Fitz16}, Fitzpatrick et al. conjectured that $\zn(G \sq H) \leq \zn(G) + \zn(H)$. In section \ref{conj-proof}, we prove this conjecture and
+1) In \cite{Fitz16}, Fitzpatrick et al. conjectured that $\zn(G \sq H) \leq \zn(G) + \zn(H)$. In Section \ref{conj-proof}, we prove this conjecture and
 use it to show that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$. 
 
-2) In section \ref{capturetime}, we provide a new bound on {\it capture time} of {\it Zombies and Survivor} game played on the Cartesian
+2) The complexity of the {\it Cops and Robber(s)} game is known \cite{Fomin10} \cite{Kinnersley15}. In Section \ref{np-zombienumber},
+we prove that the original {\it Zombies and Survivor} game belongs to NP-Hard class of problems.
+
+3) In Section \ref{capturetime}, we provide a new bound on {\it capture time} of {\it Zombies and Survivor} game played on the Cartesian
 product of two graphs. 
 
-3) In section \ref{np-capturetime}, we introduce a variation of {\it Zombies and Survivor} game, in which the zombie
+4) In Section \ref{np-capturetime}, we introduce a variation of {\it Zombies and Survivor} game, in which the zombie
 player is restricted to win in a limited number of moves, and prove it belongs to NP-Hard class of problems.
 
-4) The complexity of the {\it Cops and Robber(s)} game is known \cite{Kinnersley15}. In section \ref{np-zombienumber},
-we prove that the original {\it Zombies and Survivor} game belongs to NP-Hard class of problems.
+
 
 
 \section{Zombie number of the Cartesian product of two graphs}\label{conj-proof}
@@ -142,8 +145,8 @@ For $1 \leq i \leq m$, define $G_i$ to be the subgraph of $G \sq H$ induced by v
 n$, define $H_{j}$ to be the subgraph of $G \sq H$ induced by vertices $(u = j,v)$.
 
 In the Cartesian product of $G$ and $H$, each $G_{i}$ $(1 \leq i \leq m)$ is isomorphic to $G$, and each $H_{j}$ $(1
-\leq j \leq n)$ is isomorphic to $H$. Also the common vertex between $G_{i}$ and $H_{j}$ is $(j,i)$, and $(x,y)$ is the
-vertex where the survivor is located. Figure \ref{fig:p1} illustrates these definitions.
+\leq j \leq n)$ is isomorphic to $H$. Also the common vertex between $G_{i}$ and $H_{j}$ is $(j,i)$. Figure \ref{fig:p1}
+illustrates these definitions.
 
 A {\it G-edge} is an edge in one of the $G_{i}$s and an {\it H-edge} is an edge in one of the $H_{j}$s. A {\it G-move}
 is a move made on a {\it G-edge}. Similarly, an {\it H-move} is a move made on an {\it H-edge}. If the survivor decides
@@ -179,7 +182,7 @@ We start off by stating a simple lemma regarding distance in Cartesian product:
 \begin{proof}
 	We provide a winning strategy for the Cartesian product of $G$ and $H$ using $\zn(G)+\zn(H)$ zombies. First, we place
 	$\zn(G)$ zombies, that have a winning strategy on a single $G$, $G_{a = 1}$ and call them {\it G-zombie}s. We do the
-	same for $H_{b = 1}$ and call them {\it H-zombie}s. Also recall that $(x,y)$ is the survivor's vertex.
+	same for $H_{b = 1}$ and call them {\it H-zombie}s. Also $(x,y)$ is the survivor's vertex.
 
 
 	Consider one of the shortest paths between vertices $a$ (the index of $G$-subgraph shared by {\it G-zombie}s) and
@@ -187,7 +190,7 @@ We start off by stating a simple lemma regarding distance in Cartesian product:
 
 
 	On each zombie turn, if $a \neq y$, each {\it G-zombie} will move along the $p_H$ path in its corresponding $H$
-	subgraph. According to lemma \ref{shortestpathlemma}, since zombies' and the survivor's equivalents on $H$ are
+	subgraph. According to Lemma \ref{shortestpathlemma}, since zombies' and the survivor's equivalents on $H$ are
 	getting closer, thus their actual vertices on $G \sq H$ are getting closer as well and this move is possible. Since
 	they are all moving along similar paths (in their corresponding $H$-subgraphs) they will still share the same
 	$G$-subgraph. Now consider when $a = y$, {\it G-zombie}s will play their winning strategy (that they had on a single
@@ -200,8 +203,8 @@ We start off by stating a simple lemma regarding distance in Cartesian product:
 	Suppose using this strategy the survivor wins, therefore the survivor must be able to do either infinite {\it
 	G-move}s or infinite {\it H-move}s. Without loss of generality, suppose the survivor makes infinite {\it H-move}s.
 	After $len(p_G)$ number of {\it H-move}s, {\it H-zombie}s will get to $H_x$. Now for each {\it G-move} made by the
-	survivor and having zombies mimicking it, they will still be on $H_x$. Since the survivor can do infinite {\it
-	H-move}s and prevent being caught, it means that the survivor could also avoid being caught on a single $H$ which
+	survivor and having zombies mimicking it, they will still be on $H_x$. Since the survivor can do infinite number of {\it
+	H-move}s and not be caught, it means that the survivor could also avoid being caught on a single $H$ which
 	contradicts our assumption.
 	
 \end{proof}
@@ -229,13 +232,61 @@ It is already proved that at least $\ceil*{\frac{2n}{3}}$ zombies are needed to 
 \end{theorem}
 
 Combining Corollary \ref{C3} and Theorem \ref{T4} we can conclude that $\zn(Q_n) = \ceil*{\frac{2n}{3}}$.
-This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Offner19} with a different method. 
-	
+This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Offner19} and \cite{Fitz18} with different methods. 
+
+\section{Zombie Number Problem is NP-Hard}\label{np-zombienumber}
+	Now define zombie number ($\NPZ$) problem:
+	{\newline}
+	INSTANCE: A simple undirected graph $G = (V,E)$ and a positive integer $\mathpzc{z}$.
+	{\newline}
+	QUESTION: Is $\zn (G) \leq \mathpzc{z}$?
+
+	\begin{theorem}
+		$\NPZ \in$ NP-Hard class.
+	\end{theorem}
+	\begin{proof}
+		We reduce the dominating-set problem to $\NPZ$.
+
+		To do this, we add $n = |V(G)|$ copies of $K_{n,n}$ to $G$. We call the newly obtained graph $H$, and call the
+		$G$-subgraph simply $G$, and the $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $B_i$. $(i,j,b)$ represents
+		the $j$-th vertex in $B_i$'s part $b$ ($b = 1,2$) and labels $1,2,..,n$ represent $G$'s vertices. For each
+		vertex $(i,j,b)$ we connect it to vertices in $N_G[j]$ (See figure \ref{fig:p8}). We are adding $2n^2$ new
+		vertices, and building $H$ can be done in polynomial time.
+
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.9\linewidth]{sec5.png}
+			\caption{$H$ obtained from $P_4$, zombie player needs at least $\gamma(P_4) = 2$ zombies to win}
+			\label{fig:p8}
+		\end{figure}
+
+		By having zombies on each vertex of $G$'s dominating-set, the survivor will be captured on the first move and zombie
+		player wins. Thus, $\zn(H) \leq \gamma(G)$. Now suppose we have zombies less than the domination number of
+		graph: $\mathpzc{z} < \gamma(G)$. We prove the survivor can avoid being captured.
+		
+		Since there are $n$ bipartite subgraphs, one of them, say $B_k$, is initially free of zombies. Further, since
+		the zombies do not dominate $G$, there will be a vertex $w \in V (G)$ not adjacent to a zombie. Thus the
+		survivor can safely start at vertex $(k,v = w,b = 1)$ (let $(k,v,b)$ denote the survivor's vertex).
+
+		Zombies in $G$ (e.g. at vertex $u$) are at distance 2 from the survivor $(u \rightarrow (k,u,3 - b) \rightarrow
+		(k,v,b))$, which means after their move all of them should be at one of $(k,v,b)$'s neighbors, that is, $N_G[v]
+		$ or, $ (k,1 \leq i \leq n,3 - b)$. Therefore, each zombie joining $B_k$ does not share the same part of
+		$B_k$ as the survivor, since it has to be on one of its neighbors.
+		
+		On each survivor turn, assume that the survivor is at $(k,v,b)$ and zombies are either in $G$, or in $B_{(i \neq
+		k)}$, or in $B_k$ at a vertex of the form $(k,j,3-b)$ (not in the same part as the survivor). Since there is a
+		vertex $w \in G$ not dominated by zombies, the survivor should move to vertex $(k,w,3-b)$. Since the survivor
+		now shares the same part as all zombies in $B_k$, and there are no zombies in $N_G[w]$, none of his neighbors is
+		occupied by a zombie, so the survivor can safely follow this strategy indefinitely.
+
+		It is now proved that $\zn(H) = \gamma(G)$, thus the dominating-set problem is reduced to $\NPZ$.
+
+	\end{proof}
 
 \section{Capture time in Cartesian product of graphs}\label{capturetime} 
 
 	The eccentricity of a vertex $v$ is the greatest distance between $v$ and any other vertex. The radius of a graph is the
-	minimum eccentricity of its vertices. Let $rad(G)$ represent the $G$'s radius.
+	minimum eccentricity of its vertices. Given a graph $G$, let $rad(G)$ denote its radius.
 	\begin{theorem}
 		\label{T5}
 		$capt( G \sq H, z_G + z_H ) < rad(G) + rad(H) + capt(G, z_G) + capt(H, z_H)$
@@ -246,10 +297,9 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		$H$ and $G$. We show that the survivor's {\it G-move}s cannot exceed $rad(H) + capt(G, z_G)$. With the same
 		conclusion, it can be shown that {\it H-move}s cannot exceed $rad(G) + capt(H, z_H)$ as well.
 
-		According to the definition of the radius of a graph, after at most first $rad(H)$ {\it G-move}s that the
-		survivor makes, $a = y$ holds. Now since for each {\it G-move} made from now on by the survivor, {\it G-zombie}s
-		can follow their strategy on a $G$ graph, and after at most $capt(G,z_G)$ {\it G-move}s, the survivor will be
-		captured. 
+		According to the definition of the radius of a graph, after at most $rad(H)$ {\it G-move}s by the survivor, $a =
+		y$ holds. Then for each {\it G-move} made by the survivor, the {\it G-zombie}s follow their strategy on the $G$
+		graph to capture the survivor in at most $capt(G,z_G)$ additional moves.
 		
 		Since each of the survivor's moves is either a {\it G-move} or an {\it H-move} or both, after less than $rad(G)
 		+ rad(H) + capt(G, z_G) + capt(H, z_H)$ moves the survivor will be captured.
@@ -297,12 +347,12 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 		\end{figure}		
 
 
-		We prove this theorem by showing $Lc\zn(G'_k,k) = \gamma(G)$. Consider set $S'$ as zombies' initial vertices on $G'_k$,
-		so that zombies are able to capture the survivor within $k$ moves. Let $S$ be the set of vertices $v \in V(G)$
-		such that $v \in S'$ or $(v,i) \in S'$. If there is a vertex $u \in V(G)$ not dominated by $S$, then there is no
-		vertex $v$ such that $v \in S'$ and $v \in N_{G'_k}[u] \cup \{(u,1 \leq i < k)\}$. By having the survivor in
-		vertex $(u, k-1)$, there is no zombie at distance $k$ or less from him, which means he will not be captured.
-		Thus $\gamma(G) \leq Lc\zn(G'_k,k)$ holds.
+		We prove this theorem by showing $Lc\zn(G'_k,k) = \gamma(G)$. Suppose the set of vertices $S'$ of $G'_k$ are a
+		choice of initial vertices for the zombies which allow them to capture the survivor within $k$ moves. Let $S$ be
+		the set of vertices $v \in V(G)$ such that $v \in S'$ or $(v,i) \in S'$. If there is a vertex $u \in V(G)$ not
+		dominated by $S$, then there is no vertex $v$ such that $v \in S'$ and $v \in N_{G'_k}[u] \cup \{(u,i): 1 \leq i
+		< k\}$. By having the survivor in vertex $(u, k-1)$, there is no zombie at distance $k$ or less from him, which
+		means he will not be captured. Thus $\gamma(G) \leq Lc\zn(G'_k,k)$ holds.
 		
 		Now for each vertex $v$ in one of $G$'s smallest dominating-sets, place a zombie on vertex $v$ of $G'_k$. These
 		zombies can capture the survivor in at most $k$ moves. To show this, consider the survivor's initial vertex, if it
@@ -315,54 +365,7 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 
 	\end{proof}
 
-	\section{Zombie Number Problem is NP-Hard}\label{np-zombienumber}
-	Now define zombie number ($\NPZ$) problem:
-	{\newline}
-	INSTANCE: A simple undirected graph $G = (V,E)$ and a positive integer $\mathpzc{z}$.
-	{\newline}
-	QUESTION: Is $\zn (G) \leq \mathpzc{z}$?
-
-	\begin{theorem}
-		$\NPZ \in$ NP-Hard class.
-	\end{theorem}
-	\begin{proof}
-		We reduce dominating-set problem to $\NPZ$.
-
-		To do this, we add $n = |V(G)|$ copies of $K_{n,n}$ to $G$. We call the newly obtained graph $H$, and call the
-		$G$-subgraph simply as $G$, and the $i$-th $(1 \leq i \leq n)$ bipartite subgraph as $B_i$. $(i,j,b)$ represents
-		the $j$-th vertex in $B_i$'s part $b$ ($b = 1,2$) and labels $1,2,..,n$ represent $G$'s vertices. For each vertex
-		$(i,j,b)$ we connect it to vertices in $N_G[j]$ (See figure \ref{fig:p8}). Since we are adding $2n^2$ new
-		vertices, building $H$ can be done in polynomial time.
-
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[width=0.9\linewidth]{sec5.png}
-			\caption{$H$ obtained from $P_4$, zombie player needs at least $\gamma(P_4) = 2$ zombies to win}
-			\label{fig:p8}
-		\end{figure}
-
-		By having zombies on each vertex of $G$'s dominating-set, the survivor will be captured on the first move and zombie
-		player wins. Thus, $\zn(H) \leq \gamma(G)$. Now suppose we have zombies less than the domination number of
-		graph: $\mathpzc{z} < \gamma(G)$. We prove the survivor can avoid being captured.
-		
-		Since there are $n$ bipartite subgraphs, one of them, say $B_k$, is initially free of zombies. Further, since zombies are
-		not dominating $G$, there will be a vertex $w \in V(G)$ with no zombies as its neighbors. Thus the survivor can
-		safely start at vertex $(k,v = w,b = 1)$ (let $(k,v,b)$ denote the survivor's vertex).
-
-		Zombies in $G$ (e.g. at vertex $u$) are at distance 2 from the survivor $(u \rightarrow (k,u,3 - b) \rightarrow
-		(k,v,b))$, which means after their move all of them should be at one of $(k,v,b)$'s neighbors, that is, $N_G[v]
-		$ or, $ (k,1 \leq i \leq n,3 - b)$. Therefore, each zombie joining $B_k$ does not share the same part of
-		$B_k$ as the survivor, since it has to be on one of its neighbors.
-		
-		On each survivor turn, assume that the survivor is at $(k,v,b)$ and zombies are either in $G$, or in $B_{(i \neq
-		k)}$, or in $B_k$ at a vertex of the form $(k,j,3-b)$ (not in the same part as the survivor). Since there
-		is a vertex $w \in G$ not being dominated by zombies, the survivor should move to vertex $(k,w,3-b)$. Since the
-		survivor is now sharing the same part as all zombies in $B_k$, and $N_G[w]$ is empty of zombies, none of
-		his neighbors is occupied by a zombie and the survivor will be safe by following this strategy indefinitely.
-
-		It is now proved that $\zn(H) = \gamma(G)$, thus the dominating-set problem is reduced to $\NPZ$.
-
-	\end{proof}
+	
 \begin{thebibliography}{999}
 	
 	\bibitem{Fitz16}
@@ -371,6 +374,8 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\bibitem{Offner19}
 	Offner, David, and Kerry Ojakian. ``Comparing the power of cops to zombies in pursuit-evasion games." Discrete
 	Applied Mathematics (2019).
+	\bibitem{Fitz18}
+	Shannon L. Fitzpatrick, ``The Game of Zombies and Survivors on the Cartesian Products of Trees'', https://arxiv.org/abs/1806.04628
 	\bibitem{West02}
 	West, Douglas B. ``Introduction to Graph Theory." Prentice hall, (1996).
 	\bibitem{Hopcroft07}
@@ -379,6 +384,9 @@ This proves Conjecture 18 from \cite{Fitz16} which is already proved in \cite{Of
 	\bibitem{Bonato09}
 	Bonato, Anthony, Petr Golovach, Gena Hahn, and Jan Kratochvíl, ``The capture time of a graph'', Discrete Mathematics
 	309 (2009), 5588–5595.
+	\bibitem{Fomin10}
+	Fomin, Fedor V., Petr A. Golovach, Jan Kratochvíl, Nicolas Nisse, and Karol Suchan, ``Pursuing a fast robber on a
+	graph", Theoretical Computer Science, 411 (2010) 1167 - 1181
 	\bibitem{Kinnersley15}
 	W. B. Kinnersley, ``Cops and Robbers is EXPTIME-complete", Journal of Combinatorial Theory Series B, 111 (2015), 201–220.
 \end{thebibliography}
