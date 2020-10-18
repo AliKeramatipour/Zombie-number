@@ -88,17 +88,16 @@
 
 The {\it Zombies and Survivor} game is played on a simple connected graph by two players. The deterministic version of
 this game \cite{Fitz16} is played as follows. Initially, the zombie player is given $\mathpzc{z}$ zombies and places
-them on the graph's vertices. Then the survivor player chooses one single vertex which is the survivor's initial
-position. Starting with the zombie player and having turns alternating, on each player's turn, the zombie player must
-move each zombie to one of its adjacent vertices so that they get closer to the survivor, while the survivor player
-either moves to an adjacent vertex or stays at his current location. Here lies the difference between {\it Zombies and
-Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and Robber(s)} cops need not necessarily get closer to the
-robber(s). They can either hold their current position, get closer, or further away from the robber(s). Although zombies
-are not as intelligent as cops, they can still choose their path intelligently between the shortest paths. If any zombie
-and the survivor ever occupy the same vertex, the survivor is captured and the zombie player wins. The zombie number of
-a graph $G$, denoted as $\zn(G)$, is the minimum number of zombies required so that the zombie player can always capture
-the survivor, no matter how survivor moves. Since zombies' moves are restricted, the initial arrangement that the zombie
-player chooses is essential for him to win.
+them on the graph's vertices. The turns then alternate between zombie and survivor player. Starting with the zombie
+player, on each player's turn, the zombie player must move each zombie to one of its adjacent vertices so that they get
+closer to the survivor, while the survivor player either moves to an adjacent vertex or stays at his current location.
+Here lies the difference between {\it Zombies and Survivor} and {\it Cops and Robber(s)} games, as in {\it Cops and
+Robber(s)} cops need not necessarily get closer to the robber(s). They can either hold their current position, get
+closer, or further away from the robber(s). Although zombies are not as intelligent as cops, they can still choose their
+path intelligently between the shortest paths. If any zombie and the survivor ever occupy the same vertex, the survivor
+is captured and the zombie player wins. The zombie number of a graph $G$, denoted as $\zn(G)$, is the minimum number of
+zombies required so that the zombie player can always capture the survivor, no matter how survivor moves. Since zombies'
+moves are restricted, the initial arrangement that the zombie player chooses is essential for him to win.
 
 The Cartesian product $G \sq H$ of two graphs $G$ and $H$, is a graph with vertex set $V(G) \times V(H)$, where
 vertices $(u_1 , u_2)$ and $(v_1 , v_2)$ are adjacent if and only if $u_1 = v_1$ and $ \{ u_2 , v_2 \} \in E_{H} $, or
